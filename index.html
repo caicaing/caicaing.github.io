@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                        <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/MYSQL/" style="font-size: 20px;">MYSQL</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
                     </div>
                 </section>
                 
@@ -260,6 +260,134 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/" class="article-date">
+      <time datetime="2019-03-18T07:38:01.000Z" itemprop="datePublished">2019-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value &#39;ÖÐ¹ú±ê×¼Ê±¼ä&#39; is unrecognized or represents more than one</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="spring-boot-链接数据库的时候报错"><a href="#spring-boot-链接数据库的时候报错" class="headerlink" title="spring boot 链接数据库的时候报错"></a>spring boot 链接数据库的时候报错</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: </span><br><span class="line">### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!</span><br><span class="line">### The error may exist in com/wj/mapper/UserLoginMapper.xml</span><br><span class="line">### The error may involve com.wj.mapper.UserLoginMapper.selectByName</span><br><span class="line">### The error occurred while executing a query</span><br><span class="line">### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:<span class="number">982</span>)</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:<span class="number">872</span>)</span><br><span class="line">    javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="number">650</span>)</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:<span class="number">846</span>)</span><br><span class="line">    javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="number">731</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">java.sql.SQLException: The server time zone value <span class="string">'ÖÐ¹ú±ê×¼Ê±¼ä'</span> is unrecognized or represents more than one time zone. <span class="function">You must configure either the server or JDBC <span class="title">driver</span> <span class="params">(via the serverTimezone configuration property)</span> to use a more specifc time zone value <span class="keyword">if</span> you want to utilize time zone support.</span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">127</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">95</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">87</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">61</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">71</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.<span class="title">translateException</span><span class="params">(SQLExceptionsMapping.java:<span class="number">76</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.ConnectionImpl.<span class="title">createNewIO</span><span class="params">(ConnectionImpl.java:<span class="number">862</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.ConnectionImpl.&lt;init&gt;<span class="params">(ConnectionImpl.java:<span class="number">444</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.ConnectionImpl.<span class="title">getInstance</span><span class="params">(ConnectionImpl.java:<span class="number">230</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.NonRegisteringDriver.<span class="title">connect</span><span class="params">(NonRegisteringDriver.java:<span class="number">226</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.DriverManagerDataSource.<span class="title">getConnection</span><span class="params">(DriverManagerDataSource.java:<span class="number">175</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.<span class="title">getPooledConnection</span><span class="params">(WrapperConnectionPoolDataSource.java:<span class="number">220</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.<span class="title">getPooledConnection</span><span class="params">(WrapperConnectionPoolDataSource.java:<span class="number">206</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.<span class="title">acquireResource</span><span class="params">(C3P0PooledConnectionPool.java:<span class="number">203</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool.<span class="title">doAcquire</span><span class="params">(BasicResourcePool.java:<span class="number">1138</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool.<span class="title">doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess</span><span class="params">(BasicResourcePool.java:<span class="number">1125</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool.access$700<span class="params">(BasicResourcePool.java:<span class="number">44</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.<span class="title">run</span><span class="params">(BasicResourcePool.java:<span class="number">1870</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.<span class="title">run</span><span class="params">(ThreadPoolAsynchronousRunner.java:<span class="number">696</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>据查询是因为电脑的时区和mysql的时区不一样导致的<br>用 打开mysql </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%time_zone%'</span>; //查询mysql的时区</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> <span class="keyword">time_zone</span>=<span class="string">'+8:00'</span>; //设置时区</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/" class="article-date">
+      <time datetime="2019-03-18T07:35:38.000Z" itemprop="datePublished">2019-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息:"></a>报错信息:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client does not support authentication protocol requested by server; consider upgrading MySQL client</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>打开mysql的MySQL Command Line Client 输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">USE mysql;</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;123456&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>localhost:本机地址<br>123456:要设置的密码</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-hexo-常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   
