@@ -186,7 +186,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/MYSQL/" style="font-size: 20px;">MYSQL</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a>
+                        <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/MYSQL/" style="font-size: 20px;">MYSQL</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a>
                     </div>
                 </section>
                 
@@ -258,6 +258,95 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-string相关" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/26/string相关/" class="article-date">
+      <time datetime="2019-03-26T09:04:13.000Z" itemprop="datePublished">2019-03-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h1><p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
+<h1 id="2-String"><a href="#2-String" class="headerlink" title="2.String"></a>2.String</h1><ul>
+<li>String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** The value is used for character storage. */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br></pre></td></tr></table></figure>
+<h2 id="1-String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><a href="#1-String-str-”hello-world”和String-str-new-String-“hello-world”-的区别" class="headerlink" title="(1).String str=”hello world”和String str=new String(“hello world”)的区别"></a>(1).String str=”hello world”和String str=new String(“hello world”)的区别</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String string1 = <span class="string">"hello word"</span>;</span><br><span class="line">        String string2 = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br><span class="line">        String string3 = <span class="string">"hello word"</span>;</span><br><span class="line">        String string4 = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br><span class="line">        System.out.println(string1 == string2);</span><br><span class="line">        System.out.println(string1 == string3);</span><br><span class="line">        System.out.println(string2 == string4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的输出结果为:</p>
+<p>false</p>
+<p>true</p>
+<p>false</p>
+<p>我们发现 同样都都是”helllo world” string1 和 string3 相等.是因为string1 和 string3 都是赋值为一个字面常量”hello world”,在JVM运行时候,会在常量池里寻找是否已经存在相同的常量,如果存在便直接将引用指向已有常量,否则就创建一个常量,并且将引用指向他,对于string2 和string4来说,两者都是采取了new 来创建的,是两个不同的对象,所以不相等.</p>
+<h1 id="3-StringBuilder"><a href="#3-StringBuilder" class="headerlink" title="3.StringBuilder"></a>3.StringBuilder</h1><p>在第二点中,我们看到String是一个final类,打开StringBuilder,我们发现StringBuilder类是AbstractStringBuilder的子类,在AbstractStringBuilder类中,我们看到与String不同,StringBuilder存储字符的数组是可变的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The value is used for character storage.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">char</span>[] value;</span><br></pre></td></tr></table></figure>
+<p>#4.StringBuilder和String 区别</p>
+<p>对于实际应用来说 假设有如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String string = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            string += <span class="string">"A"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            stringBuilder.append(<span class="string">"A"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码进行了一个1000次的循环,每次在字符串string后面追加一个字符A,无论使用的是String,还是StringBuilder,最后的结果都为长度为1000的字符全为A的字符串.而不同的是,如果使用StringBuilder,append操作是在原有的对象基础上进行的,而使用String每次循环都会新建一个StringBuilder对象,进行append操作,通过toString方法返回String对象,如果这些对象没有被回收会浪费大量资源,</p>
+<p>#5.StringBuilder和StringBuffer区别</p>
+<p>对比StringBuilder和StringBuffer源码,我们发现在StringBuffer中很多方法都加上了synchronized关键字,所以StringBuffer是线程安全的,不过相应的,在提升了安全的同时对资源的消耗也会增大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * StringBuffer append方法</span><br><span class="line"> */</span><br><span class="line">@Override</span><br><span class="line">public synchronized StringBuffer append (String str)&#123;</span><br><span class="line">    toStringCache = null;</span><br><span class="line">    super.append(str);</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * StringBuilder append方法</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public StringBuilder append (String str)&#123;</span><br><span class="line">    super.append(str);</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="6-结论"><a href="#6-结论" class="headerlink" title="6.结论"></a>6.结论</h1><p>三个类应当根据不同的情况来进行选择使用：</p>
+<ul>
+<li><p>当字符串相加操作或者改动较少的情况下，建议使用 String str=”hello”这种形式</p>
+</li>
+<li><p>当字符串相加操作较多的情况下，建议使用StringBuilder</p>
+</li>
+<li>如果采用了多线程，则使用StringBuffer。</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-swagger2简介" class="article article-type-post" itemscope itemprop="blogPost">
   

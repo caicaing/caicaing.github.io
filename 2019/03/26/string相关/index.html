@@ -7,20 +7,20 @@
   
   
   
-  <title>Hello World | 菜菜的blog</title>
+  <title>String，StringBuilder，StringBuffer三者的区别 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Hello World">
+  <meta name="description" content="1.前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记. 2.String String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承  12/** The value is used for character storage. */pri">
+<meta name="keywords" content="java,String">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://caicaing.github.io/2019/03/18/hello-world/index.html">
+<meta property="og:title" content="String，StringBuilder，StringBuffer三者的区别">
+<meta property="og:url" content="https://caicaing.github.io/2019/03/26/string相关/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="1.前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记. 2.String String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承  12/** The value is used for character storage. */pri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T07:11:42.747Z">
+<meta property="og:updated_time" content="2019-03-26T12:09:02.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="String，StringBuilder，StringBuffer三者的区别">
+<meta name="twitter:description" content="1.前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记. 2.String String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承  12/** The value is used for character storage. */pri">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -259,11 +259,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-string相关" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/18/hello-world/" class="article-date">
-      <time datetime="2019-03-18T03:15:12.321Z" itemprop="datePublished">2019-03-18</time>
+      <a href="/2019/03/26/string相关/" class="article-date">
+      <time datetime="2019-03-26T09:04:13.000Z" itemprop="datePublished">2019-03-26</time>
 </a>
 
     </div>
@@ -277,7 +277,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      String，StringBuilder，StringBuffer三者的区别
     </h1>
   
 
@@ -289,7 +289,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hello-World/">Hello World</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -299,15 +299,34 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h1><p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
+<h1 id="2-String"><a href="#2-String" class="headerlink" title="2.String"></a>2.String</h1><ul>
+<li>String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** The value is used for character storage. */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br></pre></td></tr></table></figure>
+<h2 id="1-String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><a href="#1-String-str-”hello-world”和String-str-new-String-“hello-world”-的区别" class="headerlink" title="(1).String str=”hello world”和String str=new String(“hello world”)的区别"></a>(1).String str=”hello world”和String str=new String(“hello world”)的区别</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String string1 = <span class="string">"hello word"</span>;</span><br><span class="line">        String string2 = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br><span class="line">        String string3 = <span class="string">"hello word"</span>;</span><br><span class="line">        String string4 = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br><span class="line">        System.out.println(string1 == string2);</span><br><span class="line">        System.out.println(string1 == string3);</span><br><span class="line">        System.out.println(string2 == string4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的输出结果为:</p>
+<p>false</p>
+<p>true</p>
+<p>false</p>
+<p>我们发现 同样都都是”helllo world” string1 和 string3 相等.是因为string1 和 string3 都是赋值为一个字面常量”hello world”,在JVM运行时候,会在常量池里寻找是否已经存在相同的常量,如果存在便直接将引用指向已有常量,否则就创建一个常量,并且将引用指向他,对于string2 和string4来说,两者都是采取了new 来创建的,是两个不同的对象,所以不相等.</p>
+<h1 id="3-StringBuilder"><a href="#3-StringBuilder" class="headerlink" title="3.StringBuilder"></a>3.StringBuilder</h1><p>在第二点中,我们看到String是一个final类,打开StringBuilder,我们发现StringBuilder类是AbstractStringBuilder的子类,在AbstractStringBuilder类中,我们看到与String不同,StringBuilder存储字符的数组是可变的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The value is used for character storage.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">char</span>[] value;</span><br></pre></td></tr></table></figure>
+<p>#4.StringBuilder和String 区别</p>
+<p>对于实际应用来说 假设有如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String string = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            string += <span class="string">"A"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            stringBuilder.append(<span class="string">"A"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码进行了一个1000次的循环,每次在字符串string后面追加一个字符A,无论使用的是String,还是StringBuilder,最后的结果都为长度为1000的字符全为A的字符串.而不同的是,如果使用StringBuilder,append操作是在原有的对象基础上进行的,而使用String每次循环都会新建一个StringBuilder对象,进行append操作,通过toString方法返回String对象,如果这些对象没有被回收会浪费大量资源,</p>
+<p>#5.StringBuilder和StringBuffer区别</p>
+<p>对比StringBuilder和StringBuffer源码,我们发现在StringBuffer中很多方法都加上了synchronized关键字,所以StringBuffer是线程安全的,不过相应的,在提升了安全的同时对资源的消耗也会增大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * StringBuffer append方法</span><br><span class="line"> */</span><br><span class="line">@Override</span><br><span class="line">public synchronized StringBuffer append (String str)&#123;</span><br><span class="line">    toStringCache = null;</span><br><span class="line">    super.append(str);</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * StringBuilder append方法</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public StringBuilder append (String str)&#123;</span><br><span class="line">    super.append(str);</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="6-结论"><a href="#6-结论" class="headerlink" title="6.结论"></a>6.结论</h1><p>三个类应当根据不同的情况来进行选择使用：</p>
+<ul>
+<li><p>当字符串相加操作或者改动较少的情况下，建议使用 String str=”hello”这种形式</p>
+</li>
+<li><p>当字符串相加操作较多的情况下，建议使用StringBuilder</p>
+</li>
+<li>如果采用了多线程，则使用StringBuffer。</li>
+</ul>
 
       
     </div>
@@ -316,13 +335,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/18/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年03月18日 - 11时15分</p>
-        <p><span>最后更新:</span>2019年03月18日 - 15时11分</p>
+        <p><span>发布时间:</span>2019年03月26日 - 17时04分</p>
+        <p><span>最后更新:</span>2019年03月26日 - 20时09分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/18/hello-world/" title="Hello World">https://caicaing.github.io/2019/03/18/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/18/hello-world/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/26/string相关/" title="String，StringBuilder，StringBuffer三者的区别">https://caicaing.github.io/2019/03/26/string相关/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/26/string相关/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -333,15 +352,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/18/hexo-常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          hexo 常用命令
-        
-      </div>
-    </a>
   
+    <a href="/2019/03/19/swagger2简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">swagger2简介</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -351,7 +366,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-前言"><span class="toc-number">1.</span> <span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-String"><span class="toc-number">2.</span> <span class="toc-text">2.String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><span class="toc-number">2.1.</span> <span class="toc-text">(1).String str=”hello world”和String str=new String(“hello world”)的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-StringBuilder"><span class="toc-number">3.</span> <span class="toc-text">3.StringBuilder</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-结论"><span class="toc-number">4.</span> <span class="toc-text">6.结论</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -412,13 +427,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/18/hexo-常用命令/" title="上一篇: hexo 常用命令">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/03/19/swagger2简介/" title="下一篇: swagger2简介">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2简介/">swagger2简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hello-world/">Hello World</a></li></ul>
