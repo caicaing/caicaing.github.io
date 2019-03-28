@@ -9,23 +9,23 @@
   
   <title>swagger2简介 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swagger2简介： Swagger 文档提供了一个方法，使我们可以用指定的 JSON 或者 YAML 摘要来描述你的 API，包括了比如 names、order 等 API 信息。">
+  <meta name="description" content="Swagger 是一款RESTFUL接口的、基于YAML、JSON语言的文档在线自动生成、代码自动生成的工具。">
 <meta name="keywords" content="Spring Boot,swagger">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swagger2简介">
 <meta property="og:url" content="https://caicaing.github.io/2019/03/19/swagger2简介/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="swagger2简介： Swagger 文档提供了一个方法，使我们可以用指定的 JSON 或者 YAML 摘要来描述你的 API，包括了比如 names、order 等 API 信息。">
+<meta property="og:description" content="Swagger 是一款RESTFUL接口的、基于YAML、JSON语言的文档在线自动生成、代码自动生成的工具。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://caicaing.github.io/2019/03/19/swagger2简介/1.png">
 <meta property="og:image" content="https://caicaing.github.io/2019/03/19/swagger2简介/2.png">
 <meta property="og:image" content="https://caicaing.github.io/2019/03/19/swagger2简介/3.png">
 <meta property="og:image" content="https://caicaing.github.io/2019/03/19/swagger2简介/4.png">
 <meta property="og:image" content="https://caicaing.github.io/2019/03/19/swagger2简介/5.png">
-<meta property="og:updated_time" content="2019-03-28T10:11:13.133Z">
+<meta property="og:updated_time" content="2019-03-28T10:27:58.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swagger2简介">
-<meta name="twitter:description" content="swagger2简介： Swagger 文档提供了一个方法，使我们可以用指定的 JSON 或者 YAML 摘要来描述你的 API，包括了比如 names、order 等 API 信息。">
+<meta name="twitter:description" content="Swagger 是一款RESTFUL接口的、基于YAML、JSON语言的文档在线自动生成、代码自动生成的工具。">
 <meta name="twitter:image" content="https://caicaing.github.io/2019/03/19/swagger2简介/1.png">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
@@ -33,6 +33,8 @@
   
     <link rel="icon" href="/img/favicon.jpeg">
   
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -47,7 +49,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: false,
+          animate: true,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -68,7 +70,7 @@
 
         <a href="/" class="profilepic">
             
-            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
             
         </a>
         <hgroup>
@@ -234,7 +236,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
                 
             </a>
             <hgroup>
@@ -305,7 +307,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> swagger2简介：</strong> <excerpt in index | 首页摘要><br>Swagger 文档提供了一个方法，使我们可以用指定的 JSON 或者 YAML 摘要来描述你的 API，包括了比如 names、order 等 API 信息。<br><a id="more"></a></excerpt></p>
+        <p>Swagger 是一款RESTFUL接口的、基于YAML、JSON语言的文档在线自动生成、代码自动生成的工具。</p>
+<excerpt in index | 首页摘要>
+
+<a id="more"></a>
 <the rest of contents | 余下全文>
 
 <h2 id="关于Swagger"><a href="#关于Swagger" class="headerlink" title="关于Swagger"></a>关于Swagger</h2><p>Swagger能成为最受欢迎的REST APIs文档生成工具之一，有以下几个原因：</p>
@@ -346,7 +351,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/user?id=5</span><br></pre></td></tr></table></figure>
 <p>@RequestParam:从请求里面获取参数,例如:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/user?5</span><br></pre></td></tr></table></figure>
-</the>
+</the></excerpt>
       
     </div>
     
@@ -357,7 +362,7 @@
         <p><span>本文标题:</span><a href="/2019/03/19/swagger2简介/">swagger2简介</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月19日 - 07时39分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时11分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 18时27分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/19/swagger2简介/" title="swagger2简介">https://caicaing.github.io/2019/03/19/swagger2简介/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/19/swagger2简介/　　作者: 菜菜" title></span>

@@ -9,24 +9,26 @@
   
   <title>mysql的时区错误问题： The server time zone value &#39;ÖÐ¹ú±ê×¼Ê±¼ä&#39; is unrecognized or represents more than one | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql的时区错误问题： The server time zone value &apos;ÖÐ¹ú±ê×¼Ê±¼ä&apos; is unrecognized or represents more than one： org.springframework.web.util.NestedServletException: Request processing failed; nested exception i">
+  <meta name="description" content="链接数据库时候出现cexception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:">
 <meta name="keywords" content="Spring Boot,MYSQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql的时区错误问题： The server time zone value &#39;ÖÐ¹ú±ê×¼Ê±¼ä&#39; is unrecognized or represents more than one">
 <meta property="og:url" content="https://caicaing.github.io/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="mysql的时区错误问题： The server time zone value &apos;ÖÐ¹ú±ê×¼Ê±¼ä&apos; is unrecognized or represents more than one： org.springframework.web.util.NestedServletException: Request processing failed; nested exception i">
+<meta property="og:description" content="链接数据库时候出现cexception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T10:09:05.683Z">
+<meta property="og:updated_time" content="2019-03-28T10:24:34.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql的时区错误问题： The server time zone value &#39;ÖÐ¹ú±ê×¼Ê±¼ä&#39; is unrecognized or represents more than one">
-<meta name="twitter:description" content="mysql的时区错误问题： The server time zone value &apos;ÖÐ¹ú±ê×¼Ê±¼ä&apos; is unrecognized or represents more than one： org.springframework.web.util.NestedServletException: Request processing failed; nested exception i">
+<meta name="twitter:description" content="链接数据库时候出现cexception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpeg">
   
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -41,7 +43,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: false,
+          animate: true,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -62,7 +64,7 @@
 
         <a href="/" class="profilepic">
             
-            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
             
         </a>
         <hgroup>
@@ -228,7 +230,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
                 
             </a>
             <hgroup>
@@ -299,14 +301,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one：</strong> <excerpt in index | 首页摘要><br>org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:<br><a id="more"></a></excerpt></p>
+        <p>链接数据库时候出现cexception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:</p>
+ <excerpt in index | 首页摘要>
+
+<a id="more"></a>
 <the rest of contents | 余下全文>
 
 
-<h2 id="spring-boot-链接数据库的时候报错"><a href="#spring-boot-链接数据库的时候报错" class="headerlink" title="spring boot 链接数据库的时候报错"></a>spring boot 链接数据库的时候报错</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: </span><br><span class="line">### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!</span><br><span class="line">### The error may exist in com/wj/mapper/UserLoginMapper.xml</span><br><span class="line">### The error may involve com.wj.mapper.UserLoginMapper.selectByName</span><br><span class="line">### The error occurred while executing a query</span><br><span class="line">### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:<span class="number">982</span>)</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:<span class="number">872</span>)</span><br><span class="line">    javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="number">650</span>)</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:<span class="number">846</span>)</span><br><span class="line">    javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="number">731</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="spring-boot-链接数据库的时候报错"><a href="#spring-boot-链接数据库的时候报错" class="headerlink" title="spring boot 链接数据库的时候报错"></a>spring boot 链接数据库的时候报错</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cexception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: </span><br><span class="line">### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!</span><br><span class="line">### The error may exist in com/wj/mapper/UserLoginMapper.xml</span><br><span class="line">### The error may involve com.wj.mapper.UserLoginMapper.selectByName</span><br><span class="line">### The error occurred while executing a query</span><br><span class="line">### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is java.sql.SQLException: Connections could not be acquired from the underlying database!</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:<span class="number">982</span>)</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:<span class="number">872</span>)</span><br><span class="line">    javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="number">650</span>)</span><br><span class="line">    org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:<span class="number">846</span>)</span><br><span class="line">    javax.servlet.http.HttpServlet.service(HttpServlet.java:<span class="number">731</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">java.sql.SQLException: The server time zone value <span class="string">'ÖÐ¹ú±ê×¼Ê±¼ä'</span> is unrecognized or represents more than one time zone. <span class="function">You must configure either the server or JDBC <span class="title">driver</span> <span class="params">(via the serverTimezone configuration property)</span> to use a more specifc time zone value <span class="keyword">if</span> you want to utilize time zone support.</span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">127</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">95</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">87</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">61</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLError.<span class="title">createSQLException</span><span class="params">(SQLError.java:<span class="number">71</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.<span class="title">translateException</span><span class="params">(SQLExceptionsMapping.java:<span class="number">76</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.ConnectionImpl.<span class="title">createNewIO</span><span class="params">(ConnectionImpl.java:<span class="number">862</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.ConnectionImpl.&lt;init&gt;<span class="params">(ConnectionImpl.java:<span class="number">444</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.ConnectionImpl.<span class="title">getInstance</span><span class="params">(ConnectionImpl.java:<span class="number">230</span>)</span></span></span><br><span class="line"><span class="function">    com.mysql.cj.jdbc.NonRegisteringDriver.<span class="title">connect</span><span class="params">(NonRegisteringDriver.java:<span class="number">226</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.DriverManagerDataSource.<span class="title">getConnection</span><span class="params">(DriverManagerDataSource.java:<span class="number">175</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.<span class="title">getPooledConnection</span><span class="params">(WrapperConnectionPoolDataSource.java:<span class="number">220</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.<span class="title">getPooledConnection</span><span class="params">(WrapperConnectionPoolDataSource.java:<span class="number">206</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.<span class="title">acquireResource</span><span class="params">(C3P0PooledConnectionPool.java:<span class="number">203</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool.<span class="title">doAcquire</span><span class="params">(BasicResourcePool.java:<span class="number">1138</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool.<span class="title">doAcquireAndDecrementPendingAcquiresWithinLockOnSuccess</span><span class="params">(BasicResourcePool.java:<span class="number">1125</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool.access$700<span class="params">(BasicResourcePool.java:<span class="number">44</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.resourcepool.BasicResourcePool$ScatteredAcquireTask.<span class="title">run</span><span class="params">(BasicResourcePool.java:<span class="number">1870</span>)</span></span></span><br><span class="line"><span class="function">    com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.<span class="title">run</span><span class="params">(ThreadPoolAsynchronousRunner.java:<span class="number">696</span>)</span></span></span><br></pre></td></tr></table></figure>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>据查询是因为电脑的时区和mysql的时区不一样导致的<br>用 打开mysql </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%time_zone%'</span>; //查询mysql的时区</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> <span class="keyword">time_zone</span>=<span class="string">'+8:00'</span>; //设置时区</span><br></pre></td></tr></table></figure></the>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%time_zone%'</span>; //查询mysql的时区</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> <span class="keyword">time_zone</span>=<span class="string">'+8:00'</span>; //设置时区</span><br></pre></td></tr></table></figure></the></excerpt>
       
     </div>
     
@@ -317,7 +322,7 @@
         <p><span>本文标题:</span><a href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value &#39;ÖÐ¹ú±ê×¼Ê±¼ä&#39; is unrecognized or represents more than one</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月18日 - 15时38分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时09分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 18时24分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/" title="mysql的时区错误问题： The server time zone value &#39;ÖÐ¹ú±ê×¼Ê±¼ä&#39; is unrecognized or represents more than one">https://caicaing.github.io/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/　　作者: 菜菜" title></span>

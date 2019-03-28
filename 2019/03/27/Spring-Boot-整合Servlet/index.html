@@ -9,24 +9,26 @@
   
   <title>Spring-Boot 整合Servlet和Filter | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring-Boot 整合Servlet和Filter： Spring-Boot 整合Servlet和Filter">
+  <meta name="description" content="Spring-Boot 整合Servlet和Filter">
 <meta name="keywords" content="Spring Boot,Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-Boot 整合Servlet和Filter">
 <meta property="og:url" content="https://caicaing.github.io/2019/03/27/Spring-Boot-整合Servlet/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="Spring-Boot 整合Servlet和Filter： Spring-Boot 整合Servlet和Filter">
+<meta property="og:description" content="Spring-Boot 整合Servlet和Filter">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T10:10:37.029Z">
+<meta property="og:updated_time" content="2019-03-28T10:29:20.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-Boot 整合Servlet和Filter">
-<meta name="twitter:description" content="Spring-Boot 整合Servlet和Filter： Spring-Boot 整合Servlet和Filter">
+<meta name="twitter:description" content="Spring-Boot 整合Servlet和Filter">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpeg">
   
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -41,7 +43,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: false,
+          animate: true,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -62,7 +64,7 @@
 
         <a href="/" class="profilepic">
             
-            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
             
         </a>
         <hgroup>
@@ -228,7 +230,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
                 
             </a>
             <hgroup>
@@ -299,7 +301,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> Spring-Boot 整合Servlet和Filter：</strong> <excerpt in index | 首页摘要><br>Spring-Boot 整合Servlet和Filter<br><a id="more"></a></excerpt></p>
+        <p>Spring-Boot 整合Servlet和Filter</p>
+ <excerpt in index | 首页摘要>
+
+<a id="more"></a>
 <the rest of contents | 余下全文>
 
 <h1 id="整合Servlet"><a href="#整合Servlet" class="headerlink" title="整合Servlet"></a>整合Servlet</h1><h2 id="传统方式配置"><a href="#传统方式配置" class="headerlink" title="传统方式配置"></a>传统方式配置</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>FirstServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.caicai.springbootservlet.filter.FirstFilter<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>FirstServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/first<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -315,7 +320,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootservlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletComponentScan;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@ServletComponentScan</span> <span class="comment">//在SpringBoot启动时会扫描@WebServlet注解 并将该类实例化</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(App3.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="通过方法完成Filter的注册"><a href="#通过方法完成Filter的注册" class="headerlink" title="通过方法完成Filter的注册"></a>通过方法完成Filter的注册</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootservlet.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebFilter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@title</span>: SecondFilter</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@projectName</span> 02-spring-boot-servlet</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/3/2718:19</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecondFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"init......."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进入filter2......."</span>);</span><br><span class="line">        filterChain.doFilter(servletRequest,servletResponse);</span><br><span class="line">        System.out.println(<span class="string">"离开filter2......."</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"destroy......."</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootservlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.caicai.springbootservlet.filter.SecondFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(App4.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">filterRegistrationBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FilterRegistrationBean bean = <span class="keyword">new</span> FilterRegistrationBean(<span class="keyword">new</span> SecondFilter()) ;</span><br><span class="line">        bean.addUrlPatterns(<span class="string">"/filter2"</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</the>
+</the></excerpt>
       
     </div>
     
@@ -326,7 +331,7 @@
         <p><span>本文标题:</span><a href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月27日 - 18时09分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时10分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 18时29分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/27/Spring-Boot-整合Servlet/" title="Spring-Boot 整合Servlet和Filter">https://caicaing.github.io/2019/03/27/Spring-Boot-整合Servlet/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/27/Spring-Boot-整合Servlet/　　作者: 菜菜" title></span>

@@ -9,24 +9,26 @@
   
   <title>String，StringBuilder，StringBuffer三者的区别 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="String，StringBuilder，StringBuffer三者的区别： 最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+  <meta name="description" content="前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
 <meta name="keywords" content="java,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String，StringBuilder，StringBuffer三者的区别">
 <meta property="og:url" content="https://caicaing.github.io/2019/03/26/string相关/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="String，StringBuilder，StringBuffer三者的区别： 最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+<meta property="og:description" content="前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T10:10:54.021Z">
+<meta property="og:updated_time" content="2019-03-28T10:28:54.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String，StringBuilder，StringBuffer三者的区别">
-<meta name="twitter:description" content="String，StringBuilder，StringBuffer三者的区别： 最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+<meta name="twitter:description" content="前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpeg">
   
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -41,7 +43,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: false,
+          animate: true,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -62,7 +64,7 @@
 
         <a href="/" class="profilepic">
             
-            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
             
         </a>
         <hgroup>
@@ -228,7 +230,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
                 
             </a>
             <hgroup>
@@ -299,10 +301,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong> String，StringBuilder，StringBuffer三者的区别：</strong> <excerpt in index | 首页摘要><br>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.<br><a id="more"></a></excerpt></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
+ <excerpt in index | 首页摘要>
+
+<a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
 <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
 <li>String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承</li>
 </ul>
@@ -324,7 +328,7 @@
 <p>当字符串相加操作或者改动较少的情况下，建议使用 String str=”hello”这种形式</p>
 <p>当字符串相加操作较多的情况下，建议使用StringBuilder</p>
 <p>如果采用了多线程，则使用StringBuffer。</p>
-</the>
+</the></excerpt>
       
     </div>
     
@@ -335,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月26日 - 17时04分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时10分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 18时28分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/26/string相关/" title="String，StringBuilder，StringBuffer三者的区别">https://caicaing.github.io/2019/03/26/string相关/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/26/string相关/　　作者: 菜菜" title></span>
