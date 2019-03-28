@@ -9,18 +9,18 @@
   
   <title>String，StringBuilder，StringBuffer三者的区别 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+  <meta name="description" content="最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
 <meta name="keywords" content="java,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String，StringBuilder，StringBuffer三者的区别">
 <meta property="og:url" content="https://caicaing.github.io/2019/03/26/string相关/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+<meta property="og:description" content="最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T10:28:54.671Z">
+<meta property="og:updated_time" content="2019-03-28T10:35:09.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String，StringBuilder，StringBuffer三者的区别">
-<meta name="twitter:description" content="前言最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+<meta name="twitter:description" content="最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -301,7 +301,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
+        <p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
  <excerpt in index | 首页摘要>
 
 <a id="more"></a>
@@ -339,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月26日 - 17时04分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时28分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 18时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/26/string相关/" title="String，StringBuilder，StringBuffer三者的区别">https://caicaing.github.io/2019/03/26/string相关/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/26/string相关/　　作者: 菜菜" title></span>
@@ -376,7 +376,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-number">2.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><span class="toc-number">2.1.</span> <span class="toc-text">String str=”hello world”和String str=new String(“hello world”)的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder"><span class="toc-number">3.</span> <span class="toc-text">StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和String-区别"><span class="toc-number">4.</span> <span class="toc-text">StringBuilder和String 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和StringBuffer区别"><span class="toc-number">5.</span> <span class="toc-text">StringBuilder和StringBuffer区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">6.</span> <span class="toc-text">结论</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><span class="toc-number">1.1.</span> <span class="toc-text">String str=”hello world”和String str=new String(“hello world”)的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder"><span class="toc-number">2.</span> <span class="toc-text">StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和String-区别"><span class="toc-number">3.</span> <span class="toc-text">StringBuilder和String 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和StringBuffer区别"><span class="toc-number">4.</span> <span class="toc-text">StringBuilder和StringBuffer区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">5.</span> <span class="toc-text">结论</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
