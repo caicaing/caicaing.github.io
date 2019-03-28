@@ -7,22 +7,22 @@
   
   
   
-  <title>Spring Boot 整合jps | 菜菜的blog</title>
+  <title>Spring Boot 整合jsp | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="创建maven项目,添加pom依赖123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;project xmlns=&quot;http://maven.apache.o">
 <meta name="keywords" content="Spring Boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot 整合jps">
+<meta property="og:title" content="Spring Boot 整合jsp">
 <meta property="og:url" content="https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/index.html">
 <meta property="og:site_name" content="菜菜的blog">
 <meta property="og:description" content="创建maven项目,添加pom依赖123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;project xmlns=&quot;http://maven.apache.o">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/D:/OneDrive%20-%20business/myblog/source/_posts/Spring-Boot-整合jsp/1.png">
-<meta property="og:updated_time" content="2019-03-28T05:44:01.034Z">
+<meta property="og:image" content="https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/1.png">
+<meta property="og:updated_time" content="2019-03-28T05:48:08.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot 整合jps">
+<meta name="twitter:title" content="Spring Boot 整合jsp">
 <meta name="twitter:description" content="创建maven项目,添加pom依赖123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;project xmlns=&quot;http://maven.apache.o">
-<meta name="twitter:image" content="https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/D:/OneDrive%20-%20business/myblog/source/_posts/Spring-Boot-整合jsp/1.png">
+<meta name="twitter:image" content="https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/1.png">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -279,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring Boot 整合jps
+      Spring Boot 整合jsp
     </h1>
   
 
@@ -309,7 +309,7 @@
 <h2 id="创建jsp"><a href="#创建jsp" class="headerlink" title="创建jsp"></a>创建jsp</h2><p>userList.jsp:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> <span class="attr">prefix</span>=<span class="string">"c"</span> %&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"50%"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID:<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名:<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;list&#125;"</span> <span class="attr">var</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.userid&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.username&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.userage&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="创建启动类"><a href="#创建启动类" class="headerlink" title="创建启动类:"></a>创建启动类:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootviewjsp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h2><p><img src="/2019/03/28/Spring-Boot-整合jsp/D:/OneDrive - business\myblog\source\_posts\Spring-Boot-整合jsp\1.png" alt></p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h2><p><img src="/2019/03/28/Spring-Boot-整合jsp/1.png" alt></p>
 
       
     </div>
@@ -318,12 +318,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jps</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jsp</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月28日 - 13时13分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 13时44分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 13时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/28/Spring-Boot-整合jsp/" title="Spring Boot 整合jps">https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/</a>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/28/Spring-Boot-整合jsp/" title="Spring Boot 整合jsp">https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/28/Spring-Boot-整合jsp/　　作者: 菜菜" title></span>
         </p>
         <p>
@@ -419,7 +419,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jps</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2简介/">swagger2简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jsp</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2简介/">swagger2简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
