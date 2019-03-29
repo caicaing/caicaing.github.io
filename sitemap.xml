@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://caicaing.github.io/2019/03/29/JDBC%E8%BF%9E%E6%8E%A5Mysql8-0-11%E7%89%88%E6%9C%AC%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2019-03-29T13:45:18.483Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://caicaing.github.io/2019/03/29/Spring-Boot-%E6%95%B4%E5%90%88mybatis/</loc>
+    
+    <lastmod>2019-03-29T09:06:20.390Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://caicaing.github.io/2019/03/29/thymeleaf%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
     
     <lastmod>2019-03-29T02:06:17.884Z</lastmod>
