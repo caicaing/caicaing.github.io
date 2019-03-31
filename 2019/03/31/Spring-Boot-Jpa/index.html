@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="菜菜的blog">
 <meta property="og:description" content="全称Java Persistence API，通过JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。 ​     JPA的出现有两个原因： 其一，简化现有Java EE和Java SE应用的对象持久化的开发工作； 其二，Sun希望整合对ORM技术，实现持久化领域的统一。 ​     JPA提供的技术：  1）ORM映射元数据：JPA支持XML和JDK">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-31T14:04:46.469Z">
+<meta property="og:updated_time" content="2019-03-31T14:21:14.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot Jpa">
 <meta name="twitter:description" content="全称Java Persistence API，通过JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。 ​     JPA的出现有两个原因： 其一，简化现有Java EE和Java SE应用的对象持久化的开发工作； 其二，Sun希望整合对ORM技术，实现持久化领域的统一。 ​     JPA提供的技术：  1）ORM映射元数据：JPA支持XML和JDK">
@@ -317,132 +317,6 @@
 <h2 id="创建UserRepository"><a href="#创建UserRepository" class="headerlink" title="创建UserRepository"></a>创建UserRepository</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootjpa.repository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.caicai.springbootjpa.entity.User;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.jpa.repository.JpaRepository;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@title</span>: UserRepository</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@projectName</span> spring-boot-jpa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/3/3121:06</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>,<span class="title">Integer</span>&gt;</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="配置数据源和自动建表"><a href="#配置数据源和自动建表" class="headerlink" title="配置数据源和自动建表:"></a>配置数据源和自动建表:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">    url: jdbc:mysql://localhost:3306/jpa</span><br><span class="line">    driver-class-name: com.mysql.jdbc.Driver</span><br><span class="line">  jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: update</span><br><span class="line">    show-sql: true</span><br></pre></td></tr></table></figure>
 <h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类:"></a>测试类:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootjpa;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.caicai.springbootjpa.entity.User;</span><br><span class="line"><span class="keyword">import</span> com.caicai.springbootjpa.repository.UserRepository;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootJpaApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UserRepository userRepository;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    User user = <span class="keyword">new</span> User();</span><br><span class="line">	    user.setAge(<span class="number">10</span>);</span><br><span class="line">	    user.setName(<span class="string">"caicai"</span>);</span><br><span class="line">	    userRepository.save(user);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="jpa语法"><a href="#jpa语法" class="headerlink" title="jpa语法:"></a>jpa语法:</h2><table>
-<thead>
-<tr>
-<th><code>And</code></th>
-<th><code>findByLastnameAndFirstname</code></th>
-<th><code>… where x.lastname = ?1 and x.firstname = ?2</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Or</code></td>
-<td><code>findByLastnameOrFirstname</code></td>
-<td><code>… where x.lastname = ?1 or x.firstname = ?2</code></td>
-</tr>
-<tr>
-<td><code>Is,Equals</code></td>
-<td><code>findByFirstname</code>,<code>findByFirstnameIs</code>,<code>findByFirstnameEquals</code></td>
-<td><code>… where x.firstname = ?1</code></td>
-</tr>
-<tr>
-<td><code>Between</code></td>
-<td><code>findByStartDateBetween</code></td>
-<td><code>… where x.startDate between ?1 and ?2</code></td>
-</tr>
-<tr>
-<td><code>LessThan</code></td>
-<td><code>findByAgeLessThan</code></td>
-<td><code>… where x.age &lt; ?1</code></td>
-</tr>
-<tr>
-<td><code>LessThanEqual</code></td>
-<td><code>findByAgeLessThanEqual</code></td>
-<td><code>… where x.age ⇐ ?1</code></td>
-</tr>
-<tr>
-<td><code>GreaterThan</code></td>
-<td><code>findByAgeGreaterThan</code></td>
-<td><code>… where x.age &gt; ?1</code></td>
-</tr>
-<tr>
-<td><code>GreaterThanEqual</code></td>
-<td><code>findByAgeGreaterThanEqual</code></td>
-<td><code>… where x.age &gt;= ?1</code></td>
-</tr>
-<tr>
-<td><code>After</code></td>
-<td><code>findByStartDateAfter</code></td>
-<td><code>… where x.startDate &gt; ?1</code></td>
-</tr>
-<tr>
-<td><code>Before</code></td>
-<td><code>findByStartDateBefore</code></td>
-<td><code>… where x.startDate &lt; ?1</code></td>
-</tr>
-<tr>
-<td><code>IsNull</code></td>
-<td><code>findByAgeIsNull</code></td>
-<td><code>… where x.age is null</code></td>
-</tr>
-<tr>
-<td><code>IsNotNull,NotNull</code></td>
-<td><code>findByAge(Is)NotNull</code></td>
-<td><code>… where x.age not null</code></td>
-</tr>
-<tr>
-<td><code>Like</code></td>
-<td><code>findByFirstnameLike</code></td>
-<td><code>… where x.firstname like ?1</code></td>
-</tr>
-<tr>
-<td><code>NotLike</code></td>
-<td><code>findByFirstnameNotLike</code></td>
-<td><code>… where x.firstname not like ?1</code></td>
-</tr>
-<tr>
-<td><code>StartingWith</code></td>
-<td><code>findByFirstnameStartingWith</code></td>
-<td><code>… where x.firstname like ?1</code>(parameter bound with appended <code>%</code>)</td>
-</tr>
-<tr>
-<td><code>EndingWith</code></td>
-<td><code>findByFirstnameEndingWith</code></td>
-<td><code>… where x.firstname like ?1</code>(parameter bound with prepended <code>%</code>)</td>
-</tr>
-<tr>
-<td><code>Containing</code></td>
-<td><code>findByFirstnameContaining</code></td>
-<td><code>… where x.firstname like ?1</code>(parameter bound wrapped in<code>%</code>)</td>
-</tr>
-<tr>
-<td><code>OrderBy</code></td>
-<td><code>findByAgeOrderByLastnameDesc</code></td>
-<td><code>… where x.age = ?1 order by x.lastname desc</code></td>
-</tr>
-<tr>
-<td><code>Not</code></td>
-<td><code>findByLastnameNot</code></td>
-<td><code>… where x.lastname &lt;&gt; ?1</code></td>
-</tr>
-<tr>
-<td><code>In</code></td>
-<td><code>findByAgeIn(Collection&lt;Age&gt; ages)</code></td>
-<td><code>… where x.age in ?1</code></td>
-</tr>
-<tr>
-<td><code>NotIn</code></td>
-<td><code>findByAgeNotIn(Collection&lt;Age&gt; age)</code></td>
-<td><code>… where x.age not in ?1</code></td>
-</tr>
-<tr>
-<td><code>True</code></td>
-<td><code>findByActiveTrue()</code></td>
-<td><code>… where x.active = true</code></td>
-</tr>
-<tr>
-<td><code>False</code></td>
-<td><code>findByActiveFalse()</code></td>
-<td><code>… where x.active = false</code></td>
-</tr>
-<tr>
-<td><code>IgnoreCase</code></td>
-<td><code>findByFirstnameIgnoreCase</code></td>
-<td><code>… where UPPER(x.firstame) = UPPER(?1)</code></td>
-</tr>
-</tbody>
-</table>
 </the>
       
     </div>
@@ -454,7 +328,7 @@
         <p><span>本文标题:</span><a href="/2019/03/31/Spring-Boot-Jpa/">Spring Boot Jpa</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年03月31日 - 21时58分</p>
-        <p><span>最后更新:</span>2019年03月31日 - 22时04分</p>
+        <p><span>最后更新:</span>2019年03月31日 - 22时21分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/31/Spring-Boot-Jpa/" title="Spring Boot Jpa">https://caicaing.github.io/2019/03/31/Spring-Boot-Jpa/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/31/Spring-Boot-Jpa/　　作者: 菜菜" title></span>
@@ -482,7 +356,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pom-xml中导入依赖"><span class="toc-number">1.</span> <span class="toc-text">pom.xml中导入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建实体类"><span class="toc-number">2.</span> <span class="toc-text">创建实体类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建UserRepository"><span class="toc-number">3.</span> <span class="toc-text">创建UserRepository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置数据源和自动建表"><span class="toc-number">4.</span> <span class="toc-text">配置数据源和自动建表:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试类"><span class="toc-number">5.</span> <span class="toc-text">测试类:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jpa语法"><span class="toc-number">6.</span> <span class="toc-text">jpa语法:</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pom-xml中导入依赖"><span class="toc-number">1.</span> <span class="toc-text">pom.xml中导入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建实体类"><span class="toc-number">2.</span> <span class="toc-text">创建实体类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建UserRepository"><span class="toc-number">3.</span> <span class="toc-text">创建UserRepository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置数据源和自动建表"><span class="toc-number">4.</span> <span class="toc-text">配置数据源和自动建表:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试类"><span class="toc-number">5.</span> <span class="toc-text">测试类:</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
