@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://caicaing.github.io/2019/03/29/JDBC%E8%BF%9E%E6%8E%A5Mysql8-0-11%E7%89%88%E6%9C%AC%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2019-03-29</lastmod>
-  </url>  <url>
     <loc>https://caicaing.github.io/2019/03/29/Spring-Boot-%E6%95%B4%E5%90%88mybatis/</loc>
+    <lastmod>2019-03-31</lastmod>
+  </url>  <url>
+    <loc>https://caicaing.github.io/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2019-03-31</lastmod>
+  </url>  <url>
+    <loc>https://caicaing.github.io/2019/03/29/JDBC%E8%BF%9E%E6%8E%A5Mysql8-0-11%E7%89%88%E6%9C%AC%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://caicaing.github.io/2019/03/29/thymeleaf%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
