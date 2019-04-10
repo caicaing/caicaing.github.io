@@ -7,20 +7,20 @@
   
   
   
-  <title>JDBC连接Mysql8.0驱动版本过低报错 | 菜菜的blog</title>
+  <title>Jpa 自定义查询语句 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
-<meta name="keywords" content="MYSQL">
+  <meta name="description" content="在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&amp;lt;Object[]&amp;gt; 类型，即多个Object数组的List集合。">
+<meta name="keywords" content="Spring Boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDBC连接Mysql8.0驱动版本过低报错">
-<meta property="og:url" content="https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/index.html">
+<meta property="og:title" content="Jpa 自定义查询语句">
+<meta property="og:url" content="https://caicaing.github.io/2019/04/10/jpa-自定义查询语句/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
+<meta property="og:description" content="在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&amp;lt;Object[]&amp;gt; 类型，即多个Object数组的List集合。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-29T13:45:18.483Z">
+<meta property="og:updated_time" content="2019-04-10T08:25:30.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JDBC连接Mysql8.0驱动版本过低报错">
-<meta name="twitter:description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
+<meta name="twitter:title" content="Jpa 自定义查询语句">
+<meta name="twitter:description" content="在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&amp;lt;Object[]&amp;gt; 类型，即多个Object数组的List集合。">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -261,11 +261,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JDBC连接Mysql8-0-11版本出现问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-jpa-自定义查询语句" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/" class="article-date">
-      <time datetime="2019-03-29T13:36:17.000Z" itemprop="datePublished">2019-03-29</time>
+      <a href="/2019/04/10/jpa-自定义查询语句/" class="article-date">
+      <time datetime="2019-04-10T08:08:39.000Z" itemprop="datePublished">2019-04-10</time>
 </a>
 
     </div>
@@ -279,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JDBC连接Mysql8.0驱动版本过低报错
+      Jpa 自定义查询语句
     </h1>
   
 
@@ -291,7 +291,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -301,14 +301,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:</p>
+        <p>在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&lt;Object[]&gt; 类型，即多个Object数组的List集合。</p>
 <excerpt in index | 首页摘要>
 
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息:"></a>报错信息:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Fri Mar <span class="number">29</span> <span class="number">21</span>:<span class="number">39</span>:<span class="number">01</span> CST <span class="number">2019</span> WARN: Establishing SSL connection without server<span class="string">'s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn'</span>t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to <span class="string">'false'</span>. You need either to explicitly disable SSL by setting useSSL=<span class="keyword">false</span>, or set useSSL=<span class="keyword">true</span> and provide truststore <span class="keyword">for</span> server certificate verification.</span><br><span class="line">ERROR [Druid-ConnectionPool-Create-<span class="number">2085079540</span>] - create connection SQLException, url: jdbc:mysql:<span class="comment">//localhost:3306/phone, errorCode 0, state 08001</span></span><br><span class="line">com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server.</span><br><span class="line">	at sun.reflect.GeneratedConstructorAccessor36.newInstance(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:<span class="number">45</span>)</span><br><span class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">423</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.handleNewInstance(Util.java:<span class="number">404</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.getInstance(Util.java:<span class="number">387</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">917</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">896</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">885</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">860</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:<span class="number">2332</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:<span class="number">2085</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:<span class="number">795</span>)</span><br><span class="line">	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:<span class="number">44</span>)</span><br><span class="line">	at sun.reflect.GeneratedConstructorAccessor27.newInstance(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:<span class="number">45</span>)</span><br><span class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">423</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.handleNewInstance(Util.java:<span class="number">404</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:<span class="number">400</span>)</span><br><span class="line">	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:<span class="number">327</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:<span class="number">1513</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:<span class="number">1578</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:<span class="number">2451</span>)</span><br><span class="line">Caused by: java.lang.NullPointerException</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.getServerCharset(ConnectionImpl.java:<span class="number">3005</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.sendConnectionAttributes(MysqlIO.java:<span class="number">1916</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:<span class="number">1845</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:<span class="number">1215</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:<span class="number">2255</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:<span class="number">2286</span>)</span><br><span class="line">	... <span class="number">12</span> more</span><br></pre></td></tr></table></figure>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>Mysql是8.0版本的 ,但是项目中用的jdbc驱动包5.1.31,将jdbc驱动包改为8.0.13后不再报错</p>
+<h2 id="Query-注解"><a href="#Query-注解" class="headerlink" title="@Query()注解"></a>@Query()注解</h2><p>通过使@query注解,可以自定义语句进行sql操作</p>
+<p>下例为在数据库中查询10个随机的选择题的自定义查询方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MultipleChoiceRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">MultipleChoice</span>,<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Query</span>(value = <span class="string">"select * from choice ORDER BY RAND() limit :num"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MultipleChoice&gt; <span class="title">findByNmber</span><span class="params">(@Param(<span class="string">"num"</span>)</span> Integer num)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开启mysql语句"><a href="#开启mysql语句" class="headerlink" title="开启mysql语句"></a>开启mysql语句</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">""</span>,nativeQuery = <span class="keyword">true</span>)  <span class="comment">//nativeQuery= true开启mysql</span></span><br></pre></td></tr></table></figure>
+<h2 id="Modefying-注解"><a href="#Modefying-注解" class="headerlink" title="@Modefying()注解"></a>@Modefying()注解</h2><p>如果是删除或修改操作，需要加入此注解进行修饰. 以通知 SpringData， 这是一个 UPDATE 或 DELETE 操作 ；默认情况下，是只读，所以查询不需要</p>
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递:"></a>参数传递:</h1><h2 id="Param-注解"><a href="#Param-注解" class="headerlink" title="@Param()注解"></a>@Param()注解</h2><p>使用@Param注解可以给查询语句中注入参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Param</span>(<span class="string">"num"</span>) Integer num</span><br></pre></td></tr></table></figure>
+<p>在sql语句中使用  :参数名    进行调用</p>
+<h2 id="使用-占位符"><a href="#使用-占位符" class="headerlink" title="使用?占位符"></a>使用?占位符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MultipleChoiceRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">MultipleChoice</span>,<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Query</span>(value = <span class="string">"select * from choice ORDER BY RAND() limit ?"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MultipleChoice&gt; <span class="title">findByNmber</span><span class="params">(Integer num)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>sql语句中也可以使用?占位符的方式进行参数写入</p>
 </the></excerpt>
       
     </div>
@@ -317,13 +325,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/10/jpa-自定义查询语句/">Jpa 自定义查询语句</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年03月29日 - 21时36分</p>
-        <p><span>最后更新:</span>2019年03月29日 - 21时45分</p>
+        <p><span>发布时间:</span>2019年04月10日 - 16时08分</p>
+        <p><span>最后更新:</span>2019年04月10日 - 16时25分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/" title="JDBC连接Mysql8.0驱动版本过低报错">https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/10/jpa-自定义查询语句/" title="Jpa 自定义查询语句">https://caicaing.github.io/2019/04/10/jpa-自定义查询语句/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/04/10/jpa-自定义查询语句/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -334,18 +342,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/29/Spring-Boot-整合mybatis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot 整合mybatis</div>
+    <a href="/2019/03/31/Spring-Boot-Jpa/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Boot Jpa</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -357,8 +356,8 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#报错信息"><span class="toc-number">1.</span> <span class="toc-text">报错信息:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案:</span></a></li></ol>
-</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Query-注解"><span class="toc-number">1.</span> <span class="toc-text">@Query()注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启mysql语句"><span class="toc-number">2.</span> <span class="toc-text">开启mysql语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Modefying-注解"><span class="toc-number">3.</span> <span class="toc-text">@Modefying()注解</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参数传递"><span class="toc-number"></span> <span class="toc-text">参数传递:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Param-注解"><span class="toc-number">1.</span> <span class="toc-text">@Param()注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-占位符"><span class="toc-number">2.</span> <span class="toc-text">使用?占位符</span></a></li></ol>
+</li></div>
 <style>
     .left-col .switch-btn {
         display: none;
@@ -418,13 +417,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/" title="上一篇: org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/29/Spring-Boot-整合mybatis/" title="下一篇: Spring Boot 整合mybatis">
+            <a href="/2019/03/31/Spring-Boot-Jpa/" title="下一篇: Spring Boot Jpa">
                 <i class="fa fa-angle-right"></i>
             </a>
         
