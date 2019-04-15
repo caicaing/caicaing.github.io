@@ -357,13 +357,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;</p>
-<the rest of contents | 余下全文>
-
-<p>@Query注解如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">"select (@i:=@i+1)pm from record s,(select @i:=0)t  order by score desc;"</span>,nativeQuery = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure>
-<p>去查资料,解决方案是把:转义 变成//:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">"select (@i\\:=@i+1)pm from record s,(select @i\\:=0)t  order by score desc;"</span>,nativeQuery = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure></the>
+              <p>查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;</p>
+ <excerpt in index | 首页摘要></excerpt>
+          
       
     </div>
     
@@ -376,6 +372,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JPA/">JPA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

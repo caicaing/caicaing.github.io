@@ -9,18 +9,18 @@
   
   <title>JPA Space is not allowed after parameter prefix &#39;:&#39; | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;   @Query注解如下: 1@Query(value = &quot;select (@i:=@i+1)pm from record">
+  <meta name="description" content="查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;">
 <meta name="keywords" content="Spring Boot,JPA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JPA Space is not allowed after parameter prefix &#39;:&#39;">
 <meta property="og:url" content="https://caicaing.github.io/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;   @Query注解如下: 1@Query(value = &quot;select (@i:=@i+1)pm from record">
+<meta property="og:description" content="查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-15T07:30:51.309Z">
+<meta property="og:updated_time" content="2019-04-15T07:35:05.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JPA Space is not allowed after parameter prefix &#39;:&#39;">
-<meta name="twitter:description" content="查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;   @Query注解如下: 1@Query(value = &quot;select (@i:=@i+1)pm from record">
+<meta name="twitter:description" content="查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -302,12 +302,15 @@
       
           
         <p>查询时候想根据分数排序并且添加对应的名词序号,所以mysql语句中出现了(@i:=@i+1),在navicat下可以正常的运行.但是在使用@Query时出现’JPA Space is not allowed after parameter prefix ‘’:’’’错误;</p>
+ <excerpt in index | 首页摘要>
+
+<a id="more"></a>
 <the rest of contents | 余下全文>
 
 <p>@Query注解如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">"select (@i:=@i+1)pm from record s,(select @i:=0)t  order by score desc;"</span>,nativeQuery = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure>
 <p>去查资料,解决方案是把:转义 变成//:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">"select (@i\\:=@i+1)pm from record s,(select @i\\:=0)t  order by score desc;"</span>,nativeQuery = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure></the>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">"select (@i\\:=@i+1)pm from record s,(select @i\\:=0)t  order by score desc;"</span>,nativeQuery = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure></the></excerpt>
       
     </div>
     
@@ -318,7 +321,7 @@
         <p><span>本文标题:</span><a href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/">JPA Space is not allowed after parameter prefix &#39;:&#39;</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
         <p><span>发布时间:</span>2019年04月14日 - 16时43分</p>
-        <p><span>最后更新:</span>2019年04月15日 - 15时30分</p>
+        <p><span>最后更新:</span>2019年04月15日 - 15时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/" title="JPA Space is not allowed after parameter prefix &#39;:&#39;">https://caicaing.github.io/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/</a>
             <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/　　作者: 菜菜" title></span>
