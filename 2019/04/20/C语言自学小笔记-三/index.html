@@ -7,20 +7,20 @@
   
   
   
-  <title>JDBC连接Mysql8.0驱动版本过低报错 | 菜菜的blog</title>
+  <title>C语言自学小笔记(三) | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
-<meta name="keywords" content="MYSQL">
+  <meta name="description" content="C语言查缺补漏小笔记">
+<meta name="keywords" content="C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDBC连接Mysql8.0驱动版本过低报错">
-<meta property="og:url" content="https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/index.html">
+<meta property="og:title" content="C语言自学小笔记(三)">
+<meta property="og:url" content="https://caicaing.github.io/2019/04/20/C语言自学小笔记-三/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
+<meta property="og:description" content="C语言查缺补漏小笔记">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-29T13:45:18.483Z">
+<meta property="og:updated_time" content="2019-04-21T02:07:00.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JDBC连接Mysql8.0驱动版本过低报错">
-<meta name="twitter:description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
+<meta name="twitter:title" content="C语言自学小笔记(三)">
+<meta name="twitter:description" content="C语言查缺补漏小笔记">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -261,11 +261,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JDBC连接Mysql8-0-11版本出现问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C语言自学小笔记-三" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/" class="article-date">
-      <time datetime="2019-03-29T13:36:17.000Z" itemprop="datePublished">2019-03-29</time>
+      <a href="/2019/04/20/C语言自学小笔记-三/" class="article-date">
+      <time datetime="2019-04-20T12:25:00.000Z" itemprop="datePublished">2019-04-20</time>
 </a>
 
     </div>
@@ -279,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JDBC连接Mysql8.0驱动版本过低报错
+      C语言自学小笔记(三)
     </h1>
   
 
@@ -291,7 +291,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -301,15 +301,187 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:</p>
-<excerpt in index | 首页摘要>
-
+        <p>C语言查缺补漏小笔记</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息:"></a>报错信息:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Fri Mar <span class="number">29</span> <span class="number">21</span>:<span class="number">39</span>:<span class="number">01</span> CST <span class="number">2019</span> WARN: Establishing SSL connection without server<span class="string">'s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn'</span>t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to <span class="string">'false'</span>. You need either to explicitly disable SSL by setting useSSL=<span class="keyword">false</span>, or set useSSL=<span class="keyword">true</span> and provide truststore <span class="keyword">for</span> server certificate verification.</span><br><span class="line">ERROR [Druid-ConnectionPool-Create-<span class="number">2085079540</span>] - create connection SQLException, url: jdbc:mysql:<span class="comment">//localhost:3306/phone, errorCode 0, state 08001</span></span><br><span class="line">com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server.</span><br><span class="line">	at sun.reflect.GeneratedConstructorAccessor36.newInstance(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:<span class="number">45</span>)</span><br><span class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">423</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.handleNewInstance(Util.java:<span class="number">404</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.getInstance(Util.java:<span class="number">387</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">917</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">896</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">885</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">860</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:<span class="number">2332</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:<span class="number">2085</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:<span class="number">795</span>)</span><br><span class="line">	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:<span class="number">44</span>)</span><br><span class="line">	at sun.reflect.GeneratedConstructorAccessor27.newInstance(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:<span class="number">45</span>)</span><br><span class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">423</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.handleNewInstance(Util.java:<span class="number">404</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:<span class="number">400</span>)</span><br><span class="line">	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:<span class="number">327</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:<span class="number">1513</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:<span class="number">1578</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:<span class="number">2451</span>)</span><br><span class="line">Caused by: java.lang.NullPointerException</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.getServerCharset(ConnectionImpl.java:<span class="number">3005</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.sendConnectionAttributes(MysqlIO.java:<span class="number">1916</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:<span class="number">1845</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:<span class="number">1215</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:<span class="number">2255</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:<span class="number">2286</span>)</span><br><span class="line">	... <span class="number">12</span> more</span><br></pre></td></tr></table></figure>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>Mysql是8.0版本的 ,但是项目中用的jdbc驱动包5.1.31,将jdbc驱动包改为8.0.13后不再报错</p>
-</the></excerpt>
+<h2 id="C的文件读写"><a href="#C的文件读写" class="headerlink" title="C的文件读写"></a>C的文件读写</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">FILE *<span class="title">fopen</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> * filename, <span class="keyword">const</span> <span class="keyword">char</span> * mode )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>mode可以是下列值中的一个</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模式</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">打开一个已有的文本文件，允许读取文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容。如果文件存在，则该会被截断为零长度，重新写入。</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:left">打开一个文本文件，允许读写文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:left">打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:left">打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fclose</span><span class="params">( FILE *fp )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>如果成功关闭文件，<strong>fclose( )</strong> 函数返回零，如果关闭文件时发生错误，函数返回 <strong>EOF</strong>。</p>
+<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3><p>写入一个字符:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fputc</span><span class="params">( <span class="keyword">int</span> c, FILE *fp )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>写入一个字符串:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fputs</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> *s, FILE *fp )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>写入字符串的另一种方式:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fprintf</span><span class="params">(FILE *fp,<span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgetc</span><span class="params">( FILE * fp )</span></span>;</span><br></pre></td></tr></table></figure>
+<p><strong>fgetc()</strong> 函数从 fp 所指向的输入文件中读取一个字符。返回值是读取的字符，如果发生错误则返回 <strong>EOF</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">fgets</span><span class="params">( <span class="keyword">char</span> *buf, <span class="keyword">int</span> n, FILE *fp )</span></span>;</span><br></pre></td></tr></table></figure>
+<p>函数 <strong>fgets()</strong> 从 fp 所指向的输入流中读取 n - 1 个字符。它会把读取的字符串复制到缓冲区 <strong>buf</strong>，并在最后追加一个 <strong>null</strong> 字符来终止字符串。函数在读取最后一个字符之前就遇到一个换行符 ‘\n’ 或文件的末尾 EOF，则只会返回读取到的字符，包括换行符。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fscanf</span><span class="params">(FILE *fp, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span></span><br></pre></td></tr></table></figure>
+<p>函数来从文件中读取字符串，但是在遇到第一个空格字符时，它会停止读取</p>
+<h2 id="C预处理器"><a href="#C预处理器" class="headerlink" title="C预处理器"></a>C预处理器</h2><h3 id="预处理指令"><a href="#预处理指令" class="headerlink" title="预处理指令"></a>预处理指令</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">指令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">#define</td>
+<td style="text-align:left">定义宏</td>
+</tr>
+<tr>
+<td style="text-align:left">#include</td>
+<td style="text-align:left">包含一个源代码文件</td>
+</tr>
+<tr>
+<td style="text-align:left">#undef</td>
+<td style="text-align:left">取消已定义的宏</td>
+</tr>
+<tr>
+<td style="text-align:left">#ifdef</td>
+<td style="text-align:left">如果宏已经定义，则返回真</td>
+</tr>
+<tr>
+<td style="text-align:left">#ifndef</td>
+<td style="text-align:left">如果宏没有定义，则返回真</td>
+</tr>
+<tr>
+<td style="text-align:left">#if</td>
+<td style="text-align:left">如果给定条件为真，则编译下面代码</td>
+</tr>
+<tr>
+<td style="text-align:left">#else</td>
+<td style="text-align:left">#if 的替代方案</td>
+</tr>
+<tr>
+<td style="text-align:left">#elif</td>
+<td style="text-align:left">如果前面的 #if 给定条件不为真，当前条件为真，则编译下面代码</td>
+</tr>
+<tr>
+<td style="text-align:left">#endif</td>
+<td style="text-align:left">结束一个 #if……#else 条件编译块</td>
+</tr>
+<tr>
+<td style="text-align:left">#error</td>
+<td style="text-align:left">当遇到标准错误时，输出错误消息</td>
+</tr>
+<tr>
+<td style="text-align:left">#pragma</td>
+<td style="text-align:left">使用标准化方法，向编译器发布特殊的命令到编译器中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="预处理宏"><a href="#预处理宏" class="headerlink" title="预处理宏"></a>预处理宏</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">宏</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>DATE</strong></td>
+<td style="text-align:left">当前日期，一个以 “MMM DD YYYY” 格式表示的字符常量。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>TIME</strong></td>
+<td style="text-align:left">当前时间，一个以 “HH:MM:SS” 格式表示的字符常量。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>FILE</strong></td>
+<td style="text-align:left">这会包含当前文件名，一个字符串常量。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>LINE</strong></td>
+<td style="text-align:left">这会包含当前行号，一个十进制常量。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>STDC</strong></td>
+<td style="text-align:left">当编译器以 ANSI 标准编译时，则定义为 1。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="C头文件"><a href="#C头文件" class="headerlink" title="C头文件"></a>C头文件</h2><h3 id="引用头文件的语法"><a href="#引用头文件的语法" class="headerlink" title="引用头文件的语法"></a>引用头文件的语法</h3><p>使用预处理指令 <strong>#include</strong> 可以引用用户和系统头文件。它的形式有以下两种：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;file&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这种形式用于引用系统头文件。它在系统目录的标准列表中搜索名为 file 的文件。在编译源代码时，您可以通过 -I 选项把目录前置在该列表前。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"file"</span></span></span><br></pre></td></tr></table></figure>
+<p>这种形式用于引用用户头文件。它在包含当前文件的目录中搜索名为 file 的文件。在编译源代码时，您可以通过 -I 选项把目录前置在该列表前。</p>
+<h2 id="C-可变参数"><a href="#C-可变参数" class="headerlink" title="C 可变参数"></a>C 可变参数</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">average</span><span class="params">(<span class="keyword">int</span> num,...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> </span><br><span class="line">    va_list valist;</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* 为 num 个参数初始化 valist */</span></span><br><span class="line">    va_start(valist, num);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* 访问所有赋给 valist 的参数 */</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">       sum += va_arg(valist, <span class="keyword">int</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 清理为 valist 保留的内存 */</span></span><br><span class="line">    va_end(valist);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> sum/num;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Average of 2, 3, 4, 5 = %f\n"</span>, average(<span class="number">4</span>, <span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"Average of 5, 10, 15 = %f\n"</span>, average(<span class="number">3</span>, <span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了使用这个功能，需要使用 <strong>stdarg.h</strong> 头文件，该文件提供了实现可变参数功能的函数和宏。具体步骤如下：</p>
+<ul>
+<li>定义一个函数，最后一个参数为省略号，省略号前面可以设置自定义参数。</li>
+<li>在函数定义中创建一个 <strong>va_list</strong> 类型变量，该类型是在 stdarg.h 头文件中定义的。</li>
+<li>使用 <strong>int</strong> 参数和 <strong>va_start</strong> 宏来初始化 <strong>va_list</strong> 变量为一个参数列表。宏 va_start 是在 stdarg.h 头文件中定义的。</li>
+<li>使用 <strong>va_arg</strong> 宏和 <strong>va_list</strong> 变量来访问参数列表中的每个项。</li>
+<li>使用宏 <strong>va_end</strong> 来清理赋予 <strong>va_list</strong> 变量的内存。</li>
+</ul>
+<h2 id="C内存管理"><a href="#C内存管理" class="headerlink" title="C内存管理"></a>C内存管理</h2><p>C 语言为内存的分配和管理提供了几个函数。这些函数可以在 <strong>&lt;stdlib.h&gt;</strong> 头文件中找到。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">函数和描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>void *calloc(int num, int size);</strong> 在内存中动态地分配 num 个长度为 size 的连续空间，并将每一个字节都初始化为 0。所以它的结果是分配了 num*size 个字节长度的内存空间，并且每个字节的值都是0。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>void free(void *address);</strong>  该函数释放 address 所指向的内存块,释放的是动态分配的内存空间。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>void *malloc(int num);</strong>  在堆区分配一块指定大小的内存空间，用来存放数据。这块内存空间在函数执行完成后不会被初始化，它们的值是未知的。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>void *realloc(void *address, int newsize);</strong>  该函数重新分配内存，把内存扩展到 <strong>newsize</strong>。</td>
+</tr>
+</tbody>
+</table>
+<p>void <em> 类型表示未确定类型的指针。C、C++ 规定 void </em> 类型可以通过类型转换强制转换为任何其它类型的指针。</p>
+</the>
       
     </div>
     
@@ -317,13 +489,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/20/C语言自学小笔记-三/">C语言自学小笔记(三)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年03月29日 - 21时36分</p>
-        <p><span>最后更新:</span>2019年03月29日 - 21时45分</p>
+        <p><span>发布时间:</span>2019年04月20日 - 20时25分</p>
+        <p><span>最后更新:</span>2019年04月21日 - 10时07分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/" title="JDBC连接Mysql8.0驱动版本过低报错">https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/20/C语言自学小笔记-三/" title="C语言自学小笔记(三)">https://caicaing.github.io/2019/04/20/C语言自学小笔记-三/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/04/20/C语言自学小笔记-三/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -334,18 +506,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/21/C-自学笔记-一/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理
+          C++自学笔记(一)
         
       </div>
     </a>
   
   
-    <a href="/2019/03/29/Spring-Boot-整合mybatis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot 整合mybatis</div>
+    <a href="/2019/04/20/vue学习笔记-三/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue学习笔记(三)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -357,7 +529,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#报错信息"><span class="toc-number">1.</span> <span class="toc-text">报错信息:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案:</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C的文件读写"><span class="toc-number">1.</span> <span class="toc-text">C的文件读写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件"><span class="toc-number">1.1.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭文件"><span class="toc-number">1.2.</span> <span class="toc-text">关闭文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件"><span class="toc-number">1.3.</span> <span class="toc-text">写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件"><span class="toc-number">1.4.</span> <span class="toc-text">读取文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C预处理器"><span class="toc-number">2.</span> <span class="toc-text">C预处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#预处理指令"><span class="toc-number">2.1.</span> <span class="toc-text">预处理指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预处理宏"><span class="toc-number">2.2.</span> <span class="toc-text">预处理宏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C头文件"><span class="toc-number">3.</span> <span class="toc-text">C头文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用头文件的语法"><span class="toc-number">3.1.</span> <span class="toc-text">引用头文件的语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-可变参数"><span class="toc-number">4.</span> <span class="toc-text">C 可变参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C内存管理"><span class="toc-number">5.</span> <span class="toc-text">C内存管理</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -418,13 +590,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/" title="上一篇: org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理">
+            <a href="/2019/04/21/C-自学笔记-一/" title="上一篇: C++自学笔记(一)">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/29/Spring-Boot-整合mybatis/" title="下一篇: Spring Boot 整合mybatis">
+            <a href="/2019/04/20/vue学习笔记-三/" title="下一篇: vue学习笔记(三)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
