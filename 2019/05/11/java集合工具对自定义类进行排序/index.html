@@ -7,20 +7,20 @@
   
   
   
-  <title>String，StringBuilder，StringBuffer三者的区别 | 菜菜的blog</title>
+  <title>java集合工具对自定义类进行排序 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
-<meta name="keywords" content="java,String">
+  <meta name="description" content="想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this-传进来的参数为升序。">
+<meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String，StringBuilder，StringBuffer三者的区别">
-<meta property="og:url" content="https://caicaing.github.io/2019/03/26/string相关/index.html">
+<meta property="og:title" content="java集合工具对自定义类进行排序">
+<meta property="og:url" content="https://caicaing.github.io/2019/05/11/java集合工具对自定义类进行排序/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+<meta property="og:description" content="想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this-传进来的参数为升序。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T10:35:09.230Z">
+<meta property="og:updated_time" content="2019-05-11T14:14:59.398Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="String，StringBuilder，StringBuffer三者的区别">
-<meta name="twitter:description" content="最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.">
+<meta name="twitter:title" content="java集合工具对自定义类进行排序">
+<meta name="twitter:description" content="想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this-传进来的参数为升序。">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -261,11 +261,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-string相关" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java集合工具对自定义类进行排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/26/string相关/" class="article-date">
-      <time datetime="2019-03-26T09:04:13.000Z" itemprop="datePublished">2019-03-26</time>
+      <a href="/2019/05/11/java集合工具对自定义类进行排序/" class="article-date">
+      <time datetime="2019-05-11T14:13:23.000Z" itemprop="datePublished">2019-05-11</time>
 </a>
 
     </div>
@@ -279,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      String，StringBuilder，StringBuffer三者的区别
+      java集合工具对自定义类进行排序
     </h1>
   
 
@@ -291,7 +291,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -301,34 +301,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
- <excerpt in index | 首页摘要>
-
+        <p>想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this-传进来的参数为升序。</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
-<li>String 类是一个常量，String类本身和其中存储字符的数组都是用final关键字修饰的,所以不能被继承</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** The value is used for character storage. */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br></pre></td></tr></table></figure>
-<h3 id="String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><a href="#String-str-”hello-world”和String-str-new-String-“hello-world”-的区别" class="headerlink" title="String str=”hello world”和String str=new String(“hello world”)的区别"></a>String str=”hello world”和String str=new String(“hello world”)的区别</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String string1 = <span class="string">"hello word"</span>;</span><br><span class="line">        String string2 = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br><span class="line">        String string3 = <span class="string">"hello word"</span>;</span><br><span class="line">        String string4 = <span class="keyword">new</span> String(<span class="string">"hello world"</span>);</span><br><span class="line">        System.out.println(string1 == string2);</span><br><span class="line">        System.out.println(string1 == string3);</span><br><span class="line">        System.out.println(string2 == string4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面代码的输出结果为:</p>
-<p>false</p>
-<p>true</p>
-<p>false</p>
-<p>我们发现 同样都都是”helllo world” string1 和 string3 相等.是因为string1 和 string3 都是赋值为一个字面常量”hello world”,在JVM运行时候,会在常量池里寻找是否已经存在相同的常量,如果存在便直接将引用指向已有常量,否则就创建一个常量,并且将引用指向他,对于string2 和string4来说,两者都是采取了new 来创建的,是两个不同的对象,所以不相等.</p>
-<h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><p>在第二点中,我们看到String是一个final类,打开StringBuilder,我们发现StringBuilder类是AbstractStringBuilder的子类,在AbstractStringBuilder类中,我们看到与String不同,StringBuilder存储字符的数组是可变的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The value is used for character storage.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">char</span>[] value;</span><br></pre></td></tr></table></figure>
-<h2 id="StringBuilder和String-区别"><a href="#StringBuilder和String-区别" class="headerlink" title="StringBuilder和String 区别"></a>StringBuilder和String 区别</h2><p>对于实际应用来说 假设有如下代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String string = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            string += <span class="string">"A"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            stringBuilder.append(<span class="string">"A"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码进行了一个1000次的循环,每次在字符串string后面追加一个字符A,无论使用的是String,还是StringBuilder,最后的结果都为长度为1000的字符全为A的字符串.而不同的是,如果使用StringBuilder,append操作是在原有的对象基础上进行的,而使用String每次循环都会新建一个StringBuilder对象,进行append操作,通过toString方法返回String对象,如果这些对象没有被回收会浪费大量资源,</p>
-<h2 id="StringBuilder和StringBuffer区别"><a href="#StringBuilder和StringBuffer区别" class="headerlink" title="StringBuilder和StringBuffer区别"></a>StringBuilder和StringBuffer区别</h2><p>对比StringBuilder和StringBuffer源码,我们发现在StringBuffer中很多方法都加上了synchronized关键字,所以StringBuffer是线程安全的,不过相应的,在提升了安全的同时对资源的消耗也会增大</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * StringBuffer append方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title">append</span> <span class="params">(String str)</span></span>&#123;</span><br><span class="line">    toStringCache = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">super</span>.append(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * StringBuilder append方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> StringBuilder <span class="title">append</span> <span class="params">(String str)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.append(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>三个类应当根据不同的情况来进行选择使用：</p>
-<p>当字符串相加操作或者改动较少的情况下，建议使用 String str=”hello”这种形式</p>
-<p>当字符串相加操作较多的情况下，建议使用StringBuilder</p>
-<p>如果采用了多线程，则使用StringBuffer。</p>
-</the></excerpt>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line"></span><br><span class="line">        List&lt;User&gt; list = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">65</span>, <span class="string">"小张"</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">77</span>, <span class="string">"小强"</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">39</span>, <span class="string">"小明"</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">99</span>, <span class="string">"小红"</span>));</span><br><span class="line">        Collections.sort(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> score;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(<span class="keyword">int</span> score, String name)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setScore</span><span class="params">(<span class="keyword">int</span> score)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"score="</span> + score +</span><br><span class="line">                <span class="string">", name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(User o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getScore() - o.getScore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</the>
       
     </div>
     
@@ -336,13 +314,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/11/java集合工具对自定义类进行排序/">java集合工具对自定义类进行排序</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年03月26日 - 17时04分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时35分</p>
+        <p><span>发布时间:</span>2019年05月11日 - 22时13分</p>
+        <p><span>最后更新:</span>2019年05月11日 - 22时14分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/26/string相关/" title="String，StringBuilder，StringBuffer三者的区别">https://caicaing.github.io/2019/03/26/string相关/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/26/string相关/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/11/java集合工具对自定义类进行排序/" title="java集合工具对自定义类进行排序">https://caicaing.github.io/2019/05/11/java集合工具对自定义类进行排序/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/05/11/java集合工具对自定义类进行排序/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -353,18 +331,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/27/Spring-Boot-整合Servlet/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Spring-Boot 整合Servlet和Filter
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/19/swagger2简介/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">swagger2简介</div>
+    <a href="/2019/05/10/java常用类api/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java常用类api</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -376,7 +345,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-str-”hello-world”和String-str-new-String-“hello-world”-的区别"><span class="toc-number">1.1.</span> <span class="toc-text">String str=”hello world”和String str=new String(“hello world”)的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder"><span class="toc-number">2.</span> <span class="toc-text">StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和String-区别"><span class="toc-number">3.</span> <span class="toc-text">StringBuilder和String 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder和StringBuffer区别"><span class="toc-number">4.</span> <span class="toc-text">StringBuilder和StringBuffer区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">5.</span> <span class="toc-text">结论</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -437,13 +406,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/27/Spring-Boot-整合Servlet/" title="上一篇: Spring-Boot 整合Servlet和Filter">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/19/swagger2简介/" title="下一篇: swagger2简介">
+            <a href="/2019/05/10/java常用类api/" title="下一篇: java常用类api">
                 <i class="fa fa-angle-right"></i>
             </a>
         
