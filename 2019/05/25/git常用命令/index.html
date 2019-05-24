@@ -7,22 +7,22 @@
   
   
   
-  <title>C语言自学小笔记(二) | 菜菜的blog</title>
+  <title>git常用命令 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C语言查缺补漏小笔记">
-<meta name="keywords" content="C">
+  <meta name="description" content="git常用命令">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言自学小笔记(二)">
-<meta property="og:url" content="https://caicaing.github.io/2019/04/17/C语言自学小笔记-二/index.html">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="https://caicaing.github.io/2019/05/25/git常用命令/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="C语言查缺补漏小笔记">
+<meta property="og:description" content="git常用命令">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://caicaing.github.io/2019/04/17/C语言自学小笔记-二/1.png">
-<meta property="og:updated_time" content="2019-04-17T12:14:58.765Z">
+<meta property="og:image" content="https://caicaing.github.io/2019/05/25/git常用命令/20181008143725727.png">
+<meta property="og:updated_time" content="2019-05-24T23:45:10.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言自学小笔记(二)">
-<meta name="twitter:description" content="C语言查缺补漏小笔记">
-<meta name="twitter:image" content="https://caicaing.github.io/2019/04/17/C语言自学小笔记-二/1.png">
+<meta name="twitter:title" content="git常用命令">
+<meta name="twitter:description" content="git常用命令">
+<meta name="twitter:image" content="https://caicaing.github.io/2019/05/25/git常用命令/20181008143725727.png">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -261,11 +261,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-C语言自学小笔记-二" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/04/17/C语言自学小笔记-二/" class="article-date">
-      <time datetime="2019-04-17T10:30:16.000Z" itemprop="datePublished">2019-04-17</time>
+      <a href="/2019/05/25/git常用命令/" class="article-date">
+      <time datetime="2019-05-24T23:42:52.000Z" itemprop="datePublished">2019-05-25</time>
 </a>
 
     </div>
@@ -279,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C语言自学小笔记(二)
+      git常用命令
     </h1>
   
 
@@ -291,7 +291,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -301,39 +301,133 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>C语言查缺补漏小笔记</p>
+        <p>git常用命令</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
 
 
-<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型:"></a>枚举类型:</h2><p>例如当我们想用常量表达周一至周日时,可能需要#define七个</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MON  1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TUE  2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> WED  3</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THU  4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FRI  5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SAT  6</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SUN  7</span></span><br></pre></td></tr></table></figure>
-<p>这样就会显得代码量很多,所以我们可以采取用创建一个枚举:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">enum</span> DAY</span><br><span class="line">&#123;</span><br><span class="line">	MON = <span class="number">1</span>, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>第一个枚举成员的默认值为0,后续的枚举成员为前一个成员的值+1,例如上述代码中,MON设置了值为1,那么TUE,WED,THU,FRI,SAT,SUN的值分别为2,3,4,5,6,7;</p>
-<h2 id="指针"><a href="#指针" class="headerlink" title="指针:"></a>指针:</h2><p>指针是一个变量,他的值是其指向变量的地址,即内存位置的直接地址.</p>
-<h3 id="指针的声明"><a href="#指针的声明" class="headerlink" title="指针的声明:"></a>指针的声明:</h3><p>我们可以通过type *var-name 的格式进行声明一个指针,例如</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>    *ip;    <span class="comment">/* 一个整型的指针 */</span></span><br><span class="line"><span class="keyword">double</span> *dp;    <span class="comment">/* 一个 double 型的指针 */</span></span><br><span class="line"><span class="keyword">float</span>  *fp;    <span class="comment">/* 一个浮点型的指针 */</span></span><br><span class="line"><span class="keyword">char</span>   *ch;     <span class="comment">/* 一个字符型的指针 */</span></span><br></pre></td></tr></table></figure>
-<p>所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表内存地址的长的十六进制数。不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同。</p>
-<h3 id="指针的使用"><a href="#指针的使用" class="headerlink" title="指针的使用:"></a>指针的使用:</h3><p>既然指针存储的是一个变量的地址,理所应当他的值应该等于地址,我们可以通过&amp;符号来获取到一个变量的地址,然后复制给指针.并且通过*p的方式来访问所指变量</p>
-<p>例:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> *p = &amp;a;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, *p);</span><br><span class="line">	getchar();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="NULL指针"><a href="#NULL指针" class="headerlink" title="NULL指针:"></a>NULL指针:</h3><p>在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为<strong>空</strong>指针。NULL 指针是一个定义在标准库中的值为零的常量。</p>
-<h3 id="指针的运算"><a href="#指针的运算" class="headerlink" title="指针的运算:"></a>指针的运算:</h3><p>C指针的值是一个用数值表示的地址,所以指针也可以执行算术运算,可以对指针进行的运算有++,–,+,-.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">++运算</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> *p = &amp;a;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p所指向的地址%d\n"</span>, p);</span><br><span class="line">	p++;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p++后所指向的地址%d\n"</span>, p);</span><br><span class="line">	<span class="keyword">char</span> c = <span class="string">'c'</span>;</span><br><span class="line">	<span class="keyword">char</span> *pc = &amp;c;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"pc所指向的地址%d\n"</span>, pc);</span><br><span class="line">	pc++;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"pc++后所指向的地址%d"</span>, pc);</span><br><span class="line">	getchar();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/17/C语言自学小笔记-二/1.png" alt></p>
-<p>运行后我们可以看到进行++运算之后,p的值增加了4,这个4正是一个整型所占的字节数,相对应的,一个char类型所占字节数为1,所以pc进行++操作以后地址增加了1.  既然++操作可以让地址往后跳一个类型的字节数,而C语言中数组的分配内存方式都是连续分配的,所以我们可以用++操作来读取数组里的值.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d,"</span>, a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">int</span> *p = a;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d,"</span>, *p++);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>–运算跟++运算相反,是对指针所指地址减去类型对应的字节数.</p>
-<h3 id="指针的比较"><a href="#指针的比较" class="headerlink" title="指针的比较:"></a>指针的比较:</h3><p>既然指针所存的数为数值,则指针也可以进行大小比较,例如我们知道数组的第一个元素的地址,和最后一个元素的地址,我们就可以通过地址判断的方式对数组进行遍历</p>
-<h3 id="指向指针的指针"><a href="#指向指针的指针" class="headerlink" title="指向指针的指针:"></a>指向指针的指针:</h3><p>一个指向指针的指针变量必须如下声明，即在变量名前放置两个星号。例如，下面声明了一个指向 int 类型指针的指针：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> **var;</span><br></pre></td></tr></table></figure>
-<p>当一个目标值被一个指针间接指向到另一个指针时，访问这个值需要使用两个星号运算符</p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串:"></a>字符串:</h2><p>在 C 语言中，字符串实际上是使用 <strong>null</strong> 字符 ‘\0’ 终止的一维字符数组。因此，一个以 null 结尾的字符串，包含了组成字符串的字符。</p>
-<p>下面的声明和初始化创建了一个 “Hello” 字符串。由于在数组的末尾存储了空字符，所以字符数组的大小比单词 “Hello” 的字符数多一个。</p>
-<p>C 中有大量操作字符串的函数:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcpy</span>(s1, s2); <span class="comment">//复制字符串 s2 到字符串 s1。       </span></span><br><span class="line"><span class="built_in">strcat</span>(s1, s2); <span class="comment">//连接字符串 s2 到字符串 s1 的末尾。   </span></span><br><span class="line"><span class="built_in">strlen</span>(s1); <span class="comment">//返回字符串 s1 的长度。               </span></span><br><span class="line"><span class="built_in">strcmp</span>(s1, s2); <span class="comment">//如果 s1 和 s2 是相同的，则返回 0；如果 s1&lt;s2 则返回小于 0；如果 s1&gt;s2 则返回大于 0。</span></span><br><span class="line"><span class="built_in">strchr</span>(s1, ch); <span class="comment">//返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。</span></span><br><span class="line"><span class="built_in">strstr</span>(s1, s2); <span class="comment">//返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>一． Git基本的工作流程简介如下：</p>
+<p>　1．在工作目录中修改某些文件;</p>
+<p>　2．对修改后的文件进行快照，然后保存到暂存区域;</p>
+<p>　3．提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中．</p>
+<p>二．git常用命令操作</p>
+<p>１． git  clone</p>
+<p> git clone 代码库的url</p>
+<p>  eg： git clone ssh://xxx@ip:29422/project</p>
+<pre><code> git clone -b test ssh://gerritroot@192.168.33.252:29422/test.git 
+
+克隆到本地的库，默认的代码库的当前分支(活动分支)名称是master，如果下载的时候，加上-b 分支名称，下载下来的代码库的当前分支（活动分支）就是指定的分支名称: git clone –b branch1 ssh://jon@192.168.33.252:29422/test.git  克隆到本地的库，默认的代码线是branch1 ,git clone 其他用法可以使用 git clone - -help查看.
+</code></pre><p>2．git  status</p>
+<p> 可以使用git status查看版本库中文件提交的状态，没提交的信息会有显示．</p>
+<p>3．git  add   //将工作区的修改提交到暂存区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1).  git add filename</span><br><span class="line"></span><br><span class="line">2). git add directoryname</span><br><span class="line"></span><br><span class="line">3). git add .  //其中.表示当前目录下新添加的文件或目录，修改的文件或目录</span><br></pre></td></tr></table></figure>
+<p>4．git commit   //将暂存区的文件或目录提交到版本库区</p>
+<p>git commit 与 git commit –m “message”相同，只是后者直接以-m参数将提交日志写入</p>
+<p>5．git commit - -amend</p>
+<pre><code>1). 修正提交单中错误的用户名及邮箱
+</code></pre><p>　　eg：git commit - -amend –author=’jon <a href="mailto:jon@126.com" target="_blank" rel="noopener">jon@126.com</a>’</p>
+<pre><code>2). 代码走查不通过的时候，在本地使用这个命令可以不产生新的代码走查单
+
+ 在本地修改完走查不通过的文件，需要执行git commit的时候，不要使用git commit –m，而是使用git commit --amend命令（前提本地代码库中的.git/hooks/commit-msg 钩子脚本是存在的，如果钩子脚本不存在，要到gerrit web页面的走查单中将changed-id xxxx贴到git commit --amend弹出的编辑框中）
+</code></pre><p>6．git  rm //删除文件或目录</p>
+<pre><code>1). git rm  文件名称
+
+2). git rm –r 目录名称
+
+3) .将不需要的文件及目录从工作区及暂存区中删掉
+
+    a.  如果需要删除git库中已经受控的文件或目录请使用此命令，不要使用操作系统下的删除命令.受控-表示文件及目录状态为跟踪状态
+
+    b.  如果要删除第一次放到工作区的文件或目录，直接使用操作系统下的删除命令，也可以使用 git clean –df 移除不受控的文件或目录
+
+    c.   git rm test.txt 将test.txt从工作区及暂存区删除，如果需要提交，下一步直接执行git commit –m “message”即可
+</code></pre><p>7．git  mv</p>
+<p>  git mv oldname newname  //将文件或者目录重命名</p>
+<p>8．git  diff  //对比本地库中工作区与暂存区的差异</p>
+<pre><code>1). git  diff  --cached //对比本地库中暂存区与库区的差异
+
+2). git  diff head  //对比本地库中工作区与库区的差异
+</code></pre><p>9．git  checkout</p>
+<pre><code>1). git checkout -- filename 或者git checkout -- directory
+
+在本地git库的工作区修改或删除已受控的文件，后悔了，想要会退到之前的状态（工作区的文件回到修改之前的状态，暂存区，库区不受影响)  
+
+2).git checkout branchname  //切换到某个分支
+
+3). git checkout –b branch1 commit-ID  //以某个提交修订版本为基准建立新分支，并切换到新分支
+</code></pre><p>10．git  reset  head //一般是在执行git add的之后,想取消add的动作(工作区不受影响，库区不变，暂存区回到add之前的状态)用</p>
+<pre><code>1).git  reset  head  文件名称
+
+2).git  reset  head 目录名称
+</code></pre><p>11．git  pull  //更新本地库</p>
+<pre><code>1).git pull --rebase  //在本地库的A分支下执行该命令，表示将远程库中对应的A分支内容更新到本地A分支，加入参数 --rebase 可以避免在更新过程中本地库中产生合并节点
+
+2).git pull origin branchname  //将远程仓库的分支内容更新到本地库的当前分支上
+</code></pre><p>12．git  push  //将提交到本地库中的内容推送到远程库中</p>
+<p>  　1).git push origin HEAD:refs/for/branchname 　//推送到gerrit页面走查</p>
+<pre><code>2).git push origin branchname //直接推送到远程git库中
+</code></pre><p>13．git　log //输出信息显示</p>
+<pre><code> 1).git  log -p //用于查看每一次提交条目的补丁内容，这在代码复查时很管用，--表示本次提交版本之前文件的修改状态
+
+ 2).git  log --stat  //显示被修改文件的修改统计信息，添加或删除了多少行
+
+ 3). git log --pretty=format
+
+可以将提交历史显示成你想要的格式,这里format的可选项包括：oneline，short，medium，full，fuller，email，raw
+</code></pre><p>14．git log　可以指定代码提交者或者邮箱进行提交者代码日志查询</p>
+<p>　eg：git log –author =”jon”</p>
+<pre><code>git log --author=&quot;jon@126.com&quot;
+</code></pre><p>15．git  branch</p>
+<pre><code>1).git branch //在本地库执行git branch 可以查看本地库的分支，并且可以查看本地库当前分支(通常用*标记)
+
+2).git branch –r  Version:1.0 StartHTML:0000000107 EndHTML:0000031195 StartFragment:0000030884 EndFragment:0000031181
+</code></pre><p>分支之间的合并</p>
+<p>//在本地库中查看远程库的分支</p>
+<pre><code>3).git branch  branname  commit-ID //以某个修订版本建立新分支，commit-ID为40位的哈希值
+
+4).git branch –d branchname //删除分支，在删除时会检查要删除的分支是否已经合并到其他分支，否则拒绝删除
+
+5).git branch –D branchname // 强制删除分支
+
+6).git branch –m branch1 branch2 //分支重命名，如果库中有同名的分支，则拒绝重命名
+
+7).git branch –M branch1 branch2 //强制重命名，不论库中是否有同名的分支
+</code></pre><p>16．git  merge //分支之间的合并,如果你想将分支dev的内容合并到主分支master，可执行如下命令：</p>
+<pre><code>git checkout master   
+
+git merge  --no-ff dev
+</code></pre><p>17．git  rebase</p>
+<pre><code>1).git rebase  //通常称为变基，实现分支合并,在主分支中执行 git rebase dev 将dev分支的内容合并到主分支
+
+2).git rebase -i  交换式应用可以改变提交历史顺序，改变日志，改变提交者
+</code></pre><p>18．git cherry-pick  //分支拣选功能，eg: 现在dev分支上合入了几个修改点，但是只想将其中的一个修改点合入到主分支master，此时就要使用git cherry-pick,步骤如下：</p>
+<pre><code>1).git checkout master //切换到主分支
+
+2).git log //在开发分支上找到需要部分功能的提交修定号通过git log找到(commit  40位的哈希值)
+
+3).git cherry-pick commit-ID
+</code></pre><p>19．git  tag //列出所有版本</p>
+<pre><code>1).git  tag –m  “ xxxx”  tagname commit-ID/head/branchname  //以某个分支最新的代码或者某个修订提交版本号创建一个带说明的标签
+
+2).git tag –l  //查看git库中的标签名称
+
+3).git show  tagname //显示tag内容
+
+4).git checkout tagname  //切换到标签中，查看对应的代码
+
+5).git tag | grep 9.0.0.au //过滤版本,显示9.0.0.au的版本
+</code></pre><p>20．git  stash  //可以用于暂存代码， eg：想要切换一个branch去做其他的事情，但是当前又有一些代码没有commit. 显然也不会想要把这些修改放弃掉，此时，可以使用该命令．</p>
+<p> 　1).git stash  //暂存当前代码，可以暂存多个，依次压入堆栈</p>
+<pre><code>2).git stash pop //恢复暂存的代码
+
+3).git stash clear //清除暂存代码
+</code></pre><hr>
+<p><img src="/2019/05/25/git常用命令/20181008143725727.png" alt></p>
 </the>
       
     </div>
@@ -342,13 +436,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/04/17/C语言自学小笔记-二/">C语言自学小笔记(二)</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/25/git常用命令/">git常用命令</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年04月17日 - 18时30分</p>
-        <p><span>最后更新:</span>2019年04月17日 - 20时14分</p>
+        <p><span>发布时间:</span>2019年05月25日 - 07时42分</p>
+        <p><span>最后更新:</span>2019年05月25日 - 07时45分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/04/17/C语言自学小笔记-二/" title="C语言自学小笔记(二)">https://caicaing.github.io/2019/04/17/C语言自学小笔记-二/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/04/17/C语言自学小笔记-二/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/25/git常用命令/" title="git常用命令">https://caicaing.github.io/2019/05/25/git常用命令/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/05/25/git常用命令/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -359,18 +453,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/04/18/vue学习笔记-一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          vue学习笔记(一)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/17/C语言自学小笔记-一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C语言自学小笔记(一)</div>
+    <a href="/2019/05/15/Java-Builder-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java Builder Pattern</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -382,7 +467,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举类型"><span class="toc-number">1.</span> <span class="toc-text">枚举类型:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指针"><span class="toc-number">2.</span> <span class="toc-text">指针:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指针的声明"><span class="toc-number">2.1.</span> <span class="toc-text">指针的声明:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指针的使用"><span class="toc-number">2.2.</span> <span class="toc-text">指针的使用:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NULL指针"><span class="toc-number">2.3.</span> <span class="toc-text">NULL指针:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指针的运算"><span class="toc-number">2.4.</span> <span class="toc-text">指针的运算:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指针的比较"><span class="toc-number">2.5.</span> <span class="toc-text">指针的比较:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指向指针的指针"><span class="toc-number">2.6.</span> <span class="toc-text">指向指针的指针:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">3.</span> <span class="toc-text">字符串:</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -443,13 +528,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/04/18/vue学习笔记-一/" title="上一篇: vue学习笔记(一)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/04/17/C语言自学小笔记-一/" title="下一篇: C语言自学小笔记(一)">
+            <a href="/2019/05/15/Java-Builder-Pattern/" title="下一篇: Java Builder Pattern">
                 <i class="fa fa-angle-right"></i>
             </a>
         
