@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://caicaing.github.io/"/>
-  <updated>2019-05-25T00:09:19.470Z</updated>
+  <updated>2019-05-31T07:34:26.882Z</updated>
   <id>https://caicaing.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos7.3搭建gogs</title>
+    <link href="https://caicaing.github.io/2019/05/31/centos7-3%E6%90%AD%E5%BB%BAgogs/"/>
+    <id>https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/</id>
+    <published>2019-05-31T06:14:14.000Z</published>
+    <updated>2019-05-31T07:34:26.882Z</updated>
+    
+    <content type="html"><![CDATA[<p>Gogs 是一款类似GitHub的开源文件/代码管理系统（基于Git），Gogs 的目标是打造一个最简单、最快速和最轻松的方式搭建自助 Git 服务。使用 Go 语言开发使得 Gogs 能够通过独立的二进制分发，并且支持 Go 语言支持的 所有平台，包括 Linux、Mac OS X、Windows 以及 ARM 平台。</p><a id="more"></a><the rest of contents | 余下全文><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="升级centos内核到最新版本"><a href="#升级centos内核到最新版本" class="headerlink" title="升级centos内核到最新版本"></a>升级centos内核到最新版本</h3><p>在安装响应包之前先将centos的系统版本和内核升级,防止出现docker启动gogs时候报错</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure><h3 id="安装docker-1"><a href="#安装docker-1" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 通过yum源安装docker</span><br><span class="line">yum -y install docker</span><br><span class="line"><span class="meta">#</span> 启动docker</span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="meta">#</span> 设置开机自启</span><br><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure><h3 id="下载gogs镜像"><a href="#下载gogs镜像" class="headerlink" title="下载gogs镜像"></a>下载gogs镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gogs/gogs</span><br></pre></td></tr></table></figure><h3 id="创建gogs存储目录"><a href="#创建gogs存储目录" class="headerlink" title="创建gogs存储目录"></a>创建gogs存储目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/gogs</span><br></pre></td></tr></table></figure><h3 id="运行镜像-产生容器"><a href="#运行镜像-产生容器" class="headerlink" title="运行镜像,产生容器"></a>运行镜像,产生容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs</span><br></pre></td></tr></table></figure><h2 id="运行并配置配置gogs"><a href="#运行并配置配置gogs" class="headerlink" title="运行并配置配置gogs"></a>运行并配置配置gogs</h2><p><img src="/2019/05/31/centos7-3搭建gogs/3203841-709cd56c61b12bd7.png" alt></p><p>配置完成后点击立即安装开始安装</p><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>注册登录后,在控制面版中可以看到我的仓库,点击 ‘+’ 可以创建新的仓库:</p><p>创建仓库的时候可以选择使用选定的文件和模板初始化仓库,如果不勾选初始化则创建一个空的仓库.</p><p><img src="/2019/05/31/centos7-3搭建gogs/2019-05-31_142708.jpg" alt></p><h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>打开想要克隆的仓库,复制http url连接,在想要克隆的目录下使用git clone url 即可</p><p><img src="/2019/05/31/centos7-3搭建gogs/2019-05-31_152224.jpg" alt></p><h2 id="提交本地仓库"><a href="#提交本地仓库" class="headerlink" title="提交本地仓库"></a>提交本地仓库</h2><p>如下图所示,在克隆下来的仓库中添加了一张图片,现在要想整个本地仓库再上传到gogs中</p><p><img src="/2019/05/31/centos7-3搭建gogs/2019-05-31_152749.jpg" alt></p><p>使用如下命令:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>添加所有文件</span><br><span class="line">git add -A </span><br><span class="line"><span class="meta">#</span>提交到本地仓库</span><br><span class="line">git commit -m "first commit"</span><br><span class="line"><span class="meta">#</span>提交到gogs仓库</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></the>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Gogs 是一款类似GitHub的开源文件/代码管理系统（基于Git），Gogs 的目标是打造一个最简单、最快速和最轻松的方式搭建自助 Git 服务。使用 Go 语言开发使得 Gogs 能够通过独立的二进制分发，并且支持 Go 语言支持的 所有平台，包括 Linux、Mac OS X、Windows 以及 ARM 平台。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="gogs" scheme="https://caicaing.github.io/tags/gogs/"/>
+    
+  </entry>
   
   <entry>
     <title>git常用命令</title>
@@ -405,27 +425,6 @@
     
     
       <category term="MYSQL" scheme="https://caicaing.github.io/tags/MYSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jpa 自定义查询语句</title>
-    <link href="https://caicaing.github.io/2019/04/10/jpa-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/"/>
-    <id>https://caicaing.github.io/2019/04/10/jpa-自定义查询语句/</id>
-    <published>2019-04-10T08:08:39.000Z</published>
-    <updated>2019-04-10T08:25:30.893Z</updated>
-    
-    <content type="html"><![CDATA[<p>在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&lt;Object[]&gt; 类型，即多个Object数组的List集合。</p><excerpt in index | 首页摘要><a id="more"></a><the rest of contents | 余下全文><h2 id="Query-注解"><a href="#Query-注解" class="headerlink" title="@Query()注解"></a>@Query()注解</h2><p>通过使@query注解,可以自定义语句进行sql操作</p><p>下例为在数据库中查询10个随机的选择题的自定义查询方法:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MultipleChoiceRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">MultipleChoice</span>,<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Query</span>(value = <span class="string">"select * from choice ORDER BY RAND() limit :num"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MultipleChoice&gt; <span class="title">findByNmber</span><span class="params">(@Param(<span class="string">"num"</span>)</span> Integer num)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="开启mysql语句"><a href="#开启mysql语句" class="headerlink" title="开启mysql语句"></a>开启mysql语句</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">""</span>,nativeQuery = <span class="keyword">true</span>)  <span class="comment">//nativeQuery= true开启mysql</span></span><br></pre></td></tr></table></figure><h2 id="Modefying-注解"><a href="#Modefying-注解" class="headerlink" title="@Modefying()注解"></a>@Modefying()注解</h2><p>如果是删除或修改操作，需要加入此注解进行修饰. 以通知 SpringData， 这是一个 UPDATE 或 DELETE 操作 ；默认情况下，是只读，所以查询不需要</p><h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递:"></a>参数传递:</h1><h2 id="Param-注解"><a href="#Param-注解" class="headerlink" title="@Param()注解"></a>@Param()注解</h2><p>使用@Param注解可以给查询语句中注入参数</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Param</span>(<span class="string">"num"</span>) Integer num</span><br></pre></td></tr></table></figure><p>在sql语句中使用  :参数名    进行调用</p><h2 id="使用-占位符"><a href="#使用-占位符" class="headerlink" title="使用?占位符"></a>使用?占位符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MultipleChoiceRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">MultipleChoice</span>,<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Query</span>(value = <span class="string">"select * from choice ORDER BY RAND() limit ?"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MultipleChoice&gt; <span class="title">findByNmber</span><span class="params">(Integer num)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>sql语句中也可以使用?占位符的方式进行参数写入</p></the></excerpt>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&amp;lt;Object[]&amp;gt; 类型，即多个Object数组的List集合。&lt;/p&gt;
-&lt;excerpt in index | 首页摘要&gt;&lt;/excerpt&gt;
-    
-    </summary>
-    
-    
-      <category term="Spring Boot" scheme="https://caicaing.github.io/tags/Spring-Boot/"/>
     
   </entry>
   
