@@ -7,25 +7,19 @@
   
   
   
-  <title>centos7.3搭建gogs | 菜菜的blog</title>
+  <title>MongoDB的安装和使用 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Gogs 是一款类似GitHub的开源文件/代码管理系统（基于Git），Gogs 的目标是打造一个最简单、最快速和最轻松的方式搭建自助 Git 服务。使用 Go 语言开发使得 Gogs 能够通过独立的二进制分发，并且支持 Go 语言支持的 所有平台，包括 Linux、Mac OS X、Windows 以及 ARM 平台。">
-<meta name="keywords" content="gogs">
+  <meta name="description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centos7.3搭建gogs">
-<meta property="og:url" content="https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/index.html">
+<meta property="og:title" content="MongoDB的安装和使用">
+<meta property="og:url" content="https://caicaing.github.io/2019/06/27/MongoDB的安装和使用/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="Gogs 是一款类似GitHub的开源文件/代码管理系统（基于Git），Gogs 的目标是打造一个最简单、最快速和最轻松的方式搭建自助 Git 服务。使用 Go 语言开发使得 Gogs 能够通过独立的二进制分发，并且支持 Go 语言支持的 所有平台，包括 Linux、Mac OS X、Windows 以及 ARM 平台。">
+<meta property="og:description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/3203841-709cd56c61b12bd7.png">
-<meta property="og:image" content="https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/2019-05-31_142708.jpg">
-<meta property="og:image" content="https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/2019-05-31_152224.jpg">
-<meta property="og:image" content="https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/2019-05-31_152749.jpg">
-<meta property="og:updated_time" content="2019-05-31T07:34:26.882Z">
+<meta property="og:updated_time" content="2019-06-27T02:18:40.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos7.3搭建gogs">
-<meta name="twitter:description" content="Gogs 是一款类似GitHub的开源文件/代码管理系统（基于Git），Gogs 的目标是打造一个最简单、最快速和最轻松的方式搭建自助 Git 服务。使用 Go 语言开发使得 Gogs 能够通过独立的二进制分发，并且支持 Go 语言支持的 所有平台，包括 Linux、Mac OS X、Windows 以及 ARM 平台。">
-<meta name="twitter:image" content="https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/3203841-709cd56c61b12bd7.png">
+<meta name="twitter:title" content="MongoDB的安装和使用">
+<meta name="twitter:description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -264,11 +258,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-centos7-3搭建gogs" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-MongoDB的安装和使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/31/centos7-3搭建gogs/" class="article-date">
-      <time datetime="2019-05-31T06:14:14.000Z" itemprop="datePublished">2019-05-31</time>
+      <a href="/2019/06/27/MongoDB的安装和使用/" class="article-date">
+      <time datetime="2019-06-27T02:18:40.000Z" itemprop="datePublished">2019-06-27</time>
 </a>
 
     </div>
@@ -282,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      centos7.3搭建gogs
+      MongoDB的安装和使用
     </h1>
   
 
@@ -293,10 +287,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gogs/">gogs</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -304,28 +294,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Gogs 是一款类似GitHub的开源文件/代码管理系统（基于Git），Gogs 的目标是打造一个最简单、最快速和最轻松的方式搭建自助 Git 服务。使用 Go 语言开发使得 Gogs 能够通过独立的二进制分发，并且支持 Go 语言支持的 所有平台，包括 Linux、Mac OS X、Windows 以及 ARM 平台。</p>
-<a id="more"></a>
-<the rest of contents | 余下全文>
-
-<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="升级centos内核到最新版本"><a href="#升级centos内核到最新版本" class="headerlink" title="升级centos内核到最新版本"></a>升级centos内核到最新版本</h3><p>在安装响应包之前先将centos的系统版本和内核升级,防止出现docker启动gogs时候报错</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
-<h3 id="安装docker-1"><a href="#安装docker-1" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 通过yum源安装docker</span><br><span class="line">yum -y install docker</span><br><span class="line"><span class="meta">#</span> 启动docker</span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="meta">#</span> 设置开机自启</span><br><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure>
-<h3 id="下载gogs镜像"><a href="#下载gogs镜像" class="headerlink" title="下载gogs镜像"></a>下载gogs镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gogs/gogs</span><br></pre></td></tr></table></figure>
-<h3 id="创建gogs存储目录"><a href="#创建gogs存储目录" class="headerlink" title="创建gogs存储目录"></a>创建gogs存储目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/gogs</span><br></pre></td></tr></table></figure>
-<h3 id="运行镜像-产生容器"><a href="#运行镜像-产生容器" class="headerlink" title="运行镜像,产生容器"></a>运行镜像,产生容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs</span><br></pre></td></tr></table></figure>
-<h2 id="运行并配置配置gogs"><a href="#运行并配置配置gogs" class="headerlink" title="运行并配置配置gogs"></a>运行并配置配置gogs</h2><p><img src="/2019/05/31/centos7-3搭建gogs/3203841-709cd56c61b12bd7.png" alt></p>
-<p>配置完成后点击立即安装开始安装</p>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>注册登录后,在控制面版中可以看到我的仓库,点击 ‘+’ 可以创建新的仓库:</p>
-<p>创建仓库的时候可以选择使用选定的文件和模板初始化仓库,如果不勾选初始化则创建一个空的仓库.</p>
-<p><img src="/2019/05/31/centos7-3搭建gogs/2019-05-31_142708.jpg" alt></p>
-<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>打开想要克隆的仓库,复制http url连接,在想要克隆的目录下使用git clone url 即可</p>
-<p><img src="/2019/05/31/centos7-3搭建gogs/2019-05-31_152224.jpg" alt></p>
-<h2 id="提交本地仓库"><a href="#提交本地仓库" class="headerlink" title="提交本地仓库"></a>提交本地仓库</h2><p>如下图所示,在克隆下来的仓库中添加了一张图片,现在要想整个本地仓库再上传到gogs中</p>
-<p><img src="/2019/05/31/centos7-3搭建gogs/2019-05-31_152749.jpg" alt></p>
-<p>使用如下命令:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>添加所有文件</span><br><span class="line">git add -A </span><br><span class="line"><span class="meta">#</span>提交到本地仓库</span><br><span class="line">git commit -m "first commit"</span><br><span class="line"><span class="meta">#</span>提交到gogs仓库</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-</the>
+        
       
     </div>
     
@@ -333,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/31/centos7-3搭建gogs/">centos7.3搭建gogs</a></p>
+        <p><span>本文标题:</span><a href="/2019/06/27/MongoDB的安装和使用/">MongoDB的安装和使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年05月31日 - 14时14分</p>
-        <p><span>最后更新:</span>2019年05月31日 - 15时34分</p>
+        <p><span>发布时间:</span>2019年06月27日 - 10时18分</p>
+        <p><span>最后更新:</span>2019年06月27日 - 10时18分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/31/centos7-3搭建gogs/" title="centos7.3搭建gogs">https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/05/31/centos7-3搭建gogs/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/06/27/MongoDB的安装和使用/" title="MongoDB的安装和使用">https://caicaing.github.io/2019/06/27/MongoDB的安装和使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/06/27/MongoDB的安装和使用/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -350,18 +319,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/06/03/lucene操作实例/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          lucene全文检索操作实例
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/25/git常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git常用命令</div>
+    <a href="/2019/06/18/Thumbnailator图片处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Thumbnailator图片处理</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -373,7 +333,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装docker"><span class="toc-number">1.</span> <span class="toc-text">安装docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#升级centos内核到最新版本"><span class="toc-number">1.1.</span> <span class="toc-text">升级centos内核到最新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装docker-1"><span class="toc-number">1.2.</span> <span class="toc-text">安装docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载gogs镜像"><span class="toc-number">1.3.</span> <span class="toc-text">下载gogs镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建gogs存储目录"><span class="toc-number">1.4.</span> <span class="toc-text">创建gogs存储目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行镜像-产生容器"><span class="toc-number">1.5.</span> <span class="toc-text">运行镜像,产生容器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行并配置配置gogs"><span class="toc-number">2.</span> <span class="toc-text">运行并配置配置gogs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建仓库"><span class="toc-number">3.</span> <span class="toc-text">创建仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆仓库"><span class="toc-number">4.</span> <span class="toc-text">克隆仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交本地仓库"><span class="toc-number">5.</span> <span class="toc-text">提交本地仓库</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -434,13 +394,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/06/03/lucene操作实例/" title="上一篇: lucene全文检索操作实例">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/05/25/git常用命令/" title="下一篇: git常用命令">
+            <a href="/2019/06/18/Thumbnailator图片处理/" title="下一篇: Thumbnailator图片处理">
                 <i class="fa fa-angle-right"></i>
             </a>
         
