@@ -7,26 +7,20 @@
   
   
   
-  <title>lucene全文检索操作实例 | 菜菜的blog</title>
+  <title>SpringBoot+ajax跨域请求 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。">
-<meta name="keywords" content="lucene">
+  <meta name="description" content="在使用ajax请求SpringBoot + SpringSecurity后端时遇到的一些坑。">
+<meta name="keywords" content="SpringBoot,ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lucene全文检索操作实例">
-<meta property="og:url" content="https://caicaing.github.io/2019/06/03/lucene操作实例/index.html">
+<meta property="og:title" content="SpringBoot+ajax跨域请求">
+<meta property="og:url" content="https://caicaing.github.io/2019/07/11/SpringBoot-ajax跨域请求/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。">
+<meta property="og:description" content="在使用ajax请求SpringBoot + SpringSecurity后端时遇到的一些坑。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://caicaing.github.io/2019/06/03/lucene操作实例/2019-06-03_232645.jpg">
-<meta property="og:image" content="https://caicaing.github.io/2019/06/03/lucene操作实例/2019-06-03_231250.jpg">
-<meta property="og:image" content="https://caicaing.github.io/2019/06/03/lucene操作实例/2019-06-03_231604.jpg">
-<meta property="og:image" content="https://caicaing.github.io/2019/06/03/lucene操作实例/D:/OneDrive%20-%20business/myblog/source/_posts/lucene操作实例/2019-06-03_232113.jpg">
-<meta property="og:image" content="https://caicaing.github.io/2019/06/03/lucene操作实例/2019-06-03_232508.jpg">
-<meta property="og:updated_time" content="2019-06-03T15:44:24.626Z">
+<meta property="og:updated_time" content="2019-07-12T02:47:17.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lucene全文检索操作实例">
-<meta name="twitter:description" content="Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。">
-<meta name="twitter:image" content="https://caicaing.github.io/2019/06/03/lucene操作实例/2019-06-03_232645.jpg">
+<meta name="twitter:title" content="SpringBoot+ajax跨域请求">
+<meta name="twitter:description" content="在使用ajax请求SpringBoot + SpringSecurity后端时遇到的一些坑。">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -265,11 +259,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-lucene操作实例" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SpringBoot-ajax跨域请求" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/06/03/lucene操作实例/" class="article-date">
-      <time datetime="2019-06-03T15:00:01.000Z" itemprop="datePublished">2019-06-03</time>
+      <a href="/2019/07/11/SpringBoot-ajax跨域请求/" class="article-date">
+      <time datetime="2019-07-11T10:29:07.000Z" itemprop="datePublished">2019-07-11</time>
 </a>
 
     </div>
@@ -283,7 +277,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      lucene全文检索操作实例
+      SpringBoot+ajax跨域请求
     </h1>
   
 
@@ -295,7 +289,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lucene/">lucene</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,44 +299,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。</p>
+        <p>在使用ajax请求SpringBoot + SpringSecurity后端时遇到的一些坑。</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="全文检索"><a href="#全文检索" class="headerlink" title="全文检索"></a>全文检索</h2><p>将非结构化数据中的一部分信息提取出来，重新组织，使其变得有一定结构，然后对此有一定结构的数据进行搜索，从而达到搜索相对较快的目的。这部分从非结构化数据中提取出的然后重新组织的信息，我们称之<strong>索引</strong>。</p>
-<p>例如：字典。字典的拼音表和部首检字表就相当于字典的索引，对每一个字的解释是非结构化的，如果字典没有音节表和部首检字表，在茫茫辞海中找一个字只能顺序扫描。然而字的某些信息可以提取出来进行结构化处理，比如读音，就比较结构化，分声母和韵母，分别只有几种可以一一列举，于是将读音拿出来按一定的顺序排列，每一项读音都指向此字的详细解释的页数。我们搜索时按结构化的拼音搜到读音，然后按其指向的页数，便可找到我们的非结构化数据——也即对字的解释。</p>
-<p><strong>这种先建立索引，再对索引进行搜索的过程就叫全文检索**</strong>(Full-text Search)<strong>**。</strong></p>
-<p>虽然创建索引的过程也是非常耗时的，但是索引一旦创建就可以多次使用，全文检索主要处理的是查询，所以耗时间创建索引是值得的。对于数据量大、数据结构不固定的数据可采用全文检索方式搜索，比如百度、Google等搜索引擎、论坛站内搜索、电商网站站内搜索等。</p>
-<p>Tip:lucene对java环境的最低要求为JAVA1.8</p>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p>第一步：创建一个java工程，并导入jar包。</p>
-<p>工程所需jar包:</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_232645.jpg" alt></p>
-<p>第二步：创建一个indexwriter对象。</p>
-<p>1）指定索引库的存放位置Directory对象</p>
-<p>2）指定一个IndexWriterConfig对象。</p>
-<p>第二步：创建document对象。</p>
-<p>第三步：创建field对象，将field添加到document对象中。</p>
-<p>第四步：使用indexwriter对象将document对象写入索引库，此过程进行索引创建。并将索引和document对象写入索引库。</p>
-<p>第五步：关闭IndexWriter对象。</p>
-<p>代码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       <span class="comment">//创建一个Director对象,指定索引库保存的位置</span></span><br><span class="line">       Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"c:\\temp\\index"</span>).toPath());</span><br><span class="line">       <span class="comment">//基于directory对象创建一个IndexWriter对象</span></span><br><span class="line">       IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(directory, <span class="keyword">new</span> IndexWriterConfig());</span><br><span class="line">       <span class="comment">//读取磁盘上的文件</span></span><br><span class="line">       File dir = <span class="keyword">new</span> File(<span class="string">"C:\\Users\\liu\\Desktop\\searchsource"</span>);</span><br><span class="line">       <span class="comment">//原始文档的路径</span></span><br><span class="line">       File[] files = dir.listFiles();</span><br><span class="line">       <span class="keyword">for</span> (File f : files) &#123;</span><br><span class="line">           String name = f.getName();</span><br><span class="line">           String filePath = f.getPath();</span><br><span class="line">           String fileContent = FileUtils.readFileToString(f, <span class="string">"utf-8"</span>);</span><br><span class="line">           <span class="keyword">long</span> fileSize = FileUtils.sizeOf(f);</span><br><span class="line">           <span class="comment">//创建Field</span></span><br><span class="line">           <span class="comment">//第一个参数：域的名称</span></span><br><span class="line">           <span class="comment">//第二个参数：域的内容</span></span><br><span class="line">           <span class="comment">//第三个参数：是否存储</span></span><br><span class="line">           Field fieldName = <span class="keyword">new</span> TextField(<span class="string">"name"</span>, name, Field.Store.YES);</span><br><span class="line">           <span class="comment">//文件路径域（不分析、不索引、只存储）</span></span><br><span class="line">           Field fieldPath = <span class="keyword">new</span> TextField(<span class="string">"path"</span>, filePath, Field.Store.YES);</span><br><span class="line">           <span class="comment">//文件内容域</span></span><br><span class="line">           Field fieldContent = <span class="keyword">new</span> TextField(<span class="string">"content"</span>, fileContent, Field.Store.YES);</span><br><span class="line">           <span class="comment">//文件大小域</span></span><br><span class="line">           Field fieldSize = <span class="keyword">new</span> TextField(<span class="string">"size"</span>, fileSize + <span class="string">""</span>, Field.Store.YES);</span><br><span class="line">           <span class="comment">//创建文档对象</span></span><br><span class="line">           Document document = <span class="keyword">new</span> Document();</span><br><span class="line">           document.add(fieldName);</span><br><span class="line">           document.add(fieldPath);</span><br><span class="line">           document.add(fieldContent);</span><br><span class="line">           document.add(fieldSize);</span><br><span class="line">           <span class="comment">//把文档对象写入索引库</span></span><br><span class="line">           indexWriter.addDocument(document);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//关闭indexwriter</span></span><br><span class="line">       indexWriter.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>createIndex方法运行后会在c:\\temp\\index文件夹下生成索引文件,如下图:</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_231250.jpg" alt></p>
-<p>生成的索引文件为二进制文件,可以使用luke打开索引</p>
-<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><p>luck开始界面如下,在indexPath中选择索引存储位置文件夹即可</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_231604.jpg" alt></p>
-<p><img src="/2019/06/03/lucene操作实例/D:/OneDrive - business\myblog\source\_posts\lucene操作实例\2019-06-03_232113.jpg" alt></p>
-<h2 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h2><p>第一步：创建一个Directory对象，也就是索引库存放的位置。</p>
-<p>第二步：创建一个indexReader对象，需要指定Directory对象。</p>
-<p>第三步：创建一个indexsearcher对象，需要指定IndexReader对象</p>
-<p>第四步：创建一个TermQuery对象，指定查询的域和查询的关键词。</p>
-<p>第五步：执行查询。</p>
-<p>第六步：返回查询结果。遍历查询结果并输出。</p>
-<p>第七步：关闭IndexReader对象</p>
-<p>代码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//指定索引库存放的路径</span></span><br><span class="line">    Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"c:\\temp\\index"</span>).toPath());</span><br><span class="line">    <span class="comment">//创建indexReader对象</span></span><br><span class="line">    IndexReader indexReader = DirectoryReader.open(directory);</span><br><span class="line">    <span class="comment">//创建indexsearcher对象</span></span><br><span class="line">    IndexSearcher indexSearcher = <span class="keyword">new</span> IndexSearcher(indexReader);</span><br><span class="line">    <span class="comment">//创建查询</span></span><br><span class="line">    Query query = <span class="keyword">new</span> TermQuery(<span class="keyword">new</span> Term(<span class="string">"content"</span>, <span class="string">"spring"</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//执行查询</span></span><br><span class="line">    <span class="comment">//第一个参数是查询对象，第二个参数是查询结果返回的最大值</span></span><br><span class="line">    TopDocs topDocs = indexSearcher.search(query, <span class="number">10</span>);</span><br><span class="line">    <span class="comment">//查询结果的总条数</span></span><br><span class="line">    System.out.println(<span class="string">"查询总记录数:"</span> + topDocs.totalHits);</span><br><span class="line">    <span class="comment">//遍历查询结果</span></span><br><span class="line">    <span class="comment">//topDocs.scoreDocs存储了document对象的id</span></span><br><span class="line"></span><br><span class="line">    ScoreDoc[] scoreDocs = topDocs.scoreDocs;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ScoreDoc doc : scoreDocs) &#123;</span><br><span class="line">        <span class="comment">//scoreDoc.doc属性就是document对象的id</span></span><br><span class="line">        <span class="comment">//根据document的id找到document对象</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> docId = doc.doc;</span><br><span class="line">        Document document = indexSearcher.doc(docId);</span><br><span class="line">        System.out.println(document.get(<span class="string">"name"</span>));</span><br><span class="line">        System.out.println(document.get(<span class="string">"path"</span>));</span><br><span class="line">        System.out.println(document.get(<span class="string">"size"</span>));</span><br><span class="line">        System.out.println(document.get(<span class="string">"content"</span>));</span><br><span class="line">        System.out.println(<span class="string">"--------------------------"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//关闭indexreader对象</span></span><br><span class="line">    indexReader.close();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>部分查询结果如下图:</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_232508.jpg" alt></p>
+
+
+<h2 id="不集成SpringSecurity的情况下进行跨域访问"><a href="#不集成SpringSecurity的情况下进行跨域访问" class="headerlink" title="不集成SpringSecurity的情况下进行跨域访问"></a>不集成SpringSecurity的情况下进行跨域访问</h2><h3 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h3><p>在使用ajax请求后端的时候在浏览器控制台会输出如下信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access to XMLHttpRequest at <span class="string">'http://localhost:8080/test'</span> from origin <span class="string">'null'</span> has been blocked by CORS policy: No <span class="string">'Access-Control-Allow-Origin'</span> header is present on the requested resource.</span><br></pre></td></tr></table></figure>
+<p>从源’本地路径’访问 ‘目标路径(请求链接)’文本传输请求已被CORS策略阻塞:对预置请求的响应未通过访问控制检查:请求的资源上不存在’Access- control - allow - origin ‘报头。</p>
+<h3 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h3><p>本地路径和目标路径不是同一个域名下引起的跨域问题</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>在对应的Controller类前上@CrossOrigin注解</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.CrossOrigin;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: demo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: liu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-07-11 18:14</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/testPost"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testPost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"testPost成功"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"testPost跨域请求成功"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/testGet"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testGet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"testGet成功"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"testGet跨域请求成功"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="集成SpringSecurity的情况下进行跨域访问"><a href="#集成SpringSecurity的情况下进行跨域访问" class="headerlink" title="集成SpringSecurity的情况下进行跨域访问"></a>集成SpringSecurity的情况下进行跨域访问</h2><h3 id="错误信息-1"><a href="#错误信息-1" class="headerlink" title="错误信息"></a>错误信息</h3><p>集成SpringSecurity后get请求正常，但是对于post请求仍然会显示错误信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jquery.min.js:<span class="number">4</span> POST http:<span class="comment">//localhost:8080/testPost 403</span></span><br><span class="line">list_student.html:<span class="number">1</span> Access to XMLHttpRequest at <span class="string">'http://localhost:8080/testPost'</span> from origin <span class="string">'null'</span> has been blocked by CORS policy: No <span class="string">'Access-Control-Allow-Origin'</span> header is present on the requested resource.</span><br></pre></td></tr></table></figure>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>添加WebSecurityConfiguration配置文件可关闭csrf</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.annotation.Order;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpMethod;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="meta">@EnableGlobalMethodSecurity</span>(prePostEnabled = <span class="keyword">true</span>)</span><br><span class="line"><span class="meta">@Order</span>(-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSecurityConfiguration</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"><span class="comment">//        http.requestMatchers().antMatchers(HttpMethod.OPTIONS, "/oauth/**","/login/**","/logout/**")</span></span><br><span class="line"><span class="comment">//            .and()</span></span><br><span class="line"><span class="comment">//            .authorizeRequests()</span></span><br><span class="line"><span class="comment">//            .antMatchers().permitAll()</span></span><br><span class="line"><span class="comment">//            .and()</span></span><br><span class="line"><span class="comment">//            .formLogin().permitAll(); //新增login form 支持用户登录及授权</span></span><br><span class="line"></span><br><span class="line">        http.requestMatchers().antMatchers(HttpMethod.OPTIONS, <span class="string">"/oauth/**"</span>)</span><br><span class="line">                .and()</span><br><span class="line">                .cors()</span><br><span class="line">                .and()</span><br><span class="line">                .csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </the>
       
     </div>
@@ -351,13 +324,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/06/03/lucene操作实例/">lucene全文检索操作实例</a></p>
+        <p><span>本文标题:</span><a href="/2019/07/11/SpringBoot-ajax跨域请求/">SpringBoot+ajax跨域请求</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年06月03日 - 23时00分</p>
-        <p><span>最后更新:</span>2019年06月03日 - 23时44分</p>
+        <p><span>发布时间:</span>2019年07月11日 - 18时29分</p>
+        <p><span>最后更新:</span>2019年07月12日 - 10时47分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/06/03/lucene操作实例/" title="lucene全文检索操作实例">https://caicaing.github.io/2019/06/03/lucene操作实例/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/06/03/lucene操作实例/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/11/SpringBoot-ajax跨域请求/" title="SpringBoot+ajax跨域请求">https://caicaing.github.io/2019/07/11/SpringBoot-ajax跨域请求/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/07/11/SpringBoot-ajax跨域请求/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -368,18 +341,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/06/18/Thumbnailator图片处理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Thumbnailator图片处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/31/centos7-3搭建gogs/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">centos7.3搭建gogs</div>
+    <a href="/2019/07/10/SpringBoot整合Activiti7使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot整合Activiti7使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -391,7 +355,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#全文检索"><span class="toc-number">1.</span> <span class="toc-text">全文检索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建索引"><span class="toc-number">2.</span> <span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看索引"><span class="toc-number">3.</span> <span class="toc-text">查看索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询索引"><span class="toc-number">4.</span> <span class="toc-text">查询索引</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#不集成SpringSecurity的情况下进行跨域访问"><span class="toc-number">1.</span> <span class="toc-text">不集成SpringSecurity的情况下进行跨域访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误信息"><span class="toc-number">1.1.</span> <span class="toc-text">错误信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误原因"><span class="toc-number">1.2.</span> <span class="toc-text">错误原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">1.3.</span> <span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集成SpringSecurity的情况下进行跨域访问"><span class="toc-number">2.</span> <span class="toc-text">集成SpringSecurity的情况下进行跨域访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误信息-1"><span class="toc-number">2.1.</span> <span class="toc-text">错误信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案-1"><span class="toc-number">2.2.</span> <span class="toc-text">解决方案</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -452,13 +416,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/06/18/Thumbnailator图片处理/" title="上一篇: Thumbnailator图片处理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/05/31/centos7-3搭建gogs/" title="下一篇: centos7.3搭建gogs">
+            <a href="/2019/07/10/SpringBoot整合Activiti7使用/" title="下一篇: SpringBoot整合Activiti7使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
