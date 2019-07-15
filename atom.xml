@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://caicaing.github.io/"/>
-  <updated>2019-07-12T02:47:17.269Z</updated>
+  <updated>2019-07-15T01:09:14.996Z</updated>
   <id>https://caicaing.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker安装mysql</title>
+    <link href="https://caicaing.github.io/2019/07/15/docker%E5%AE%89%E8%A3%85mysql/"/>
+    <id>https://caicaing.github.io/2019/07/15/docker安装mysql/</id>
+    <published>2019-07-15T00:27:24.000Z</published>
+    <updated>2019-07-15T01:09:14.996Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用使用docker 安装mysql,并且进行远程访问连接</p><a id="more"></a><the rest of contents | 余下全文><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul><li>centos7.3</li><li>docker</li><li>mysql-8.0.16.0</li></ul><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h3 id="升级yum"><a href="#升级yum" class="headerlink" title="升级yum"></a>升级yum</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker -y</span><br></pre></td></tr></table></figure><h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker  # 启动</span><br><span class="line">systemctl enable docker # 设置开机启动</span><br></pre></td></tr></table></figure><h3 id="查找mysql镜像"><a href="#查找mysql镜像" class="headerlink" title="查找mysql镜像"></a>查找mysql镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure><h3 id="拉取mysql镜像"><a href="#拉取mysql镜像" class="headerlink" title="拉取mysql镜像"></a>拉取mysql镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql #默认为下载最新版</span><br></pre></td></tr></table></figure><h3 id="查看mysql镜像"><a href="#查看mysql镜像" class="headerlink" title="查看mysql镜像"></a>查看mysql镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure><h3 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql</span><br></pre></td></tr></table></figure><p>（参数 -p 设置端口，–name 取名 ，-e MYSQL_ROOT_PASSWORD=123456 设置 账号为 root ，密码为 123456  -d 表示作为一个守护进程在后台运行 ）</p><h3 id="查看运行中的容器"><a href="#查看运行中的容器" class="headerlink" title="查看运行中的容器"></a>查看运行中的容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure><p><img src="/2019/07/15/docker安装mysql/2.jpg" alt="2"></p><h2 id="远程连接mysql及错误解决"><a href="#远程连接mysql及错误解决" class="headerlink" title="远程连接mysql及错误解决"></a>远程连接mysql及错误解决</h2><p>在上文中,我们已经创建了一个mysql容器,在连接过程中使用navicat报错错误信息如下:</p><p><img src="/2019/07/15/docker安装mysql/1.jpg" alt="1"></p><p>为了对mysql进行操作首先要进入docker中的mysql</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql bash</span><br></pre></td></tr></table></figure><p>登录mysql</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><p>执行sql语句</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '你的密码';</span><br><span class="line">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你的密码';</span><br></pre></td></tr></table></figure><p>执行后再次连接,连接成功</p></the>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用使用docker 安装mysql,并且进行远程访问连接&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://caicaing.github.io/tags/docker/"/>
+    
+      <category term="mysql" scheme="https://caicaing.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringBoot+ajax跨域请求</title>
@@ -409,27 +431,6 @@
     
     
       <category term="MYSQL" scheme="https://caicaing.github.io/tags/MYSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jpa 自定义查询语句</title>
-    <link href="https://caicaing.github.io/2019/04/10/jpa-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/"/>
-    <id>https://caicaing.github.io/2019/04/10/jpa-自定义查询语句/</id>
-    <published>2019-04-10T08:08:39.000Z</published>
-    <updated>2019-04-10T08:25:30.893Z</updated>
-    
-    <content type="html"><![CDATA[<p>在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&lt;Object[]&gt; 类型，即多个Object数组的List集合。</p><excerpt in index | 首页摘要><a id="more"></a><the rest of contents | 余下全文><h2 id="Query-注解"><a href="#Query-注解" class="headerlink" title="@Query()注解"></a>@Query()注解</h2><p>通过使@query注解,可以自定义语句进行sql操作</p><p>下例为在数据库中查询10个随机的选择题的自定义查询方法:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MultipleChoiceRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">MultipleChoice</span>,<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Query</span>(value = <span class="string">"select * from choice ORDER BY RAND() limit :num"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MultipleChoice&gt; <span class="title">findByNmber</span><span class="params">(@Param(<span class="string">"num"</span>)</span> Integer num)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="开启mysql语句"><a href="#开启mysql语句" class="headerlink" title="开启mysql语句"></a>开启mysql语句</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Query</span>(value = <span class="string">""</span>,nativeQuery = <span class="keyword">true</span>)  <span class="comment">//nativeQuery= true开启mysql</span></span><br></pre></td></tr></table></figure><h2 id="Modefying-注解"><a href="#Modefying-注解" class="headerlink" title="@Modefying()注解"></a>@Modefying()注解</h2><p>如果是删除或修改操作，需要加入此注解进行修饰. 以通知 SpringData， 这是一个 UPDATE 或 DELETE 操作 ；默认情况下，是只读，所以查询不需要</p><h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递:"></a>参数传递:</h1><h2 id="Param-注解"><a href="#Param-注解" class="headerlink" title="@Param()注解"></a>@Param()注解</h2><p>使用@Param注解可以给查询语句中注入参数</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Param</span>(<span class="string">"num"</span>) Integer num</span><br></pre></td></tr></table></figure><p>在sql语句中使用  :参数名    进行调用</p><h2 id="使用-占位符"><a href="#使用-占位符" class="headerlink" title="使用?占位符"></a>使用?占位符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MultipleChoiceRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">MultipleChoice</span>,<span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Query</span>(value = <span class="string">"select * from choice ORDER BY RAND() limit ?"</span>,nativeQuery = <span class="keyword">true</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;MultipleChoice&gt; <span class="title">findByNmber</span><span class="params">(Integer num)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>sql语句中也可以使用?占位符的方式进行参数写入</p></the></excerpt>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用Spring Data Jpa框架时，根据业务需求我们通常需要进行复杂的数据库查询，并返回我们自定义的实体类，而在该框架下，目前仅仅支持返回与数据库映射进行持久化的POJO实体。虽然在框架上我们可以使用@Query注解执行我们自定义的sql语句，但是其返回值为List&amp;lt;Object[]&amp;gt; 类型，即多个Object数组的List集合。&lt;/p&gt;
-&lt;excerpt in index | 首页摘要&gt;&lt;/excerpt&gt;
-    
-    </summary>
-    
-    
-      <category term="Spring Boot" scheme="https://caicaing.github.io/tags/Spring-Boot/"/>
     
   </entry>
   
