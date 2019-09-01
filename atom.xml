@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://caicaing.github.io/"/>
-  <updated>2019-07-15T01:09:14.996Z</updated>
+  <updated>2019-09-01T01:42:15.343Z</updated>
   <id>https://caicaing.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python list.append方法数据覆盖</title>
+    <link href="https://caicaing.github.io/2019/09/01/python-list-append%E6%96%B9%E6%B3%95%E6%95%B0%E6%8D%AE%E8%A6%86%E7%9B%96/"/>
+    <id>https://caicaing.github.io/2019/09/01/python-list-append方法数据覆盖/</id>
+    <published>2019-09-01T01:27:12.000Z</published>
+    <updated>2019-09-01T01:42:15.343Z</updated>
+    
+    <content type="html"><![CDATA[<p>python循环中添加list数据覆盖问题。</p><a id="more"></a><the rest of contents | 余下全文><p>测试代码如下:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        a.append(i)</span><br><span class="line">        b.append(a)</span><br><span class="line"></span><br><span class="line">    print(b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    <span class="keyword">global</span> b</span><br><span class="line">    a = list()</span><br><span class="line">    b = list()</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure><p> 运行结果:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4]]</span><br></pre></td></tr></table></figure><p>然而此函数预期的结果应该为:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[0], [0, 1], [0, 1, 2], [0, 1, 2, 3], [0, 1, 2, 3, 4]]</span><br></pre></td></tr></table></figure><p>这是因为当向listb中添加lista时添加的相当于a的地址,当在循环中修改了lista的数据时候,由于listb中所有的指向都为lista所以所有的数据都会随之改变。若想在listb中展示预期数据，应当新建一个list再将其添加到listb中，此处使用python自带的深拷贝函数进行拷贝原来的a。代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        a.append(i)</span><br><span class="line">        c = copy.deepcopy(a)</span><br><span class="line">        b.append(c)</span><br><span class="line"></span><br><span class="line">    print(b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    <span class="keyword">global</span> b</span><br><span class="line">    a = list()</span><br><span class="line">    b = list()</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure></the>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python循环中添加list数据覆盖问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://caicaing.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>docker安装mysql</title>
@@ -410,27 +430,6 @@
     
     
       <category term="Spring Boot" scheme="https://caicaing.github.io/tags/Spring-Boot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MYSQL随机选择数据</title>
-    <link href="https://caicaing.github.io/2019/04/10/MYSQL%E9%9A%8F%E6%9C%BA%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE/"/>
-    <id>https://caicaing.github.io/2019/04/10/MYSQL随机选择数据/</id>
-    <published>2019-04-10T08:26:25.000Z</published>
-    <updated>2019-04-10T08:31:56.205Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近在做一个在线考试系统,遇到需要随机选择20道选择题的需求.</p> <excerpt in index | 首页摘要><a id="more"></a><the rest of contents | 余下全文><h2 id="使用ORDER-BY-RAND-选择随机记录"><a href="#使用ORDER-BY-RAND-选择随机记录" class="headerlink" title="使用ORDER BY RAND()选择随机记录"></a>使用ORDER BY RAND()选择随机记录</h2><p>MySQL没有内置语句来从数据库表中选择随机记录。为了实现这个目的，可使用<code>RAND</code>函数。 以下查询是从数据库表中选择N个随机记录：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">    *</span><br><span class="line">FROM</span><br><span class="line">    tbl</span><br><span class="line">ORDER BY RAND()</span><br><span class="line">LIMIT N;</span><br></pre></td></tr></table></figure><ul><li><code>RAND（）</code>函数为表中的每一行生成一个随机值。 </li><li><a href="http://www.studymysql.com/mysql/order-by.html" target="_blank" rel="noopener">ORDER BY</a>子句按照<code>RAND（）</code>函数生成的随机数对表中的所有行进行排序。 </li></ul><p>这种技术非常适合小表。如果在大的表上执行速度是非常缓慢的，因为MySQL必须排序整个表，以挑选随机的行数据。查询的速度还取决于表中的行数。表具有的行越多，MySQL都要为每行生成随机数，所以所需的时间就越多。</p></the></excerpt>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在做一个在线考试系统,遇到需要随机选择20道选择题的需求.&lt;/p&gt;
- &lt;excerpt in index | 首页摘要&gt;&lt;/excerpt&gt;
-    
-    </summary>
-    
-    
-      <category term="MYSQL" scheme="https://caicaing.github.io/tags/MYSQL/"/>
     
   </entry>
   
