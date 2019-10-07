@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>spring boot邮件发送和定时任务 | 菜菜的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用SpringBoot整合Mail发送邮件和定时任务,自用">
+<meta name="keywords" content="Spring Boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring boot邮件发送和定时任务">
+<meta property="og:url" content="https://caicaing.github.io/2019/09/03/spring-boot邮件发送/index.html">
+<meta property="og:site_name" content="菜菜的blog">
+<meta property="og:description" content="使用SpringBoot整合Mail发送邮件和定时任务,自用">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-04T02:15:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring boot邮件发送和定时任务">
+<meta name="twitter:description" content="使用SpringBoot整合Mail发送邮件和定时任务,自用">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpeg">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">菜菜</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Activiti7/" style="font-size: 10px;">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/JAVA/" style="font-size: 15px;">JAVA</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/MYSQL/" style="font-size: 17.5px;">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 12.5px;">SpringBoot</a> <a href="/tags/Sprint-Boot/" style="font-size: 10px;">Sprint Boot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Thumbnailator/" style="font-size: 10px;">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gogs/" style="font-size: 10px;">gogs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/lucene/" style="font-size: 10px;">lucene</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 12.5px;">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 10px;">网络科学导论</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://mvnrepository.com/">mvnrepository</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://translate.google.cn/?hl=zh-CN&tab=TT">谷歌翻译</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://spring.io/">spring</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个不断变强的菜菜!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">菜菜</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">菜菜</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-spring-boot邮件发送" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/03/spring-boot邮件发送/" class="article-date">
+      <time datetime="2019-09-03T11:34:10.000Z" itemprop="datePublished">2019-09-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring boot邮件发送和定时任务
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>使用SpringBoot整合Mail发送邮件和定时任务,自用</p>
+<a id="more"></a>
+<p><the rest of contents | 余下全文>\</the></p>
+<p>pom.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.7.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springboot-task<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>springboot-task<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>application.properties:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring.mail.host=smtp.qq.com</span><br><span class="line">spring.mail.username=5426482@qq.com</span><br><span class="line">spring.mail.password=bphrczxkemzubibf</span><br><span class="line">spring.mail.properties.mail.smtp.auth=true</span><br><span class="line">spring.mail.properties.mail.smtp.starttls.enable=true</span><br><span class="line">spring.mail.properties.mail.smtp.starttls.required=true</span><br></pre></td></tr></table></figure>
+<p> SpringbootTaskApplication</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.springboottask;<span class="keyword">import</span> org.springframework.boot.SpringApplication;<span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<span class="keyword">import</span> org.springframework.scheduling.annotation.EnableAsync;<span class="keyword">import</span> org.springframework.scheduling.annotation.EnableScheduling;<span class="meta">@EnableScheduling</span><span class="meta">@EnableAsync</span><span class="meta">@SpringBootApplicationpublic</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootTaskApplication</span> </span>&#123;    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;        SpringApplication.run(SpringbootTaskApplication.class, args);    &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>ScheduledService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.springboottask.service;<span class="keyword">import</span> org.springframework.scheduling.annotation.Scheduled;<span class="keyword">import</span> org.springframework.stereotype.Service;<span class="meta">@Servicepublic</span> <span class="class"><span class="keyword">class</span> <span class="title">ScheduledService</span> </span>&#123;    <span class="meta">@Scheduled</span>(cron = <span class="string">"0 * * * * MON-FRI"</span>)    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;        System.out.println(<span class="string">"hello"</span>);    &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>AsyncService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.springboottask.service;<span class="keyword">import</span> org.springframework.scheduling.annotation.Async;<span class="keyword">import</span> org.springframework.stereotype.Service;<span class="meta">@Servicepublic</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncService</span> </span>&#123;    <span class="meta">@Async</span>    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;        <span class="keyword">try</span> &#123;            Thread.sleep(<span class="number">3000</span>);        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;            e.printStackTrace();        &#125;        System.out.println(<span class="string">"处理数据中"</span>);    &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>AsynController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.springboottask.controller;<span class="keyword">import</span> com.example.springboottask.service.AsyncService;<span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;<span class="meta">@RestControllerpublic</span> <span class="class"><span class="keyword">class</span> <span class="title">AsyncController</span> </span>&#123;    <span class="meta">@Autowired</span>    AsyncService asyncService;    <span class="meta">@GetMapping</span>(<span class="string">"/hello"</span>)    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;        asyncService.hello();        <span class="keyword">return</span> <span class="string">"success"</span>;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/09/03/spring-boot邮件发送/">spring boot邮件发送和定时任务</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
+        <p><span>发布时间:</span>2019年09月03日 - 19时34分</p>
+        <p><span>最后更新:</span>2019年09月04日 - 10时15分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/09/03/spring-boot邮件发送/" title="spring boot邮件发送和定时任务">https://caicaing.github.io/2019/09/03/spring-boot邮件发送/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/09/03/spring-boot邮件发送/　　作者: 菜菜" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/09/08/网络科学导论/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          网络科学导论简记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/01/python-list-append方法数据覆盖/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python list.append方法数据覆盖</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/09/08/网络科学导论/" title="上一篇: 网络科学导论简记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/09/01/python-list-append方法数据覆盖/" title="下一篇: python list.append方法数据覆盖">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/09/matplotlib-pyplotf/">matplotlib.pyplotf</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/08/网络科学导论/">网络科学导论简记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/spring-boot邮件发送/">spring boot邮件发送和定时任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/01/python-list-append方法数据覆盖/">python list.append方法数据覆盖</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/15/docker安装mysql/">docker安装mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/SpringBoot-ajax跨域请求/">SpringBoot+ajax跨域请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/10/SpringBoot整合Activiti7使用/">SpringBoot整合Activiti7使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/Thumbnailator图片处理/">Thumbnailator图片处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/03/lucene操作实例/">lucene全文检索操作实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/centos7-3搭建gogs/">centos7.3搭建gogs</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/git常用命令/">git常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/Java-Builder-Pattern/">Java Builder Pattern</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/java异常、线程/">java异常、线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/11/java集合工具对自定义类进行排序/">java集合工具对自定义类进行排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/10/java常用类api/">java常用类api</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/Spring-Boot单文件上传/">Spring Bootd单/多文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/form表单文件上传/">JAVAWEB文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/vue学习笔记-二/">vue学习笔记(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/vue学习笔记-一/">vue学习笔记(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/15/org-springframework-expression-spel-SpelEvaluationException-EL1008E/">org.springframework.expression.spel.SpelEvaluationException: EL1008E:</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/">JPA Space is not allowed after parameter prefix ':'</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/13/Echarts-初体验/">Echarts 初体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/Spring-Boot-登录拦截器验证/">Spring Boot 拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/MYSQL随机选择数据/">MYSQL随机选择数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/jpa-自定义查询语句/">Jpa 自定义查询语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-Jpa/">Spring Boot Jpa</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-整合Mybatis-基于注解/">Spring Boot 整合Mybatis(基于注解)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/Spring-Boot-整合mybatis/">Spring Boot 整合mybatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/thymeleaf基本语法/">thymeleaf的整合和使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合Freemarker/">Spring Boot 整合Freemarker</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jsp</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2简介/">swagger2简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 菜菜
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
