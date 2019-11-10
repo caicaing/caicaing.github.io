@@ -189,7 +189,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Activiti7/" style="font-size: 10px;">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/JAVA/" style="font-size: 15px;">JAVA</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/MYSQL/" style="font-size: 17.5px;">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 12.5px;">SpringBoot</a> <a href="/tags/Sprint-Boot/" style="font-size: 10px;">Sprint Boot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Thumbnailator/" style="font-size: 10px;">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gogs/" style="font-size: 10px;">gogs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/lucene/" style="font-size: 10px;">lucene</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 12.5px;">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 10px;">网络科学导论</a> <a href="/tags/装饰者模式/" style="font-size: 10px;">装饰者模式</a> <a href="/tags/设计模式/" style="font-size: 17.5px;">设计模式</a>
+                        <a href="/tags/Activiti7/" style="font-size: 10px;">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/JAVA/" style="font-size: 14px;">JAVA</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/MYSQL/" style="font-size: 16px;">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 14px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 12px;">SpringBoot</a> <a href="/tags/Sprint-Boot/" style="font-size: 10px;">Sprint Boot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Thumbnailator/" style="font-size: 10px;">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gogs/" style="font-size: 10px;">gogs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/lucene/" style="font-size: 10px;">lucene</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 12px;">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 10px;">网络科学导论</a> <a href="/tags/装饰者模式/" style="font-size: 10px;">装饰者模式</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a>
                     </div>
                 </section>
                 
@@ -261,6 +261,77 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Spring-Boot-Jpa" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/31/Spring-Boot-Jpa/" class="article-date">
+      <time datetime="2019-03-31T13:58:08.000Z" itemprop="datePublished">2019-03-31</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/31/Spring-Boot-Jpa/">Spring Boot Jpa</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>  全称Java Persistence API，通过JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。</p>
+<p>​     JPA的出现有两个原因：<br> 其一，简化现有Java EE和Java SE应用的对象持久化的开发工作；<br> 其二，Sun希望整合对ORM技术，实现持久化领域的统一。</p>
+<p>​     JPA提供的技术：</p>
+<p> 1）ORM映射元数据：JPA支持XML和JDK 5.0注解两种元数据的形式，元数据描述对象和表之间的映射关系，框架据此将实体对象持久化到数据库表中；</p>
+<p> 2）JPA 的API：用来操作实体对象，执行CRUD操作，框架在后台替我们完成所有的事情，开发者从繁琐的JDBC和SQL代码中解脱出来。</p>
+<p> 3）查询语言：通过面向对象而非面向数据库的查询语言查询数据，避免程序的SQL语句紧密耦合。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/03/31/Spring-Boot-Jpa/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-Spring-Boot-整合Mybatis-基于注解" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -845,73 +916,6 @@
       
         <p class="article-more-link">
           <a href="/2019/03/27/Spring-Boot-整合Servlet/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-string相关" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/26/string相关/" class="article-date">
-      <time datetime="2019-03-26T09:04:13.000Z" itemprop="datePublished">2019-03-26</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>最近突然被问起String，StringBuilder，StringBuffer三者的区别,发现自己确实对这方面的知识不是很了解.所以学习了一下做个笔记.</p>
- <excerpt in index | 首页摘要></excerpt>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">String</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/03/26/string相关/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
