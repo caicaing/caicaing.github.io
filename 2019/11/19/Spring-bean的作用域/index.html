@@ -7,20 +7,20 @@
   
   
   
-  <title>Spring-Boot-文件上传 | 菜菜的blog</title>
+  <title>Spring bean的作用域 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring-Boot-文件上传">
-<meta name="keywords" content="Spring Boot">
+  <meta name="description" content="Spring bean的作用域">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring-Boot-文件上传">
-<meta property="og:url" content="https://caicaing.github.io/2019/03/27/Spring-Boot-文件上传/index.html">
+<meta property="og:title" content="Spring bean的作用域">
+<meta property="og:url" content="https://caicaing.github.io/2019/11/19/Spring-bean的作用域/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="Spring-Boot-文件上传">
+<meta property="og:description" content="Spring bean的作用域">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T10:29:48.000Z">
+<meta property="og:updated_time" content="2019-11-19T10:45:30.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring-Boot-文件上传">
-<meta name="twitter:description" content="Spring-Boot-文件上传">
+<meta name="twitter:title" content="Spring bean的作用域">
+<meta name="twitter:description" content="Spring bean的作用域">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -259,11 +259,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Spring-Boot-文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Spring-bean的作用域" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/27/Spring-Boot-文件上传/" class="article-date">
-      <time datetime="2019-03-27T10:57:12.000Z" itemprop="datePublished">2019-03-27</time>
+      <a href="/2019/11/19/Spring-bean的作用域/" class="article-date">
+      <time datetime="2019-11-19T08:31:09.000Z" itemprop="datePublished">2019-11-19</time>
 </a>
 
     </div>
@@ -277,7 +277,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Spring-Boot-文件上传
+      Spring bean的作用域
     </h1>
   
 
@@ -289,7 +289,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -299,18 +299,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Spring-Boot-文件上传</p>
- <excerpt in index | 首页摘要>
-
+        <p>Spring bean的作用域</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="编写Controller"><a href="#编写Controller" class="headerlink" title="编写Controller"></a>编写Controller</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springbootstaticresources1.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@title</span>: FileController</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@projectName</span> 05-spring-boot-static-resources1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/3/2719:04</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/fileUploadController"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload</span><span class="params">(@RequestParam(<span class="string">"filename"</span>)</span> MultipartFile file)</span>&#123;</span><br><span class="line">        System.out.println(file.getName());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            file.transferTo(<span class="keyword">new</span> File(<span class="string">"F:/"</span>+file.getName()));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="编写上传界面"><a href="#编写上传界面" class="headerlink" title="编写上传界面"></a>编写上传界面</h2><p>为了方便在static文件夹下建立upload.html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>文件上传<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"fileUploadController"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">        上传文件:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"filename"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="设置上传文件大小的默认值"><a href="#设置上传文件大小的默认值" class="headerlink" title="设置上传文件大小的默认值"></a>设置上传文件大小的默认值</h2><p>在resources下建立application.yml文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  servlet:</span><br><span class="line">    multipart:</span><br><span class="line">      max-file-size: 10MB   #设置单个上传文件的大小</span><br><span class="line">      max-request-size: 100MB  #设置一次请求上传文件的总容量</span><br><span class="line">      enabled: true</span><br></pre></td></tr></table></figure>
-</the></excerpt>
+<h2 id="bean-的作用域"><a href="#bean-的作用域" class="headerlink" title="bean 的作用域"></a>bean 的作用域</h2><p>默认情况下，Spring应用上下文中所有的bean都是作为以单例创建的的。也就是说，不管给定的一个bean被注入到其他bean多少次，每次所注入的都是同一个实例。在大多数情况下，单例bean是很理想的方案，但是有时候所用的类是易变的，他们会保持一些状态，所以重用是不安全的。在这种情况下，将class声明为单例的bean就不是什么好主意了，因为对象会被污染，稍后重用的时候会发生意想不到的问题。</p>
+<p>Spring定义了多种作用域，可以基于这些作用域创建bean，包括：</p>
+<ul>
+<li>单例（Singleton）：在整个应用中，只创建一个bean的一个实例。</li>
+<li>原型（Prototype）：每次注入或者通过Spring应用上下文获取的时候都会创建一个新的bean实例。</li>
+<li>绘画（Session）：在web应用中，为每个会话创建一个bean实例。</li>
+<li>请求（Request）；在web应用中，为每个请求创建一个bean实例。 </li>
+</ul>
+<p>单例是默认的作用域，但是正如之前所述对于易变的类型，这并不合适。如果选择其他的作用域，要使用@Scope注解，它可以与@Component注解和@Bean一起使用。</p>
+<p>例如如果使用组件扫描来发现和声明bean，那么可以在bean的类上使用@Scope注解，将其声明为原型的bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Scope</span>(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Notepad</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里使用ConfigurableBeanFactory的SCOPE_PROTOTYPE常量设置了原型作用域，当然也可以使用@Scope（”prototype”)，但是使用常量更加安全且不容易出错。</p>
+<p>同样，如果使用xml来配置bean，可以使用bean标签的scope属性来设置作用域：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"noteped"</span> <span class="attr">class</span> = <span class="string">"com.myapp.Notepad"</span> <span class="attr">scope</span> = <span class="string">"protorype"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不管使用哪种方式来声明原型作用域，每次注入或从Spring应用上下文中检索该bean的时候都会创建新的实例。</p>
+<h3 id="使用会话和请求作用域"><a href="#使用会话和请求作用域" class="headerlink" title="使用会话和请求作用域"></a>使用会话和请求作用域</h3><p>在web应用中如果能够实例化在会话和请求范围内共享的bean，那将是非常有价值的事情。例如，在典型的电子商务应用中，可能会有一个bean代表用户的购物车。如果购物车是单例的话，那么将会导致所有打的用户都会向同一个购物车中添加商品，在应用的另一个地方可能就不可用了，因为这里注入的是另外一个原型作用域的购物车。</p>
+<p>就购物车bean来说，绘画作用域是最为合适的因为他与给定的用户关联性最大。要制定绘画作用域，我们可以使用@Scope注解，他的使用方式和原型作用域是相同的</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Scope</span>(value = WebApplicationContext.SCOPE_SESSION ,</span><br><span class="line">proxyMode = ScopedProxyMode.INTERFACES)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShoppingCart</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 这里我们将value设置成了WebApplicationContext.SCOPE_SESSION常量（它的值是session）。这回告诉Spring为Web应用中的每个绘画创建一个ShoppingCart。这会创建多个ShoppingCart bean的实例，但是对于给定的会话只会创建一个实例，在当前会话相关的操作中，这个bean实际上相当于单例的。</p>
+<p>@Scope同时还有一个proxyMode属性，他被设置成了ScopedProxyMode.INTERFACES。这个属性解决了将对话或请求作用域的bean注入到单例bean中所遇到的问题。我们先来看一下proxyMode所解决问题的场景。</p>
+<p>假设我们要将ShoppingCart bean注入到单例storeService bean的Setter方法中，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ShoppingCart shoppingCart;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setShoppingCart</span><span class="params">(ShoppingCart shoppingCart)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.shoppingCart = shoppingCart;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为StoreService是一个单例的bean，会在Spring应用上下文加载的时候创建。当它创建的时候，Spring会试图将ShoppingCart bean注入到setShoppingCart()方法中。但是shoppingCart bean 是会话作用域，此时并不存在，直到某个用户进入系统，创建了会话之后，才会出现ShoppingCart实例。</p>
+<p>另外，系统中将会有多个ShoppingCart实例：每个用户一个。我们并不想让Spring注入某个固定的ShoppingCart 实例到StoreService中。我们希望的是当StoreService处理购物车功能时，它所使用的ShoppingCart实例刚好是当前会话所对应的那个。</p>
+<p>Spring并不会将实际的ShoppingCart bean 注入到StoreService中，Spring会注入一个到ShoppingCart bean 的代理，这个代理会暴露与ShoppingCart相同的方法，所以StoreService会认为啊就是一个购物车。但是，当StoreService嗲啊用ShoppingCart的方法时，代理会对其进行懒解析并且将调用委托给会话作用域内的真正的ShoppingCart bean。</p>
+<p>如配置所示，proxyMode属性被设置为了ScopedProxyMode.INTERFACES，这表明这个代理要实现ShoppingCart接口，并且调用委托给实现bean。</p>
+<p>如果ShoppingCart是接口而不是类的话，这是可以的。但如果ShoppingCart是一个具体的二类的话，Sping就没有办法创建基于接口的代理了。所以，如果bean类型是具体类的话，我们必须要将proxyMode属性设置为ScopedProxyMode.TARGET_CLASS，以此来表明要以生成目标扩展的方式创建代理。</p>
+</the>
       
     </div>
     
@@ -318,13 +338,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></p>
+        <p><span>本文标题:</span><a href="/2019/11/19/Spring-bean的作用域/">Spring bean的作用域</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年03月27日 - 18时57分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 18时29分</p>
+        <p><span>发布时间:</span>2019年11月19日 - 16时31分</p>
+        <p><span>最后更新:</span>2019年11月19日 - 18时45分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/27/Spring-Boot-文件上传/" title="Spring-Boot-文件上传">https://caicaing.github.io/2019/03/27/Spring-Boot-文件上传/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/27/Spring-Boot-文件上传/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/19/Spring-bean的作用域/" title="Spring bean的作用域">https://caicaing.github.io/2019/11/19/Spring-bean的作用域/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/11/19/Spring-bean的作用域/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -335,18 +355,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/28/Spring-Boot-整合jsp/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Spring Boot 整合jsp
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/27/Spring-Boot-整合Servlet/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring-Boot 整合Servlet和Filter</div>
+    <a href="/2019/11/10/适配器模式与外观模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">适配器模式与外观模式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -358,7 +369,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编写Controller"><span class="toc-number">1.</span> <span class="toc-text">编写Controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写上传界面"><span class="toc-number">2.</span> <span class="toc-text">编写上传界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置上传文件大小的默认值"><span class="toc-number">3.</span> <span class="toc-text">设置上传文件大小的默认值</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#bean-的作用域"><span class="toc-number">1.</span> <span class="toc-text">bean 的作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用会话和请求作用域"><span class="toc-number">1.1.</span> <span class="toc-text">使用会话和请求作用域</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -419,13 +430,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/28/Spring-Boot-整合jsp/" title="上一篇: Spring Boot 整合jsp">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/27/Spring-Boot-整合Servlet/" title="下一篇: Spring-Boot 整合Servlet和Filter">
+            <a href="/2019/11/10/适配器模式与外观模式/" title="下一篇: 适配器模式与外观模式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
