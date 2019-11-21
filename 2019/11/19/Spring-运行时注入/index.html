@@ -7,20 +7,20 @@
   
   
   
-  <title>JDBC连接Mysql8.0驱动版本过低报错 | 菜菜的blog</title>
+  <title>Spring 运行时注入 | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
-<meta name="keywords" content="MYSQL">
+  <meta name="description" content="Spring运行时注入">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDBC连接Mysql8.0驱动版本过低报错">
-<meta property="og:url" content="https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/index.html">
+<meta property="og:title" content="Spring 运行时注入">
+<meta property="og:url" content="https://caicaing.github.io/2019/11/19/Spring-运行时注入/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
+<meta property="og:description" content="Spring运行时注入">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-29T13:45:18.000Z">
+<meta property="og:updated_time" content="2019-11-21T01:29:23.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JDBC连接Mysql8.0驱动版本过低报错">
-<meta name="twitter:description" content="JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:">
+<meta name="twitter:title" content="Spring 运行时注入">
+<meta name="twitter:description" content="Spring运行时注入">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -259,11 +259,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JDBC连接Mysql8-0-11版本出现问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Spring-运行时注入" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/" class="article-date">
-      <time datetime="2019-03-29T13:36:17.000Z" itemprop="datePublished">2019-03-29</time>
+      <a href="/2019/11/19/Spring-运行时注入/" class="article-date">
+      <time datetime="2019-11-19T10:47:01.000Z" itemprop="datePublished">2019-11-19</time>
 </a>
 
     </div>
@@ -277,7 +277,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JDBC连接Mysql8.0驱动版本过低报错
+      Spring 运行时注入
     </h1>
   
 
@@ -289,7 +289,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -299,15 +299,124 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JDBC连接Mysql8.0.11版本出现问题,不停循环报错 错误信息如下:</p>
-<excerpt in index | 首页摘要>
-
+        <p>Spring运行时注入</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息:"></a>报错信息:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Fri Mar <span class="number">29</span> <span class="number">21</span>:<span class="number">39</span>:<span class="number">01</span> CST <span class="number">2019</span> WARN: Establishing SSL connection without server<span class="string">'s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn'</span>t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to <span class="string">'false'</span>. You need either to explicitly disable SSL by setting useSSL=<span class="keyword">false</span>, or set useSSL=<span class="keyword">true</span> and provide truststore <span class="keyword">for</span> server certificate verification.</span><br><span class="line">ERROR [Druid-ConnectionPool-Create-<span class="number">2085079540</span>] - create connection SQLException, url: jdbc:mysql:<span class="comment">//localhost:3306/phone, errorCode 0, state 08001</span></span><br><span class="line">com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server.</span><br><span class="line">	at sun.reflect.GeneratedConstructorAccessor36.newInstance(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:<span class="number">45</span>)</span><br><span class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">423</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.handleNewInstance(Util.java:<span class="number">404</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.getInstance(Util.java:<span class="number">387</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">917</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">896</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">885</span>)</span><br><span class="line">	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:<span class="number">860</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:<span class="number">2332</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:<span class="number">2085</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.&lt;init&gt;(ConnectionImpl.java:<span class="number">795</span>)</span><br><span class="line">	at com.mysql.jdbc.JDBC4Connection.&lt;init&gt;(JDBC4Connection.java:<span class="number">44</span>)</span><br><span class="line">	at sun.reflect.GeneratedConstructorAccessor27.newInstance(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:<span class="number">45</span>)</span><br><span class="line">	at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">423</span>)</span><br><span class="line">	at com.mysql.jdbc.Util.handleNewInstance(Util.java:<span class="number">404</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:<span class="number">400</span>)</span><br><span class="line">	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:<span class="number">327</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:<span class="number">1513</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:<span class="number">1578</span>)</span><br><span class="line">	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:<span class="number">2451</span>)</span><br><span class="line">Caused by: java.lang.NullPointerException</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.getServerCharset(ConnectionImpl.java:<span class="number">3005</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.sendConnectionAttributes(MysqlIO.java:<span class="number">1916</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:<span class="number">1845</span>)</span><br><span class="line">	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:<span class="number">1215</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:<span class="number">2255</span>)</span><br><span class="line">	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:<span class="number">2286</span>)</span><br><span class="line">	... <span class="number">12</span> more</span><br></pre></td></tr></table></figure>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>Mysql是8.0版本的 ,但是项目中用的jdbc驱动包5.1.31,将jdbc驱动包改为8.0.13后不再报错</p>
-</the></excerpt>
+
+
+<h1 id="运行时注入"><a href="#运行时注入" class="headerlink" title="运行时注入"></a>运行时注入</h1><p>当讨论依赖注入时候，我们通常所讨论的时将一个bean注入到另一个bean的属性或者构造器参数中。它通常来讲是指将一个对象与另一个对象进行关联。</p>
+<p>但是bean装配的另外一个方面指的是将一个值注入到bean的属性或者构造器参数中。有时候硬编码是可以的，但是有的时候，我们可能会希望避免硬编码值，而是想让这些值在运行的时候再确定，为了实现这些功能，Spring提供了两种再运行时求值的方式：</p>
+<ul>
+<li>属性占位符（Property placeholder）</li>
+<li>Spring表达式语言（SpEL）</li>
+</ul>
+<p>这两种技术的用法是类似的，不过他们的目的和行为是有所差别的。</p>
+<h2 id="注入外部的值"><a href="#注入外部的值" class="headerlink" title="注入外部的值"></a>注入外部的值</h2><p>在Spring中，处理外部值的最简单方式就是声明属性源并通过Spring的Environment来检索属性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:/application.properties"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExpressiveConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Environment environment;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BlackDisc <span class="title">disc</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BlackDisc(environment.getProperty(<span class="string">"disc.title"</span>),environment.getProperty(<span class="string">"disc.artist"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlackDisc</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> String artist;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"BlackDisc&#123;"</span> +</span><br><span class="line">                <span class="string">"title='"</span> + title + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", artist='"</span> + artist + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlackDisc</span><span class="params">(String title, String artist)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">        <span class="keyword">this</span>.artist = artist;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本例中@PropertySource引用了类路径中一个名为application.properties的文件，内容大致如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">disc.title = Sgt. Peppers Lonely Hearts Clud Band</span><br><span class="line">disc.artist = The Beatles</span><br></pre></td></tr></table></figure>
+<p>这个属性文件会加载到Spring的Environment中，稍后可以从这里检索属性。</p>
+<h3 id="深入学习Spring的Environment"><a href="#深入学习Spring的Environment" class="headerlink" title="深入学习Spring的Environment"></a>深入学习Spring的Environment</h3><p>Environment中getProperty（）方法中有四个重载的变种形式：</p>
+<ul>
+<li>String getProperty(String key)</li>
+<li>String getProperty(String key, String defaultValue)</li>
+<li>T getProperty(String key, Class<t> type)</t></li>
+<li>T getProperty(String key, Class<t> type, T defaultValue)</t></li>
+</ul>
+<p>前两种形式的getProperty返回的是String类型的值， 第二种比第一种增加了一个默认值，如果指定属性不存在的时候就会使用这个默认值。剩下的两种可以返回对象类型。如果我们从属性文件中得到的是一个String类型的值，并且在使用之前需要将其转换为Integer类型，如果使用第三四中方式可以非常方便的解决这个问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> connectionCount = environment.getProperty(<span class="string">"db.connection.count"</span>, Integer.class, <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+<p>当在使用getProperty()方法时没有指定默认值，并且属性没有定义的话，获取到的是null，如果希望属性必须要定义，那么可以使用getRequiredProperty（）方法，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> BlackDisc <span class="title">disc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> BlackDisc(environment.getRequiredProperty(<span class="string">"disc.title"</span>), environment.getRequiredProperty(<span class="string">"disc.artist"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果disc.title或disc.artist属性没有定义的话，将会抛出IllegalStateException异常。</p>
+<p>如果想检查某个属性是否存在，可以调用Environment的containsProperty（）方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> titleExists = environment.containsProperty(<span class="string">"disc.title"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="解析占位符"><a href="#解析占位符" class="headerlink" title="解析占位符"></a>解析占位符</h3><p>Spring 一直支持将属性定义到外部的属性文件中，并使用占位符值将其插入到Spring bean中。在Spring装配中，占位符的形式为使用${…} 包装的属性名称。配合@Value注解BlankDisc可以改成如下所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlackDisc</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;disc.title&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;disc.artist&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String artist;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"BlackDisc&#123;"</span> +</span><br><span class="line">                <span class="string">"title='"</span> + title + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", artist='"</span> + artist + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了使用占位符，我们需要配置一个PropertySourcesPlaceholderConfigurer，如下的@Bean方法在java中配置了PropertySourcesPlaceholderConfigurer：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PropertySourcesPlaceholderConfigurer <span class="title">placeholderConfigurer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PropertySourcesPlaceholderConfigurer();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用Spring表达式语言进行装配"><a href="#使用Spring表达式语言进行装配" class="headerlink" title="使用Spring表达式语言进行装配"></a>使用Spring表达式语言进行装配</h2><p>Spring3引入了Spring表达式语言（Spring Expression Language SpEL)，他能够以一种强大和简洁的方式将值装配到bean属性装配到bean属性和构造器参数中，在这个过程中所使用的表达式会在运行时计算得到值。</p>
+<p>SpEL有很多特性：</p>
+<ul>
+<li>使用bean的ID来引用bean</li>
+<li>调用方法和访问对象的属性</li>
+<li>对值进行算数、关系和逻辑运算</li>
+<li>正则表达式匹配</li>
+<li>集合操作</li>
+</ul>
+<h3 id="SpEL样例"><a href="#SpEL样例" class="headerlink" title="SpEL样例"></a>SpEL样例</h3><p>#{1} 除去#{} 标记后，剩下的就是SpEL的表达式体了，也就是一个数字常量。</p>
+<p>#（T(System).currentTimeMillins())} 他的最终结果是计算表达式得到那一刻当前时间的毫秒数。T()表达式会将java.lang.System视为java中对应的类型 ，因此可以调用其static修饰的currentTimeMillis()方法。</p>
+<p>SpEL表达式也可以引用qitabean 或其他bean 打的属性。例如</p>
+<p>#{sgtPeppers.artist}</p>
+<p>我们使用SpEL来表达式来重新修改BlankDisc：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlackDisc</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"#&#123;systemProperties['disc.title']&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"#&#123;systemProperties['disc.artist']&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String artist;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"BlackDisc&#123;"</span> +</span><br><span class="line">                <span class="string">"title='"</span> + title + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", artist='"</span> + artist + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="标识字面值"><a href="#标识字面值" class="headerlink" title="标识字面值"></a>标识字面值</h3><p>下面的SpEL表达式表示的是浮点值：</p>
+<p>#{3.14159}</p>
+<p>数值还可以用科学计数法的方式进行表示：</p>
+<p>#{9.87E4}</p>
+<p>SpEL表达式也可以用来计算String类型的字面值，如:</p>
+<p>#{‘hello’}</p>
+<p>最后字面值true和false的计算结果就是他们对应的Boolean类型的值，例如：</p>
+<p>#{false}</p>
+<h3 id="引用bean、属性和方法"><a href="#引用bean、属性和方法" class="headerlink" title="引用bean、属性和方法"></a>引用bean、属性和方法</h3><p>SpEL所能做的另外一件事就是通过ID引用其他的bean。例如，你可以使用SpEL将一个bean装配到另外一个bean属性中，此时要使用beanID作为SpEL表达式，例如：</p>
+<p>#{sgtPeppers}</p>
+<p>现在 假设我们想在一个表达式中引用sgtPeppers的artist属性：</p>
+<p>#{sgtPeppers.artis}</p>
+<p>除了引用属性，我们还可以调用bean上的方法，例如：</p>
+<p>#{artistSelector.selectArtist()}</p>
+<p>对于被调用方法的返回值来说，我们同样可以调用它的方法，例如，如果selectArtist()方法返回的是一个String，那么可以调用toUpperCase()将整个字符串变为大写。</p>
+<p>#{artistSelector.selectArtist().toUpperCase()}</p>
+<p>为了避免selectArtist()返回值是null我们可以使用类型安全的运算符：</p>
+<p>#{artistSelector.selectArtist()?.toUpperCase()}</p>
+<p>与之前只是使用点号(.)不同，我们使用(?.)运算符，这个运算符能够在访问他右边的内容之前，确保他所对应的元素不是null。所以如果selectArtist()返回的值是null，那么SpEL将不会调用toUpperCase()方法。表达式的返回值会是null。</p>
+<h3 id="在表达式中使用类型"><a href="#在表达式中使用类型" class="headerlink" title="在表达式中使用类型"></a>在表达式中使用类型</h3><p>如果要在SpEL中访问类作用域的方法和常量的话，要以来T()这个关键的运算符。例如，为了在SpEL中表达Java的Math类，需要按照如下的方式使用T()运算符：</p>
+<p>T(java.lang.Math)</p>
+<p>这里所示的T()运算符的结果是一个Class对象，代表了java.lang.Math。如果需要的话，我们甚至可以将其装配到一个class类型的bean属性中。但是T()运算符的真正价值在于它能够访问目标类型的静态方法和常量。例如要将PI的值装配到bean属性中。使用如下SpEL就能完成任务</p>
+<p>T(java.lang.Math).PI</p>
+<h3 id="SpEL运算符"><a href="#SpEL运算符" class="headerlink" title="SpEL运算符"></a>SpEL运算符</h3><p>SpEL提供了多个运算符，这些运算符可以用在SpEL表达式上</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符类型</th>
+<th style="text-align:center">运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">算数运算</td>
+<td style="text-align:center">+、-、*、/、%、^</td>
+</tr>
+<tr>
+<td style="text-align:center">比较运算</td>
+<td style="text-align:center">&lt;、&gt;、 == 、 &lt;= 、&gt;=、lt、gt、eq、le、ge</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑运算</td>
+<td style="text-align:center">and、or、not、\</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">条件运算</td>
+<td style="text-align:center">?: (ternary)、?:(Elvis)</td>
+</tr>
+<tr>
+<td style="text-align:center">正则表达式</td>
+<td style="text-align:center">matches</td>
+</tr>
+</tbody>
+</table>
+<h3 id="计算集合"><a href="#计算集合" class="headerlink" title="计算集合"></a>计算集合</h3><p>SpEL中可以引用列表中的一个元素，例如：</p>
+<p>#{jukebox.songs[4].title}</p>
+<p>这个表达式会计算songs集合中第五个元素的title属性，这个集合来源于id为jukebox bean</p>
+<p>“[]”运算符除了可以从集合或数组按照索引获取元素，实际上，它还可以从String中获取一个字符。比如：</p>
+<p>#{‘This is a test’[3]}</p>
+<p>这个表达式引用了String中的第四个字符，也就是“s”</p>
+<p>SpEL还提供了查询运算符(.?[])，他会对集合进行过滤，得到集合的一个子集。例如：</p>
+<p>#{jukebox.songs.?[artist eq ‘Aerosmith’]}</p>
+<p>这样就得到了Aerosmith的所有歌曲。当SpEL迭代歌曲列表时候，会对歌曲集合中的每一个条目计算这个表达式。如果表达式的计算结果是true的话，那么条目会放到新的集合中。否则，他就不会放到新的集合中。</p>
+<p>SpEL还提供了另外两个查询运算符：”.^[]” 和”.$[]”,他们分别用来在集合中查询第一个匹配项和最后一个匹配项。最后，SpEL还提供了投影运算符(.![])，他会从集合的每个成员中选择特顶的属性放到另外一个集合中。                                                        </p>
+</the>
       
     </div>
     
@@ -315,13 +424,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></p>
+        <p><span>本文标题:</span><a href="/2019/11/19/Spring-运行时注入/">Spring 运行时注入</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年03月29日 - 21时36分</p>
-        <p><span>最后更新:</span>2019年03月29日 - 21时45分</p>
+        <p><span>发布时间:</span>2019年11月19日 - 18时47分</p>
+        <p><span>最后更新:</span>2019年11月21日 - 09时29分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/" title="JDBC连接Mysql8.0驱动版本过低报错">https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/19/Spring-运行时注入/" title="Spring 运行时注入">https://caicaing.github.io/2019/11/19/Spring-运行时注入/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/11/19/Spring-运行时注入/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -332,18 +441,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/29/Spring-Boot-整合mybatis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot 整合mybatis</div>
+    <a href="/2019/11/19/Spring-bean的作用域/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring bean的作用域</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -355,7 +455,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#报错信息"><span class="toc-number">1.</span> <span class="toc-text">报错信息:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案:</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#运行时注入"><span class="toc-number">1.</span> <span class="toc-text">运行时注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#注入外部的值"><span class="toc-number">1.1.</span> <span class="toc-text">注入外部的值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#深入学习Spring的Environment"><span class="toc-number">1.1.1.</span> <span class="toc-text">深入学习Spring的Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析占位符"><span class="toc-number">1.1.2.</span> <span class="toc-text">解析占位符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Spring表达式语言进行装配"><span class="toc-number">1.2.</span> <span class="toc-text">使用Spring表达式语言进行装配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpEL样例"><span class="toc-number">1.2.1.</span> <span class="toc-text">SpEL样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识字面值"><span class="toc-number">1.2.2.</span> <span class="toc-text">标识字面值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用bean、属性和方法"><span class="toc-number">1.2.3.</span> <span class="toc-text">引用bean、属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在表达式中使用类型"><span class="toc-number">1.2.4.</span> <span class="toc-text">在表达式中使用类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpEL运算符"><span class="toc-number">1.2.5.</span> <span class="toc-text">SpEL运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算集合"><span class="toc-number">1.2.6.</span> <span class="toc-text">计算集合</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -416,13 +516,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/" title="上一篇: org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/03/29/Spring-Boot-整合mybatis/" title="下一篇: Spring Boot 整合mybatis">
+            <a href="/2019/11/19/Spring-bean的作用域/" title="下一篇: Spring bean的作用域">
                 <i class="fa fa-angle-right"></i>
             </a>
         

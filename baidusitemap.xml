@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://caicaing.github.io/2019/11/19/Spring-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>  <url>
     <loc>https://caicaing.github.io/2019/11/19/Spring-bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
+    <lastmod>2019-11-20</lastmod>
+  </url>  <url>
+    <loc>https://caicaing.github.io/2019/05/06/Spring-Boot%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2019-11-19</lastmod>
   </url>  <url>
     <loc>https://caicaing.github.io/2019/10/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2019-11-10</lastmod>
-  </url>  <url>
-    <loc>https://caicaing.github.io/2019/11/10/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2019-11-10</lastmod>
   </url>  <url>
     <loc>https://caicaing.github.io/2019/11/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</loc>
@@ -72,9 +75,6 @@
   </url>  <url>
     <loc>https://caicaing.github.io/2019/05/10/java%E5%B8%B8%E7%94%A8%E7%B1%BBapi/</loc>
     <lastmod>2019-05-10</lastmod>
-  </url>  <url>
-    <loc>https://caicaing.github.io/2019/05/06/Spring-Boot%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
-    <lastmod>2019-05-06</lastmod>
   </url>  <url>
     <loc>https://caicaing.github.io/2019/05/06/form%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2019-05-06</lastmod>
