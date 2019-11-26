@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>Spring面向切面编程 | 菜菜的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring面向切面编程">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring面向切面编程">
+<meta property="og:url" content="https://caicaing.github.io/2019/11/21/Spring面向切面编程/index.html">
+<meta property="og:site_name" content="菜菜的blog">
+<meta property="og:description" content="Spring面向切面编程">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-26T13:50:52.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring面向切面编程">
+<meta name="twitter:description" content="Spring面向切面编程">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpeg">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">菜菜</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Activiti7/" style="font-size: 10px;">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/JAVA/" style="font-size: 14px;">JAVA</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/MYSQL/" style="font-size: 16px;">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 14px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 12px;">SpringBoot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Thumbnailator/" style="font-size: 10px;">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gogs/" style="font-size: 10px;">gogs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/lucene/" style="font-size: 10px;">lucene</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 12px;">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 10px;">网络科学导论</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://mvnrepository.com/">mvnrepository</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://translate.google.cn/?hl=zh-CN&tab=TT">谷歌翻译</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://spring.io/">spring</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个不断变强的菜菜!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">菜菜</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">菜菜</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Spring面向切面编程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/21/Spring面向切面编程/" class="article-date">
+      <time datetime="2019-11-21T01:32:37.000Z" itemprop="datePublished">2019-11-21</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring面向切面编程
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Spring面向切面编程</p>
+<a id="more"></a>
+<the rest of contents | 余下全文>
+
+<h1 id="Spring面向切面编程"><a href="#Spring面向切面编程" class="headerlink" title="Spring面向切面编程"></a>Spring面向切面编程</h1><h2 id="AOP术语"><a href="#AOP术语" class="headerlink" title="AOP术语"></a>AOP术语</h2><p>通常切面的常用术语有通知(advice)、切点(pointcut)和连接点(joinpoint)。</p>
+<h3 id="通知-Advice"><a href="#通知-Advice" class="headerlink" title="通知(Advice)"></a>通知(Advice)</h3><p>Spring切面可以应用5种类型的通知：</p>
+<ul>
+<li>前置通知(Before):在目标方法被调用之前调用通知功能</li>
+<li>后置通知(After):在目标方法完成之后调用通知,此时不会关心方法的输出是什么</li>
+<li>返回通知(After-returning):在目标方法成功执行之后调用通知</li>
+<li>异常通知(After-throwing):在目标方法抛出异常后调用通知</li>
+<li>环绕通知(Around):通知包裹了被通知的方法,在被统治的方法调用之前和调用之后执行自定义的行为</li>
+</ul>
+<h3 id="连接点-Join-Point"><a href="#连接点-Join-Point" class="headerlink" title="连接点(Join Point)"></a>连接点(Join Point)</h3><p>连接点是在应用执行过程中能够插入切面的一个点。这个点可以是调用方法时、抛出异常时，甚至是修改一个字段时。切面代码可以利用这些点插入到应用的正常流程之中，并添加新的行为。</p>
+<h3 id="切点-Poincut"><a href="#切点-Poincut" class="headerlink" title="切点(Poincut)"></a>切点(Poincut)</h3><p>如果说通知定义了切面的“什么”和“何时”的话，那么切点就定义了“何处”。切点的定义会匹配通知所要织入的一个或多个节点。我们通常使用明确的类和方法名称，或是利用正则表达式定义所匹配的类和方法名称来指定这些切点。有些AOP框架允许我们创建动态的切点，可以根据运行时的决策（比如方法的参数值）来决定是否应用通知。</p>
+<h3 id="切面-Aspect"><a href="#切面-Aspect" class="headerlink" title="切面(Aspect)"></a>切面(Aspect)</h3><p>切面时通知和切点的集合。通知和切点共同定义了切面的全部内容——他是什么，何时何处完成。</p>
+<h3 id="引入-Introduction"><a href="#引入-Introduction" class="headerlink" title="引入(Introduction)"></a>引入(Introduction)</h3><p>引入允许我们向现有的类添加新的方法和属性。例如，我们可以创建一个Auditable通知类，该类记录了对象最后一次修改时的状态。只需一个方法，setLastModified(Date)，和一个实例变量来保存这个状态。然后这个新方法和实例变量就可以被引入到现有的类中，从而可以在无需修改这些现有的类的情况下，让他们具有新的行为和状态。</p>
+<h3 id="织入-Weaving"><a href="#织入-Weaving" class="headerlink" title="织入(Weaving)"></a>织入(Weaving)</h3><p>织入是把切面应用到目标对象并创建新的代理对象的过程。切面在指定的连接点被织入到目标对象中。在目标对象的生命周期里有多个点可以进行织入：</p>
+<ul>
+<li>编译期：切面在目标类编译时被织入。这种方式需要特殊的编译器。AspectJ的织入编译器就是以这种方式织入切面的。</li>
+<li>类加载器：切面在目标类加载到JVM时被织入。这种方式需要特殊的类加载器(ClassLoader)，它可以在目标类被引入应用之前增强该目标类的字节码。AspectJ5的加载时织入(load-time weaving ,LTW)就支持这种方式织入切面。</li>
+<li>运行期：切面在应用运行时的某个时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象动态的创建一个代理对象。SpringAOP就是以这种方式织入切面的。</li>
+</ul>
+<h2 id="Spring对AOP的支持"><a href="#Spring对AOP的支持" class="headerlink" title="Spring对AOP的支持"></a>Spring对AOP的支持</h2><p>并不是所有的AOP框架都是相同的，他们在连接点模型上可能有强弱之分。有些允许在字段修饰符级别应用通知，而另一些只支持与方法调用相关的连接点。他们织入切面的方式和时机也有所不同。但是无论如何，创建切点来定义切面所织入的连接点是AOP框架的基本功能。</p>
+<p>Spring提供了4中类型的AOP支持：</p>
+<ul>
+<li>基于代理的经典Spring AOP</li>
+<li>纯POJO切面</li>
+<li>@AspectJ注解驱动的切面</li>
+<li>注入式AspectJ切面（适用于Speing各版本）</li>
+</ul>
+<p>前三种都是Spring AOP实现的变体，Spring AOP构建在动态代理基础之上，因此，Spring对AOP的支持局限方法拦截。</p>
+<h2 id="通过切点来选择连接点"><a href="#通过切点来选择连接点" class="headerlink" title="通过切点来选择连接点"></a>通过切点来选择连接点</h2><p>在Spring AOP中，要使用AspectJ的切点表达式语言来定义切点</p>
+<table>
+<thead>
+<tr>
+<th>AspectJ指示器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg()</td>
+<td>限制连接点匹配参数为指定类型的执行方法</td>
+</tr>
+<tr>
+<td>@args()</td>
+<td>限制连接点匹配参数由指定注解标注的执行方法</td>
+</tr>
+<tr>
+<td>execution()</td>
+<td>用于匹配是连接点的执行方法</td>
+</tr>
+<tr>
+<td>this()</td>
+<td>限制连接点匹配AOP代理的bean引用为指定类型的类</td>
+</tr>
+<tr>
+<td>target</td>
+<td>限制连接点匹配目标对象为指定的类</td>
+</tr>
+<tr>
+<td>@target()</td>
+<td>限制连接点匹配特顶的执行对象，这些对象对应的类要具有指定类型的注解</td>
+</tr>
+<tr>
+<td>within()</td>
+<td>限制连接点匹配指定的类型</td>
+</tr>
+<tr>
+<td>@within()</td>
+<td>限制连接点匹配指定注解所标注的类型</td>
+</tr>
+<tr>
+<td>@annotation</td>
+<td>限定匹配带有指定注解的连接点</td>
+</tr>
+</tbody>
+</table>
+<p>在Spring中常识使用AspectJ其他指示器时，将会抛出IllegalArgumentException异常。</p>
+<p>当我们查看如上所展示的那些Spring指示的指示器时，注意只有execution指示器是实际执行匹配的，而其他的指示器都是用来限制匹配的。这说明execution指示器是我们在编写切点定义时最主要使用的指示器。在此基础上，我们能使用其他指示器来限制所匹配的切点。</p>
+<h2 id="使用注解创建切面"><a href="#使用注解创建切面" class="headerlink" title="使用注解创建切面"></a>使用注解创建切面</h2><p>使用注解创建切面是AspectJ5所引入的关键特性。AspectJ5之前，编写AspectJ切面需要学习一种java语言的扩展，但是AspectJ面向注解的模型可以非常渐变地通过少量注解把任意类型转变变为切面。</p>
+<p>首先我们要定义一个Performance接口，它是切面中切点的目标对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Performance</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">perform</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义切面"><a href="#定义切面" class="headerlink" title="定义切面"></a>定义切面</h3><p>如果一场演出没有观众的话，那不能称之为演出。从演出的角度来看，观众是非常重要的，但是对演出的本身功能来讲，他并不是核心，这是一个单独的关注点。因此，将观众定义为一个切面，并将其应用到演出上就是较为明智的做法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.AfterReturning;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.AfterThrowing;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Before;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Audience</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* com.example.demo.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">silenceCellPhones</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Silencing cell phones"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* com.example.demo.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeSeats</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Taking seats"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"execution(* com.example.demo.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"CLAP CLAP CLAP!!!"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"execution(* com.example.demo.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demandRefund</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Demanding a refund"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Audience类使用@AspectJ注解进行了标注。该注解表明Audience不仅仅是一个POJO，还是一个切面。Audience类中的方法都是用注解来定义切面的具体行为。</p>
+<p>Audience有四个方法，定义了一个观众在观看演出时可能会做的事情。在演出之前，观众要就做(takeSeats())并将手机调至静音状态(silenceCellPhones())。如果演出很精彩的话，观众应该会鼓掌喝彩(applause())。不过如果演出没有达到观众预期的话，观众会要求退款(demandRefundd())。</p>
+<p>AspectJ提供了五个注解来定义通知：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">注解</th>
+<th style="text-align:center">通知</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@After</td>
+<td style="text-align:center">通知方法会在目标方法返回或抛出异常后调用</td>
+</tr>
+<tr>
+<td style="text-align:center">@AfterReturning</td>
+<td style="text-align:center">通知方法会在目标方法返回后调用</td>
+</tr>
+<tr>
+<td style="text-align:center">@AfterThrowing</td>
+<td style="text-align:center">通知方法会在目标方法抛出异常后调用</td>
+</tr>
+<tr>
+<td style="text-align:center">@Around</td>
+<td style="text-align:center">通知方法会将目标方法封装起来</td>
+</tr>
+<tr>
+<td style="text-align:center">@Before</td>
+<td style="text-align:center">通知方法会在目标方法调用之前运行</td>
+</tr>
+</tbody>
+</table>
+<p>Audience使用到了前面五个注解中的三个。takeSeats()和silence CellPhones()方法都用到了@Before注解，表明他们应该在演出开始之前调用。applause()方法使用了AfterReturning注解，他会在演出成功返回后调用。de’man’d’Refund()方法上添加了@AfterThrowing注解，这表明他会在抛出异常以后执行。</p>
+<p>在上述代码中，相同的一个切点表达式我们重复了四边，我们完全可以这样做：@Pointcut注解能够在一个@AspectJ切面内定义可重用的切点。接下来的程序清单4.2展现了新的Audience，现在它使用了@Pointcut。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.*;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Audience1</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.example.demo.Performance.perform(..)))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">silenceCellPhones</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Silencing cell phones"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeSeats</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Taking seats"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"CLAP CLAP CLAP!!!"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demandRefund</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Demanding a refund"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Audience中，performance()方法使用了@Pointcut注解。为@Pointcut注解设置的值是一个切点表达式，就像之前在通知注解上所设置的那样。通过在performance()方法上添加@Pointcut注解，我么恩实际上扩展了切点表达式语言。这样就可以在任何的且地点表达式中使用performance()了，如果不这样做的话，你需要在这些地方使用那个更长的切点表达式。我们现在把所有通知注解中的长表达式都换成了performance()。</p>
+<p>performance()方法的实际内容并不重要，在这里它实际上因嘎嘎i是空的。其实该方法本身只是一个表示，供@pointcut注解依附。</p>
+<p>需要注意的是，除了注解和没有实际操作的呃performance()方法，Audience类依然是一个POJO。我们能够像使用其他的java类那样调用它的方法，他的方法也能独立的进行单元测试，这与其他的Java类并没有什么区别。Audience只是一个Java类，只不过它通过注解表明会作为切面使用而已。</p>
+<p>像其他java类一样，他可以装配为Spring中的bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Audience <span class="title">audience</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> Audience();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果就此止步的话，Audience只会是Spring容器中的一个bean。即便使用了AspectJ注解，但他并不会被视为切面，这些注解不会解析，也不会创建将其转换为切面的代理。</p>
+<p>如果使用JavaConfig的话，可以在配置类的类级别上通过使用@EnableAspectJ-AutoProxy注解启用自动代理功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.ComponentScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.EnableAspectJAutoProxy;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcertConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Audience <span class="title">audience</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Audience();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建环绕通知"><a href="#创建环绕通知" class="headerlink" title="创建环绕通知"></a>创建环绕通知</h3><p>环绕通知是最为强大的通知类型。他能够让你所编写的逻辑将被统治的目标方法完全包装起来。实际上就像在一个通知方法中同时编写前置通知和后置通知。</p>
+<p>为了阐述环绕通知，我们重写Audience切面。这次我们使用一个环绕通知来代替之前多个不同的前置通知和后置通知。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Pointcut;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Audience2</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.example.demo.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">watchPerformance</span><span class="params">(ProceedingJoinPoint jp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Silencing cell phones"</span>);</span><br><span class="line">            System.out.println(<span class="string">"Taking seats"</span>);</span><br><span class="line">            jp.proceed();</span><br><span class="line">            System.out.println(<span class="string">"CLAP CLAP CLAP!!!"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Demanding a refund"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，@Around注解表明watchPerformance()方法会作为performance()切点的环绕通知。在这个通知中，观众在演出之前会将手机调至静音并就做，演出结束后会鼓掌喝彩，如果演出失败的话，观众会要求退款。可以看到，这个通知所达到的效果与之前的前置通知和后置通知是一样的。但是，现在他们位于同一个方法中，不像之前那样分散在四个不同的方法里。</p>
+<p>关于这个新的通知方法，你首先注意到的可能是它接收ProceedingJoinPoint作为参数。这个对象是必须要有的，因为你要在通知中通过它来调用被统治的方法。通知方法中可以做任何事情，当要将控制权交给被通知的方法是，他需要调用ProceedingJoinPoint的proceed()方法。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>AOP是面向对象编程的一个强大补充。通过AspectJ，我们现在可以把之前分散在应用各处的行为放入可重用的模块中。我们显示地声明在何处如何应用该行为。这有效减少了代码冗余，并让我们的类关注自身的主要功能。</p>
+<p>Spring提供了一个AOP框架，让我们把切面插入到方法执行的周围。关于在Spring应用中如何使用切面，我们可以有多种选择。通过使用@AspectJ注解和简化的配置命名空间，在Spring中装配通知和切点变得非常简单。</p>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/11/21/Spring面向切面编程/">Spring面向切面编程</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
+        <p><span>发布时间:</span>2019年11月21日 - 09时32分</p>
+        <p><span>最后更新:</span>2019年11月26日 - 21时50分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/21/Spring面向切面编程/" title="Spring面向切面编程">https://caicaing.github.io/2019/11/21/Spring面向切面编程/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/11/21/Spring面向切面编程/　　作者: 菜菜" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/19/Spring-运行时注入/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring 运行时注入</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring面向切面编程"><span class="toc-number">1.</span> <span class="toc-text">Spring面向切面编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP术语"><span class="toc-number">1.1.</span> <span class="toc-text">AOP术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通知-Advice"><span class="toc-number">1.1.1.</span> <span class="toc-text">通知(Advice)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连接点-Join-Point"><span class="toc-number">1.1.2.</span> <span class="toc-text">连接点(Join Point)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切点-Poincut"><span class="toc-number">1.1.3.</span> <span class="toc-text">切点(Poincut)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切面-Aspect"><span class="toc-number">1.1.4.</span> <span class="toc-text">切面(Aspect)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入-Introduction"><span class="toc-number">1.1.5.</span> <span class="toc-text">引入(Introduction)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#织入-Weaving"><span class="toc-number">1.1.6.</span> <span class="toc-text">织入(Weaving)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring对AOP的支持"><span class="toc-number">1.2.</span> <span class="toc-text">Spring对AOP的支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过切点来选择连接点"><span class="toc-number">1.3.</span> <span class="toc-text">通过切点来选择连接点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用注解创建切面"><span class="toc-number">1.4.</span> <span class="toc-text">使用注解创建切面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义切面"><span class="toc-number">1.4.1.</span> <span class="toc-text">定义切面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建环绕通知"><span class="toc-number">1.4.2.</span> <span class="toc-text">创建环绕通知</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">1.5.</span> <span class="toc-text">小结</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/11/19/Spring-运行时注入/" title="下一篇: Spring 运行时注入">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/Spring面向切面编程/">Spring面向切面编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/Spring-运行时注入/">Spring 运行时注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/Spring-bean的作用域/">Spring bean的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/07/设计模式-命令模式/">设计模式-命令模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/设计模式-单例模式/">设计模式--单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/12/设计模式-装饰者模式/">设计模式--装饰者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/设计模式-工厂模式/">设计模式--工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/08/设计模式-观察者模式/">设计模式--观察者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/07/设计模式-策略模式/">设计模式--策略模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/08/网络科学导论/">网络科学导论简记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/spring-boot邮件发送/">spring boot邮件发送和定时任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/01/python-list-append方法数据覆盖/">python list.append方法数据覆盖</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/15/docker安装mysql/">docker安装mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/SpringBoot-ajax跨域请求/">SpringBoot+ajax跨域请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/10/SpringBoot整合Activiti7使用/">SpringBoot整合Activiti7使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/Thumbnailator图片处理/">Thumbnailator图片处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/03/lucene操作实例/">lucene全文检索操作实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/centos7-3搭建gogs/">centos7.3搭建gogs</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/git常用命令/">git常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/Java-Builder-Pattern/">Java Builder Pattern</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/java异常、线程/">java异常、线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/11/java集合工具对自定义类进行排序/">java集合工具对自定义类进行排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/10/java常用类api/">java常用类api</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/Spring-Boot单文件上传/">Spring Boot单/多文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/form表单文件上传/">JAVAWEB文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/vue学习笔记-二/">vue学习笔记(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/vue学习笔记-一/">vue学习笔记(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/15/org-springframework-expression-spel-SpelEvaluationException-EL1008E/">org.springframework.expression.spel.SpelEvaluationException: EL1008E:</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/">JPA Space is not allowed after parameter prefix ':'</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/13/Echarts/">Echarts</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/Spring-Boot-登录拦截器验证/">Spring Boot 拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/MYSQL随机选择数据/">MYSQL随机选择数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/jpa-自定义查询语句/">Jpa 自定义查询语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-Jpa/">Spring Boot Jpa</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-整合Mybatis-基于注解/">Spring Boot 整合Mybatis(基于注解)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/Spring-Boot-整合mybatis/">Spring Boot 整合mybatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/thymeleaf基本语法/">thymeleaf的整合和使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合Freemarker/">Spring Boot 整合Freemarker</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jsp</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2/">swagger2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 菜菜
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
