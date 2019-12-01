@@ -7,20 +7,19 @@
   
   
   
-  <title>java集合工具对自定义类进行排序 | 菜菜的blog</title>
+  <title>JSR-303校验API | 菜菜的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this - 传进来的参数为升序。">
-<meta name="keywords" content="JAVA">
+  <meta name="description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java集合工具对自定义类进行排序">
-<meta property="og:url" content="https://caicaing.github.io/2019/05/11/java集合工具对自定义类进行排序/index.html">
+<meta property="og:title" content="JSR-303校验API">
+<meta property="og:url" content="https://caicaing.github.io/2019/12/01/JSR-303校验API/index.html">
 <meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this - 传进来的参数为升序。">
+<meta property="og:description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-12T01:01:09.000Z">
+<meta property="og:updated_time" content="2019-12-01T12:48:13.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java集合工具对自定义类进行排序">
-<meta name="twitter:description" content="想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this - 传进来的参数为升序。">
+<meta name="twitter:title" content="JSR-303校验API">
+<meta name="twitter:description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
   
     <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
@@ -259,11 +258,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-java集合工具对自定义类进行排序" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JSR-303校验API" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/05/11/java集合工具对自定义类进行排序/" class="article-date">
-      <time datetime="2019-05-11T14:13:23.000Z" itemprop="datePublished">2019-05-11</time>
+      <a href="/2019/12/01/JSR-303校验API/" class="article-date">
+      <time datetime="2019-12-01T12:48:13.000Z" itemprop="datePublished">2019-12-01</time>
 </a>
 
     </div>
@@ -277,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java集合工具对自定义类进行排序
+      JSR-303校验API
     </h1>
   
 
@@ -288,10 +287,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -299,12 +294,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>想要被排序的类需要实现Comparable接口并且重写compareTo方法。 this - 传进来的参数为升序。</p>
-<a id="more"></a>
-<the rest of contents | 余下全文>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line"></span><br><span class="line">        List&lt;User&gt; list = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">65</span>, <span class="string">"小张"</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">77</span>, <span class="string">"小强"</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">39</span>, <span class="string">"小明"</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> User(<span class="number">99</span>, <span class="string">"小红"</span>));</span><br><span class="line">        Collections.sort(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> score;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(<span class="keyword">int</span> score, String name)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setScore</span><span class="params">(<span class="keyword">int</span> score)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"score="</span> + score +</span><br><span class="line">                <span class="string">", name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(User o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getScore() - o.getScore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</the>
+        
       
     </div>
     
@@ -312,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/05/11/java集合工具对自定义类进行排序/">java集合工具对自定义类进行排序</a></p>
+        <p><span>本文标题:</span><a href="/2019/12/01/JSR-303校验API/">JSR-303校验API</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年05月11日 - 22时13分</p>
-        <p><span>最后更新:</span>2019年05月12日 - 09时01分</p>
+        <p><span>发布时间:</span>2019年12月01日 - 20时48分</p>
+        <p><span>最后更新:</span>2019年12月01日 - 20时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/05/11/java集合工具对自定义类进行排序/" title="java集合工具对自定义类进行排序">https://caicaing.github.io/2019/05/11/java集合工具对自定义类进行排序/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/05/11/java集合工具对自定义类进行排序/　　作者: 菜菜" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/12/01/JSR-303校验API/" title="JSR-303校验API">https://caicaing.github.io/2019/12/01/JSR-303校验API/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/12/01/JSR-303校验API/　　作者: 菜菜" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -329,18 +319,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/05/12/java异常、线程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          java异常、线程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/10/java常用类api/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java常用类api</div>
+    <a href="/2019/11/27/Spring-Web/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Web</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -413,13 +394,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/05/12/java异常、线程/" title="上一篇: java异常、线程">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/05/10/java常用类api/" title="下一篇: java常用类api">
+            <a href="/2019/11/27/Spring-Web/" title="下一篇: Spring Web">
                 <i class="fa fa-angle-right"></i>
             </a>
         
