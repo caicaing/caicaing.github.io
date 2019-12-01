@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>Spring Web | 菜菜的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Web">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Web">
+<meta property="og:url" content="https://caicaing.github.io/2019/11/27/Spring-Web/index.html">
+<meta property="og:site_name" content="菜菜的blog">
+<meta property="og:description" content="Spring Web">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://caicaing.github.io/2019/11/27/Spring-Web/1.png">
+<meta property="og:updated_time" content="2019-12-01T12:44:07.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Web">
+<meta name="twitter:description" content="Spring Web">
+<meta name="twitter:image" content="https://caicaing.github.io/2019/11/27/Spring-Web/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpeg">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">菜菜</a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Activiti7/" style="font-size: 10px;">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/JAVA/" style="font-size: 14px;">JAVA</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/MYSQL/" style="font-size: 16px;">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 14px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 12px;">SpringBoot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Thumbnailator/" style="font-size: 10px;">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gogs/" style="font-size: 10px;">gogs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/lucene/" style="font-size: 10px;">lucene</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 12px;">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 10px;">网络科学导论</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://mvnrepository.com/">mvnrepository</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://translate.google.cn/?hl=zh-CN&tab=TT">谷歌翻译</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://spring.io/">spring</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个不断变强的菜菜!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">菜菜</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">菜菜</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Spring-Web" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/11/27/Spring-Web/" class="article-date">
+      <time datetime="2019-11-27T10:38:21.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Web
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Spring Web</p>
+<a id="more"></a>
+<the rest of contents | 余下全文>
+
+<h1 id="构建SpringWeb应用程序"><a href="#构建SpringWeb应用程序" class="headerlink" title="构建SpringWeb应用程序"></a>构建SpringWeb应用程序</h1><h2 id="Spring-MVC起步"><a href="#Spring-MVC起步" class="headerlink" title="Spring MVC起步"></a>Spring MVC起步</h2><p>每当用户在Web浏览器中点击链接或提交表单的时候，请求就开始工作了。下图展示了请求使用SpringMVC所经历的所有站点。</p>
+<p><img src="/2019/11/27/Spring-Web/1.png" alt></p>
+<p>在请求离开浏览器时(①)会将带有用户所请求内容的信息，至少会包含请求的URL，但是还可能带有其他的信息，例如用户提交的表单信息。 </p>
+<p>请求的第一站是Spring的DispatcherServlet。与大多数基于Java的Web框架一样，SpringMVC所请求都会通过一个前端控制器Servlet。前端控制器是常用的Web应用程序模式，在这里一个单例的Servlet将请求委托给应用程序的其他组件来执行实际的处理。在SpringMVC中，DispatcherServlet就是前端控制器。</p>
+<p>DispatcherServlet的任务是将请求发送给SpringMVC控制器（Controller）。控制器是一个用于处理请求的Spring组件。在典型的应用程序中可能会有多个控制器，DispatcherServlet需要知道应该将请求发送给哪个控制器。所以DispatcherServlet以会查询一个或多个处理器映射（handler mapping）②来确定请求的下一站在哪里。处理器映射会根据请求所携带的url信息进行决策。</p>
+<p>一旦选择了合适的控制器，DispatcherServlet会将请求发送给选中的控制器③。到了控制器，请求会卸下其负载（用户提交的信息）并耐心等待控制器处理这些信息。（实际上，设计良好的控制器本身只处理很少甚至不处理工作，而是将业务逻辑委托给一个或多个服务对象进行处理。）</p>
+<p>控制器在完成逻辑处理后，通常会产生一些信息，这些信息需要返回给用户并在浏览器上显示。这些信息被称为模型（model）。仅仅给用户返回原始的信息是不够的——这些信息需要以有好的方式进行格式化，一般会是HTML。所以，信息需要发送给一个视图（view），通常会是JSP。控制器所做的最后一件事就是将模型数据打包，并且标出用于渲染输出的视图名。他接下来会将请求连通模型和视图名发送回DispatcherServlet④。</p>
+<p>这样，控制器就不会与特定的视图相耦合，传递给DispatcherServlet的视图名不直接表示某个特定的JSP。实际上，它甚至并不能确定视图就是JSP。相反，它仅仅传递了一个逻辑名称，这个名字将会用来查找产生结果的真正视图。DispatcherServlet将会使用视图解析器（view resolver）⑤来讲逻辑视图名匹配为一个特定的视图实现，它可能是也可能不是JSP。</p>
+<p>既然DispatcherServlet已经知道由哪个视图渲染结果，那请求的任务基本上也就完成了。它的最后一站是视图的实现（可能是JSP）⑥，在这里他交付模型数据。请求的任务就完成了。试图将使用模型数据渲染输出，这个输出会通过响应对象传递给客户端。</p>
+<h2 id="搭建Spring-MVC"><a href="#搭建Spring-MVC" class="headerlink" title="搭建Spring MVC"></a>搭建Spring MVC</h2><h3 id="配置DispatcherServlet"><a href="#配置DispatcherServlet" class="headerlink" title="配置DispatcherServlet"></a>配置DispatcherServlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpittrWebAppInitializer</span> <span class="keyword">extends</span> <span class="title">AbstractAnnotationConfigDispatcherServletInitializer</span> </span>&#123;</span><br><span class="line">    <span class="comment">//加载容器</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt;[] getRootConfigClasses() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Class&lt;?&gt;[] &#123; RootConfig.class &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//加载webapp容器</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt;[] getServletConfigClasses() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Class&lt;?&gt;[] &#123; WebConfig.class &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//设置DispatcherServlet的拦截规则  / 代表拦截所有但是不包括jsp</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> String[] getServletMappings() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String[] &#123; <span class="string">"/"</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要理解上述代码如何工作，我们可能只需要知道扩延AbstractAnnotationConfigDispatcherServletInitializer的任意类都会自动地配置DispatcherServlet和Spring应用上下文，Spring的应用上下文会位于应用程序的Servlet上下文之中。</p>
+<p>AbstractAnnotationConfigDispatcherServletInitializer剖析：</p>
+<p>在Servlet3.0环境中，容器会在类路径中查找实现java.servlet.ServletContainerInitializer接口的类，如果能发现的话，就会用它配置Servlet容器类。</p>
+<p>Spring提供了这个接口的实现，名为SpringServletContainerInitializer，这个类反过来又会查找实现WebApplicationInitializer的类并将配置的任务交给他们来完成。Spring3.2引入了一个便利的WebApplicationInitializer的基础实现，也就是AbstractAnnotationConfigDispatcherServletInitializer。因为我们的SpittrWebAppInitializer扩展了AbstractAnnotationConfig DispatcherServletInitializer（同时也就实现了WebApplicationInitializer)，因此当部署到Servlet3.0容器中的时候，容器会自动发现它，并用它来配置Servlet上下文。</p>
+<p>尽管它的名字很长，但是AbstractAnnotationConfigDispatcherServletInitializer使用起来很简便。SpittrWebAppInitializer中重写了三个方法。第一个方法是getServletMappings() ，它会将一个或多个路径映射到DispatcherServlet上。在本例中，它映射的是“/”，这表示他会是应用的默认Servlet。他会处理进入应用的所有请求。</p>
+<p>为了理解其他两个方法，我们首先要理解DispatcherServlet和一个Servlet监听器（也就是ContextLoaderListener）的关系。</p>
+<h3 id="两个应用上下文之间的故事"><a href="#两个应用上下文之间的故事" class="headerlink" title="两个应用上下文之间的故事"></a>两个应用上下文之间的故事</h3><p>当DispatcherServlet启动的时候，他会创建Spring应用上下文，并加载配置文件或配置类中所声明的bean。在getServletConfigClasses（）方法中，我们要求DispatcherServlet加载应用上下文时，使用定义在WebConfig配置类（使用Java配置）中的bean。</p>
+<p>但是在SpringWeb应用中，通常还有另外一个应用上下文。另外的这个应用上下文是由ContextLoaderListener创建的。我们希望DispatcherServlet加载包含Web组件的bean，如控制器、视图解析器以及处理器映射，而ContextLoaderListener要加载应用中的其他bean。这些bean通常是驱动应用后端的中间层和数据层组件。</p>
+<p>实际上，AbstractAnnotationConfigDispatcherrServletInitializer会同时创建DispatcherServlet和ContextLoaderListener。GetServletConfigClasses（）方法返回的带有@Configuration注解的类加ing会用来定义DispatcherServlet应用上下文中的bean。</p>
+<p>在本例中，根据配置定义在RootConfig中，DispatcherServlet的配置声明在WebConfig中。</p>
+<h3 id="启用Spring-MVC"><a href="#启用Spring-MVC" class="headerlink" title="启用Spring MVC"></a>启用Spring MVC</h3><p>启用SpringMVC组件的方法不仅一种。以前，Spring是使用XML进行配置的，可以使用\<a href="mvc:annotation-driven" target="_blank" rel="noopener">mvc:annotation-driven</a>注解启用注解驱动的SpringMVC。现在我们能创建的最简单的SpringMVC配置就是一个带有@EnableWebMvc注解的类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.springmvc.spittr.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.EnableWebMvc;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebMvc</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这可以运行起来，它的确能够启用SpringMVC，但还有不少的问题需要解决：</p>
+<ul>
+<li>没有配置视图解析器。这样的话，Spring默认会使用BeanNameView-Resolver，这个视图解析器会查找ID与视图名称匹配的bean，并且查找的bean要实现View接口，他以这样的方式来解析试图。</li>
+<li>没有启用组件扫描。这样的结果就是Spring只能找到显式声明在配置类中的控制器。</li>
+<li>这样配置的话，DispatcherServlet会映射为应用默认Servlet，所以他会处理所有请求，包括对静态资源的请求，如图片和样式表。</li>
+</ul>
+<p>因此，我们需要在WebConfig这个最小的SpringMVC配置上再加一些内容，从而让他们变得真正有用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.config;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.ComponentScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.FilterType;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.EnableWebMvc;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.ViewResolverRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Springweb应用的配置 相当于配置文件SpringMVC.xml</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebMvc</span></span><br><span class="line"><span class="comment">//配置只会扫描Controller注解</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(value = &#123;<span class="string">"caicai"</span>&#125;,includeFilters=&#123;<span class="meta">@ComponentScan</span>.Filter(type= FilterType.ANNOTATION,value=&#123;Controller.class&#125;)&#125;,useDefaultFilters = <span class="keyword">false</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//配置视图解析器</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureViewResolvers</span><span class="params">(ViewResolverRegistry registry)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//默认前缀 /WEB-INF/   后缀.jsp</span></span><br><span class="line">        registry.jsp();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureDefaultServletHandling</span><span class="params">(DefaultServletHandlerConfigurer configurer)</span> </span>&#123;</span><br><span class="line">        configurer.enable();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中第一件需要注意的事情是WebConfig现在添加了@Component-Scan注解。接下来我们设置了视图的默认前缀和后缀。最后，新的WebConfig类还扩展了WebMvcConfigurerAdapter并重写了其configureDefaultServletHandling()方法。通过调用DefaultServlet-HandlerConfigurer的enable（）方法，我们要求DispatcherServlet将对静态资源的请求转发到Servlet容器默认的Servlet上，而不是使用DispatcherServlet本身来处理此类请求。</p>
+<p>WebConfig配置已经就绪，我们需要再配置RootConfig：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.ComponentScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.FilterType;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这个是跟容器，相当于ApplicationContxt.xml,包扫描的时候要排除<span class="doctag">@Controller</span>注解，避免重复扫描</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(value =&#123;<span class="string">"caicai"</span>&#125;,</span><br><span class="line">        excludeFilters=&#123;<span class="meta">@ComponentScan</span>.Filter(type = FilterType.ANNOTATION,value = &#123;Controller.class&#125;)&#125;)</span><br><span class="line"><span class="meta">@Configuration</span><span class="comment">//声明这是一个配置类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RootConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="编写基本的控制器"><a href="#编写基本的控制器" class="headerlink" title="编写基本的控制器"></a>编写基本的控制器</h2><p>在SpringMVC中，控制器试试方法添加了@RequestMapping注解的类，这个注解声明了他们所要处理的请求。我们声明一个最简单的SpringMVC控制类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">home</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"home"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可能注意到的一件事就是HomeController带有@Controller注解。很显然这个注解是用来声明控制器的，但实际上这个注解对SpringMVC本身的影响并不大。</p>
+<p>HomeController是一个构造型（stereotype）的注解，它基于@Compont注解。在这里，他的目的就是辅助实现组件扫描。因为HomeController带有@Controller注解，因此组件扫描器会自动找到HomeController，并将其声明为Spring应用上下文中的一个bean。</p>
+<p>其实也可以让HomeController带有@Component注解，他所实现的效果是一样的，但是在表意性上可能会差一点，无法确定HomeController是什么组件类型。</p>
+<p>HomeController唯一的一个方法就是home（）方法，带有@RequestMapping注解。他的value属性制定了这个方法所要处理的请求路径，method属性细化了她所处理的HTTP方法。在本例中，当收到对/的HTTP GET请求时，就会调用home（）方法。home（）方法其实并没有做太多事：它返回了一个String类型的“home”。这个String将会把SpringMVC解读为要渲染的视图名称。DispatcherServlet会要求视图解析器将这个逻辑名解析为实际的视图。</p>
+<p>鉴于我们配置InternalResourceViewResolver的方式，视图名“home”将会解析为“/WEB-INF/home.jsp”路径的JSP。</p>
+<p>home.jsp代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: <span class="number">1</span></span><br><span class="line">  Date: <span class="number">2019</span>/<span class="number">11</span>/<span class="number">30</span></span><br><span class="line">  Time: <span class="number">14</span>:<span class="number">53</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;hello&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="定义类级别的请求处理"><a href="#定义类级别的请求处理" class="headerlink" title="定义类级别的请求处理"></a>定义类级别的请求处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">home</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"home"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个新版本的HomeController中，路径现在被转移到类级别的@RequestMapping上，而HTTP方法易染映射在方法级别上。当控制器在类级别上添加@RequestMapping注解时，这个注解会应用到控制器的所有处理器方法上。处理器方法上的@RequestMapping注解会对类级别上的@RequestMapping的声明进行补充。</p>
+<p>就HomeController而言，这里只有一个控制器方法。与类级别的@RequestMapping合并后，这个方法的@RequestMapping表明home()将会处理对”/“路径的GET请求。</p>
+<p>换言之，我们没有改变任何功能，只是将一些代码换了个地方，HomeController所做的事情和以前是一样的。</p>
+<h3 id="传递模型数据到视图中"><a href="#传递模型数据到视图中" class="headerlink" title="传递模型数据到视图中"></a>传递模型数据到视图中</h3><p>到现在为止，就编写超级简单的控制器来说，HomeController已经是一个不错的样例了。但是大多数的控制器不是这么简单。在应用中，我们需要有一个页面展现最近提交的列表。因此，我们需要一个新的方法来 处理这个界面。</p>
+<p>首先，需要定义一个数据访问的Repository。为了实现解耦以及避免陷入数据库访问的细节之中，我们将Repository定义为一个接口。我们只需要一个能够获取列表的Repository，如下所示的SpittleRepository功能已经足够了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.data;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SpittleRepository</span> </span>&#123;</span><br><span class="line">    <span class="function">List&lt;Spittle&gt; <span class="title">findSpittles</span><span class="params">(<span class="keyword">long</span> max, <span class="keyword">int</span> count)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> caicai.data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Spittle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String message;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Date time;</span><br><span class="line">    <span class="keyword">private</span> Double latitude;</span><br><span class="line">    <span class="keyword">private</span> Double longitude;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Spittle</span><span class="params">(String message, Date time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(message, time, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Spittle</span><span class="params">(String message, Date time, Double longitude, Double latitude)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">        <span class="keyword">this</span>.time = time;</span><br><span class="line">        <span class="keyword">this</span>.longitude = longitude;</span><br><span class="line">        <span class="keyword">this</span>.latitude = latitude;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Double <span class="title">getLatitude</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> latitude;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Double <span class="title">getLongitude</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> longitude;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>## </p>
+<p>​              </p>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/11/27/Spring-Web/">Spring Web</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
+        <p><span>发布时间:</span>2019年11月27日 - 18时38分</p>
+        <p><span>最后更新:</span>2019年12月01日 - 20时44分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/27/Spring-Web/" title="Spring Web">https://caicaing.github.io/2019/11/27/Spring-Web/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/11/27/Spring-Web/　　作者: 菜菜" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/21/Spring面向切面编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring面向切面编程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#构建SpringWeb应用程序"><span class="toc-number">1.</span> <span class="toc-text">构建SpringWeb应用程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC起步"><span class="toc-number">1.1.</span> <span class="toc-text">Spring MVC起步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建Spring-MVC"><span class="toc-number">1.2.</span> <span class="toc-text">搭建Spring MVC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置DispatcherServlet"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置DispatcherServlet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两个应用上下文之间的故事"><span class="toc-number">1.2.2.</span> <span class="toc-text">两个应用上下文之间的故事</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启用Spring-MVC"><span class="toc-number">1.2.3.</span> <span class="toc-text">启用Spring MVC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写基本的控制器"><span class="toc-number">1.3.</span> <span class="toc-text">编写基本的控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义类级别的请求处理"><span class="toc-number">1.3.1.</span> <span class="toc-text">定义类级别的请求处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传递模型数据到视图中"><span class="toc-number">1.3.2.</span> <span class="toc-text">传递模型数据到视图中</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/11/21/Spring面向切面编程/" title="下一篇: Spring面向切面编程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/11/27/Spring-Web/">Spring Web</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/Spring面向切面编程/">Spring面向切面编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/Spring-运行时注入/">Spring 运行时注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/Spring-bean的作用域/">Spring bean的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/07/设计模式-命令模式/">设计模式-命令模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/设计模式-单例模式/">设计模式--单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/12/设计模式-装饰者模式/">设计模式--装饰者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/设计模式-工厂模式/">设计模式--工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/08/设计模式-观察者模式/">设计模式--观察者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/07/设计模式-策略模式/">设计模式--策略模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/08/网络科学导论/">网络科学导论简记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/spring-boot邮件发送/">spring boot邮件发送和定时任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/01/python-list-append方法数据覆盖/">python list.append方法数据覆盖</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/15/docker安装mysql/">docker安装mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/SpringBoot-ajax跨域请求/">SpringBoot+ajax跨域请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/10/SpringBoot整合Activiti7使用/">SpringBoot整合Activiti7使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/Thumbnailator图片处理/">Thumbnailator图片处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/03/lucene操作实例/">lucene全文检索操作实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/centos7-3搭建gogs/">centos7.3搭建gogs</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/git常用命令/">git常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/Java-Builder-Pattern/">Java Builder Pattern</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/java异常、线程/">java异常、线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/11/java集合工具对自定义类进行排序/">java集合工具对自定义类进行排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/10/java常用类api/">java常用类api</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/Spring-Boot单文件上传/">Spring Boot单/多文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/form表单文件上传/">JAVAWEB文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/vue学习笔记-二/">vue学习笔记(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/vue学习笔记-一/">vue学习笔记(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/15/org-springframework-expression-spel-SpelEvaluationException-EL1008E/">org.springframework.expression.spel.SpelEvaluationException: EL1008E:</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/">JPA Space is not allowed after parameter prefix ':'</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/13/Echarts/">Echarts</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/Spring-Boot-登录拦截器验证/">Spring Boot 拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/MYSQL随机选择数据/">MYSQL随机选择数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/jpa-自定义查询语句/">Jpa 自定义查询语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-Jpa/">Spring Boot Jpa</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-整合Mybatis-基于注解/">Spring Boot 整合Mybatis(基于注解)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/Spring-Boot-整合mybatis/">Spring Boot 整合mybatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/thymeleaf基本语法/">thymeleaf的整合和使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合Freemarker/">Spring Boot 整合Freemarker</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jsp</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2/">swagger2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 菜菜
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
