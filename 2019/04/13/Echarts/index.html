@@ -2,306 +2,315 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
-  
-  
-  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <title>Echarts | 菜菜的blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。">
-<meta name="keywords" content="Echarts">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Echarts">
-<meta property="og:url" content="https://caicaing.github.io/2019/04/13/Echarts/index.html">
-<meta property="og:site_name" content="菜菜的blog">
-<meta property="og:description" content="ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="https://caicaing.github.io/2019/04/13/Echarts/Echarts-初体验/1.png">
-<meta property="og:image" content="https://caicaing.github.io/2019/04/13/Echarts/Echarts-初体验/2.png">
-<meta property="og:updated_time" content="2019-10-07T09:15:20.010Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Echarts">
-<meta name="twitter:description" content="ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。">
-<meta name="twitter:image" content="https://caicaing.github.io/2019/04/13/Echarts/Echarts-初体验/1.png">
-  
-    <link rel="alternative" href="/atom.xml" title="菜菜的blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.jpeg">
+  <meta name="description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
   
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: false,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
-</head></html>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-        <a href="/" class="profilepic">
-            
-            <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">菜菜</a></h1>
-        </hgroup>
+  
+  <link rel="alternate" href="/atom.xml" title="菜菜的blog">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class="cover post half">
+      
         
-        
-            <form>
-                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
-            </form>
-            <div id="local-search-result"></div>
-        
-        
-            <script type="text/javascript">
-                (function() {
-                    'use strict';
-                    function getMatchData(keyword, data) {
-                        var matchData = [];
-                        for(var i =0;i<data.length;i++){
-                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
-                                matchData.push(data[i])
-                        }
-                        return matchData;
-                    }
-                    var $input = $('#local-search-input');
-                    var $resultContent = $('#local-search-result');
-                    $input.keyup(function(){
-                        $.ajax({
-                            url: '/search.json',
-                            dataType: "json",
-                            success: function( json ) {
-                                var str='<ul class=\"search-result-list\">';                
-                                var keyword = $input.val().trim().toLowerCase();
-                                $resultContent.innerHTML = "";
-                                if ($input.val().trim().length <= 0) {
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                }
-                                var results = getMatchData(keyword, json);
-                                if(results.length === 0){
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                } 
-                                for(var i =0; i<results.length; i++){
-                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
-                                }
-                                str += "</ul>";
-                                $resultContent.empty();
-                                $resultContent.append(str);
-                                $('#switch-area').hide();
-                            }
-                        });
-                    });
-                })();
-            </script>
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
-                            
-                                <a class="fl weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
-                            
-                                <a class="fl rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Activiti7/" style="font-size: 10px;">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/JAVA/" style="font-size: 13.33px;">JAVA</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/JSR-303/" style="font-size: 10px;">JSR-303</a> <a href="/tags/MYSQL/" style="font-size: 15px;">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 11.67px;">SpringBoot</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Thumbnailator/" style="font-size: 10px;">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gogs/" style="font-size: 10px;">gogs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/lucene/" style="font-size: 10px;">lucene</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 11.67px;">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 10px;">网络科学导论</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a>
-                    </div>
-                </section>
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://mvnrepository.com/">mvnrepository</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://translate.google.cn/?hl=zh-CN&tab=TT">谷歌翻译</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://spring.io/">spring</a>
-                    
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">一个不断变强的菜菜!</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>
+  <h1 class="title">caicai’s blog</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder>
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class="menu navgation">
+  <ul class="h-list">
+    
+      
+        <li>
+          <a class="nav home" href="/" id="home">
+            <i class="fas fa-rss fa-fw"></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/" id="projects">
+            <i class="fas fa-code-branch fa-fw"></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/" rel="nofollow" id="friends">
+            <i class="fas fa-link fa-fw"></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/" rel="nofollow" id="about">
+            <i class="fas fa-info-circle fa-fw"></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">菜菜</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img src="/img/avatar.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">菜菜</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="github" target="_blank" href="https://github.com/caicaing" title="github">github</a>
-                    
-                        <a class="weibo" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="weibo">weibo</a>
-                    
-                        <a class="rss" target="_blank" href="https://weibo.com/p/1005055867899091/home?" title="rss">rss</a>
-                    
-                </div>
-            </nav>
-        </header>
-    </div>
-</nav>
-      <div class="body-wrap"><article id="post-Echarts" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/13/Echarts/" class="article-date">
-      <time datetime="2019-04-13T07:31:57.000Z" itemprop="datePublished">2019-04-13</time>
-</a>
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
 
-    </div>
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href="/">
+        
+          菜菜的blog
+        
+      </a>
+			<div class="menu navgation">
+				<ul class="h-list">
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/" id="home">
+									<i class="fas fa-grin fa-fw"></i>&nbsp;示例
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/" rel="nofollow" id="blogcategories">
+									<i class="fas fa-folder-open fa-fw"></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/" rel="nofollow" id="blogtags">
+									<i class="fas fa-hashtag fa-fw"></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/" rel="nofollow" id="blogarchives">
+									<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="flat-btn fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+        
+          <li class="s-toc"><a class="flat-btn fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/" id="home">
+								<i class="fas fa-clock fa-fw"></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/" rel="nofollow" id="blogarchives">
+								<i class="fas fa-archive fa-fw"></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/" id="projects">
+								<i class="fas fa-code-branch fa-fw"></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/" rel="nofollow" id="friends">
+								<i class="fas fa-link fa-fw"></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/" rel="nofollow" id="https:xaoxuu.comwikimaterial-x">
+								<i class="fas fa-book fa-fw"></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/" rel="nofollow" id="about">
+								<i class="fas fa-info-circle fa-fw"></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class="l_main">
   
-  <div class="article-inner">
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
     
-      <input type="hidden" class="isFancy">
+
+
+  <section class="meta">
     
     
-      <header class="article-header">
+    <div class="meta" id="header-meta">
+      
         
   
-    <h1 class="article-title" itemprop="name">
-      Echarts
+    <h1 class="title">
+      <a href="/2019/04/13/Echarts/">
+        Echarts
+      </a>
     </h1>
   
 
 
-      </header>
       
-      <div class="article-info article-info-post">
+      <div class="new-meta-box">
         
+          
+        
+          
+            
+  <div class="new-meta-item author">
+    
+      <a href="https://caicaing.github.io" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>菜菜</p>
+      </a>
+    
+  </div>
 
+
+          
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Echarts/">Echarts</a></li></ul>
+          
+            <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-04-13</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class="notlink">
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
     </div>
+  
 
-        <div class="clearfix"></div>
+
+          
+        
+          
+            
+
+          
+        
       </div>
       
-    
-    <div class="article-entry" itemprop="articleBody">
+        <hr>
       
-          
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
         <p>ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 <a href="https://github.com/ecomfe/zrender" target="_blank" rel="noopener">ZRender</a>，提供直观，交互丰富，可高度个性化定制的数据可视化图表。</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
@@ -314,262 +323,888 @@
 <blockquote>
 </blockquote>
 <h2 id="准备一个存放图表的容器"><a href="#准备一个存放图表的容器" class="headerlink" title="准备一个存放图表的容器"></a>准备一个存放图表的容器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">style</span>=<span class="string">"width: 600px;height:400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="设置参数-初始化图表"><a href="#设置参数-初始化图表" class="headerlink" title="设置参数 初始化图表"></a>设置参数 初始化图表</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    var myChart = echarts.init(document.getElementById("box"));</span></span><br><span class="line"><span class="undefined">	var option = &#123;</span></span><br><span class="line"><span class="undefined">		title : &#123;</span></span><br><span class="line"><span class="undefined">			text: '未来一周气温变化',</span></span><br><span class="line"><span class="undefined">			subtext: '纯属虚构'</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		tooltip : &#123;</span></span><br><span class="line"><span class="undefined">			trigger: 'axis'</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		legend: &#123;</span></span><br><span class="line"><span class="undefined">			data:['最高气温','最低气温']</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		toolbox: &#123;</span></span><br><span class="line"><span class="undefined">			show : true,</span></span><br><span class="line"><span class="undefined">			feature : &#123;</span></span><br><span class="line"><span class="undefined">				mark : &#123;show: true&#125;,</span></span><br><span class="line"><span class="undefined">				dataView : &#123;show: true, readOnly: false&#125;,</span></span><br><span class="line"><span class="undefined">				magicType : &#123;show: true, type: ['line', 'bar']&#125;,</span></span><br><span class="line"><span class="undefined">				restore : &#123;show: true&#125;,</span></span><br><span class="line"><span class="undefined">				saveAsImage : &#123;show: true&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		calculable : true,</span></span><br><span class="line"><span class="undefined">		xAxis : [</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="undefined">				type : 'category',</span></span><br><span class="line"><span class="undefined">				boundaryGap : false,</span></span><br><span class="line"><span class="undefined">				data : ['周一','周二','周三','周四','周五','周六','周日']</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		],</span></span><br><span class="line"><span class="undefined">		yAxis : [</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="undefined">				type : 'value',</span></span><br><span class="line"><span class="undefined">				axisLabel : &#123;</span></span><br><span class="line"><span class="undefined">					formatter: '&#123;value&#125; °C'</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		],</span></span><br><span class="line"><span class="undefined">		series : [</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="undefined">				name:'最高气温',</span></span><br><span class="line"><span class="undefined">				type:'line',</span></span><br><span class="line"><span class="undefined">				data:[11, 11, 15, 13, 12, 13, 10],</span></span><br><span class="line"><span class="undefined">				markPoint : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="undefined">						&#123;type : 'max', name: '最大值'&#125;,</span></span><br><span class="line"><span class="undefined">						&#123;type : 'min', name: '最小值'&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="undefined">				markLine : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="undefined">						&#123;type : 'average', name: '平均值'&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;,</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="undefined">				name:'最低气温',</span></span><br><span class="line"><span class="undefined">				type:'line',</span></span><br><span class="line"><span class="undefined">				data:[1, -2, 2, 5, 3, 2, 0],</span></span><br><span class="line"><span class="undefined">				markPoint : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="undefined">						&#123;name : '周最低', value : -2, xAxis: 1, yAxis: -1.5&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="undefined">				markLine : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="undefined">						&#123;type : 'average', name : '平均值'&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		]</span></span><br><span class="line"><span class="undefined">	&#125;;</span></span><br><span class="line"><span class="undefined">    myChart.setOption(option);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置参数-初始化图表"><a href="#设置参数-初始化图表" class="headerlink" title="设置参数 初始化图表"></a>设置参数 初始化图表</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>));</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> option = &#123;</span></span><br><span class="line"><span class="undefined">		title : &#123;</span></span><br><span class="line"><span class="actionscript">			text: <span class="string">'未来一周气温变化'</span>,</span></span><br><span class="line"><span class="actionscript">			subtext: <span class="string">'纯属虚构'</span></span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		tooltip : &#123;</span></span><br><span class="line"><span class="actionscript">			trigger: <span class="string">'axis'</span></span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		legend: &#123;</span></span><br><span class="line"><span class="actionscript">			data:[<span class="string">'最高气温'</span>,<span class="string">'最低气温'</span>]</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="undefined">		toolbox: &#123;</span></span><br><span class="line"><span class="actionscript">			show : <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">			feature : &#123;</span></span><br><span class="line"><span class="actionscript">				mark : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">				dataView : &#123;show: <span class="literal">true</span>, readOnly: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="actionscript">				magicType : &#123;show: <span class="literal">true</span>, type: [<span class="string">'line'</span>, <span class="string">'bar'</span>]&#125;,</span></span><br><span class="line"><span class="actionscript">				restore : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">				saveAsImage : &#123;show: <span class="literal">true</span>&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="actionscript">		calculable : <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">		xAxis : [</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="actionscript">				type : <span class="string">'category'</span>,</span></span><br><span class="line"><span class="actionscript">				boundaryGap : <span class="literal">false</span>,</span></span><br><span class="line"><span class="actionscript">				data : [<span class="string">'周一'</span>,<span class="string">'周二'</span>,<span class="string">'周三'</span>,<span class="string">'周四'</span>,<span class="string">'周五'</span>,<span class="string">'周六'</span>,<span class="string">'周日'</span>]</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		],</span></span><br><span class="line"><span class="undefined">		yAxis : [</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="actionscript">				type : <span class="string">'value'</span>,</span></span><br><span class="line"><span class="undefined">				axisLabel : &#123;</span></span><br><span class="line"><span class="actionscript">					formatter: <span class="string">'&#123;value&#125; °C'</span></span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		],</span></span><br><span class="line"><span class="undefined">		series : [</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="actionscript">				name:<span class="string">'最高气温'</span>,</span></span><br><span class="line"><span class="actionscript">				type:<span class="string">'line'</span>,</span></span><br><span class="line"><span class="undefined">				data:[11, 11, 15, 13, 12, 13, 10],</span></span><br><span class="line"><span class="undefined">				markPoint : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="actionscript">						&#123;type : <span class="string">'max'</span>, name: <span class="string">'最大值'</span>&#125;,</span></span><br><span class="line"><span class="actionscript">						&#123;type : <span class="string">'min'</span>, name: <span class="string">'最小值'</span>&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="undefined">				markLine : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="actionscript">						&#123;type : <span class="string">'average'</span>, name: <span class="string">'平均值'</span>&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;,</span></span><br><span class="line"><span class="undefined">			&#123;</span></span><br><span class="line"><span class="actionscript">				name:<span class="string">'最低气温'</span>,</span></span><br><span class="line"><span class="actionscript">				type:<span class="string">'line'</span>,</span></span><br><span class="line"><span class="undefined">				data:[1, -2, 2, 5, 3, 2, 0],</span></span><br><span class="line"><span class="undefined">				markPoint : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="actionscript">						&#123;name : <span class="string">'周最低'</span>, value : <span class="number">-2</span>, xAxis: <span class="number">1</span>, yAxis: <span class="number">-1.5</span>&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="undefined">				markLine : &#123;</span></span><br><span class="line"><span class="undefined">					data : [</span></span><br><span class="line"><span class="actionscript">						&#123;type : <span class="string">'average'</span>, name : <span class="string">'平均值'</span>&#125;</span></span><br><span class="line"><span class="undefined">					]</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		]</span></span><br><span class="line"><span class="undefined">	&#125;;</span></span><br><span class="line"><span class="undefined">    myChart.setOption(option);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="/2019/04/13/Echarts/Echarts-初体验/1.png" alt></p>
 <p>​            </p>
 <p><img src="/2019/04/13/Echarts/Echarts-初体验/2.png" alt></p>
 <h2 id="各个配置参数的说明"><a href="#各个配置参数的说明" class="headerlink" title="各个配置参数的说明"></a>各个配置参数的说明</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br></pre></td><td class="code"><pre><span class="line">theme = &#123;</span><br><span class="line">    <span class="comment">// 全图默认背景</span></span><br><span class="line">    <span class="comment">// backgroundColor: 'rgba(0,0,0,0)',</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 默认色板</span></span><br><span class="line">    color: [<span class="string">'#ff7f50'</span>,<span class="string">'#87cefa'</span>,<span class="string">'#da70d6'</span>,<span class="string">'#32cd32'</span>,<span class="string">'#6495ed'</span>,</span><br><span class="line">            <span class="string">'#ff69b4'</span>,<span class="string">'#ba55d3'</span>,<span class="string">'#cd5c5c'</span>,<span class="string">'#ffa500'</span>,<span class="string">'#40e0d0'</span>,</span><br><span class="line">            <span class="string">'#1e90ff'</span>,<span class="string">'#ff6347'</span>,<span class="string">'#7b68ee'</span>,<span class="string">'#00fa9a'</span>,<span class="string">'#ffd700'</span>,</span><br><span class="line">            <span class="string">'#6699FF'</span>,<span class="string">'#ff6666'</span>,<span class="string">'#3cb371'</span>,<span class="string">'#b8860b'</span>,<span class="string">'#30e0e0'</span>],</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 图表标题</span></span><br><span class="line">    title: &#123;</span><br><span class="line">        x: <span class="string">'left'</span>,                 <span class="comment">// 水平安放位置，默认为左对齐，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'center' ¦ 'left' ¦ 'right'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（x坐标，单位px）</span></span><br><span class="line">        y: <span class="string">'top'</span>,                  <span class="comment">// 垂直安放位置，默认为全图顶端，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'top' ¦ 'bottom' ¦ 'center'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（y坐标，单位px）</span></span><br><span class="line">        <span class="comment">//textAlign: null          // 水平对齐方式，默认根据x设置自动调整</span></span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">        borderColor: <span class="string">'#ccc'</span>,       <span class="comment">// 标题边框颜色</span></span><br><span class="line">        borderWidth: <span class="number">0</span>,            <span class="comment">// 标题边框线宽，单位px，默认为0（无边框）</span></span><br><span class="line">        padding: <span class="number">5</span>,                <span class="comment">// 标题内边距，单位px，默认各方向内边距为5，</span></span><br><span class="line">                                   <span class="comment">// 接受数组分别设定上右下左边距，同css</span></span><br><span class="line">        itemGap: <span class="number">10</span>,               <span class="comment">// 主副标题纵向间隔，单位px，默认为10，</span></span><br><span class="line">        textStyle: &#123;</span><br><span class="line">            fontSize: <span class="number">18</span>,</span><br><span class="line">            fontWeight: <span class="string">'bolder'</span>,</span><br><span class="line">            color: <span class="string">'#333'</span>          <span class="comment">// 主标题文字颜色</span></span><br><span class="line">        &#125;,</span><br><span class="line">        subtextStyle: &#123;</span><br><span class="line">            color: <span class="string">'#aaa'</span>          <span class="comment">// 副标题文字颜色</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 图例</span></span><br><span class="line">    legend: &#123;</span><br><span class="line">        orient: <span class="string">'horizontal'</span>,      <span class="comment">// 布局方式，默认为水平布局，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'horizontal' ¦ 'vertical'</span></span><br><span class="line">        x: <span class="string">'center'</span>,               <span class="comment">// 水平安放位置，默认为全图居中，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'center' ¦ 'left' ¦ 'right'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（x坐标，单位px）</span></span><br><span class="line">        y: <span class="string">'top'</span>,                  <span class="comment">// 垂直安放位置，默认为全图顶端，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'top' ¦ 'bottom' ¦ 'center'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（y坐标，单位px）</span></span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">        borderColor: <span class="string">'#ccc'</span>,       <span class="comment">// 图例边框颜色</span></span><br><span class="line">        borderWidth: <span class="number">0</span>,            <span class="comment">// 图例边框线宽，单位px，默认为0（无边框）</span></span><br><span class="line">        padding: <span class="number">5</span>,                <span class="comment">// 图例内边距，单位px，默认各方向内边距为5，</span></span><br><span class="line">                                   <span class="comment">// 接受数组分别设定上右下左边距，同css</span></span><br><span class="line">        itemGap: <span class="number">10</span>,               <span class="comment">// 各个item之间的间隔，单位px，默认为10，</span></span><br><span class="line">                                   <span class="comment">// 横向布局时为水平间隔，纵向布局时为纵向间隔</span></span><br><span class="line">        itemWidth: <span class="number">20</span>,             <span class="comment">// 图例图形宽度</span></span><br><span class="line">        itemHeight: <span class="number">14</span>,            <span class="comment">// 图例图形高度</span></span><br><span class="line">        textStyle: &#123;</span><br><span class="line">            color: <span class="string">'#333'</span>          <span class="comment">// 图例文字颜色</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 值域</span></span><br><span class="line">    dataRange: &#123;</span><br><span class="line">        orient: <span class="string">'vertical'</span>,        <span class="comment">// 布局方式，默认为垂直布局，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'horizontal' ¦ 'vertical'</span></span><br><span class="line">        x: <span class="string">'left'</span>,                 <span class="comment">// 水平安放位置，默认为全图左对齐，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'center' ¦ 'left' ¦ 'right'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（x坐标，单位px）</span></span><br><span class="line">        y: <span class="string">'bottom'</span>,               <span class="comment">// 垂直安放位置，默认为全图底部，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'top' ¦ 'bottom' ¦ 'center'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（y坐标，单位px）</span></span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">        borderColor: <span class="string">'#ccc'</span>,       <span class="comment">// 值域边框颜色</span></span><br><span class="line">        borderWidth: <span class="number">0</span>,            <span class="comment">// 值域边框线宽，单位px，默认为0（无边框）</span></span><br><span class="line">        padding: <span class="number">5</span>,                <span class="comment">// 值域内边距，单位px，默认各方向内边距为5，</span></span><br><span class="line">                                   <span class="comment">// 接受数组分别设定上右下左边距，同css</span></span><br><span class="line">        itemGap: <span class="number">10</span>,               <span class="comment">// 各个item之间的间隔，单位px，默认为10，</span></span><br><span class="line">                                   <span class="comment">// 横向布局时为水平间隔，纵向布局时为纵向间隔</span></span><br><span class="line">        itemWidth: <span class="number">20</span>,             <span class="comment">// 值域图形宽度，线性渐变水平布局宽度为该值 * 10</span></span><br><span class="line">        itemHeight: <span class="number">14</span>,            <span class="comment">// 值域图形高度，线性渐变垂直布局高度为该值 * 10</span></span><br><span class="line">        splitNumber: <span class="number">5</span>,            <span class="comment">// 分割段数，默认为5，为0时为线性渐变</span></span><br><span class="line">        color:[<span class="string">'#1e90ff'</span>,<span class="string">'#f0ffff'</span>],<span class="comment">//颜色 </span></span><br><span class="line">        <span class="comment">//text:['高','低'],         // 文本，默认为数值文本</span></span><br><span class="line">        textStyle: &#123;</span><br><span class="line">            color: <span class="string">'#333'</span>          <span class="comment">// 值域文字颜色</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    toolbox: &#123;</span><br><span class="line">        orient: <span class="string">'horizontal'</span>,      <span class="comment">// 布局方式，默认为水平布局，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'horizontal' ¦ 'vertical'</span></span><br><span class="line">        x: <span class="string">'right'</span>,                <span class="comment">// 水平安放位置，默认为全图右对齐，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'center' ¦ 'left' ¦ 'right'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（x坐标，单位px）</span></span><br><span class="line">        y: <span class="string">'top'</span>,                  <span class="comment">// 垂直安放位置，默认为全图顶端，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'top' ¦ 'bottom' ¦ 'center'</span></span><br><span class="line">                                   <span class="comment">// ¦ &#123;number&#125;（y坐标，单位px）</span></span><br><span class="line">        color : [<span class="string">'#1e90ff'</span>,<span class="string">'#22bb22'</span>,<span class="string">'#4b0082'</span>,<span class="string">'#d2691e'</span>],</span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0)'</span>, <span class="comment">// 工具箱背景颜色</span></span><br><span class="line">        borderColor: <span class="string">'#ccc'</span>,       <span class="comment">// 工具箱边框颜色</span></span><br><span class="line">        borderWidth: <span class="number">0</span>,            <span class="comment">// 工具箱边框线宽，单位px，默认为0（无边框）</span></span><br><span class="line">        padding: <span class="number">5</span>,                <span class="comment">// 工具箱内边距，单位px，默认各方向内边距为5，</span></span><br><span class="line">                                   <span class="comment">// 接受数组分别设定上右下左边距，同css</span></span><br><span class="line">        itemGap: <span class="number">10</span>,               <span class="comment">// 各个item之间的间隔，单位px，默认为10，</span></span><br><span class="line">                                   <span class="comment">// 横向布局时为水平间隔，纵向布局时为纵向间隔</span></span><br><span class="line">        itemSize: <span class="number">16</span>,              <span class="comment">// 工具箱图形宽度</span></span><br><span class="line">        featureImageIcon : &#123;&#125;,     <span class="comment">// 自定义图片icon</span></span><br><span class="line">        featureTitle : &#123;</span><br><span class="line">            mark : <span class="string">'辅助线开关'</span>,</span><br><span class="line">            markUndo : <span class="string">'删除辅助线'</span>,</span><br><span class="line">            markClear : <span class="string">'清空辅助线'</span>,</span><br><span class="line">            dataZoom : <span class="string">'区域缩放'</span>,</span><br><span class="line">            dataZoomReset : <span class="string">'区域缩放后退'</span>,</span><br><span class="line">            dataView : <span class="string">'数据视图'</span>,</span><br><span class="line">            lineChart : <span class="string">'折线图切换'</span>,</span><br><span class="line">            barChart : <span class="string">'柱形图切换'</span>,</span><br><span class="line">            restore : <span class="string">'还原'</span>,</span><br><span class="line">            saveAsImage : <span class="string">'保存为图片'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提示框</span></span><br><span class="line">    tooltip: &#123;</span><br><span class="line">        trigger: <span class="string">'item'</span>,           <span class="comment">// 触发类型，默认数据触发，见下图，可选为：'item' ¦ 'axis'</span></span><br><span class="line">        showDelay: <span class="number">20</span>,             <span class="comment">// 显示延迟，添加显示延迟可以避免频繁切换，单位ms</span></span><br><span class="line">        hideDelay: <span class="number">100</span>,            <span class="comment">// 隐藏延迟，单位ms</span></span><br><span class="line">        transitionDuration : <span class="number">0.4</span>,  <span class="comment">// 动画变换时间，单位s</span></span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0.7)'</span>,     <span class="comment">// 提示背景颜色，默认为透明度为0.7的黑色</span></span><br><span class="line">        borderColor: <span class="string">'#333'</span>,       <span class="comment">// 提示边框颜色</span></span><br><span class="line">        borderRadius: <span class="number">4</span>,           <span class="comment">// 提示边框圆角，单位px，默认为4</span></span><br><span class="line">        borderWidth: <span class="number">0</span>,            <span class="comment">// 提示边框线宽，单位px，默认为0（无边框）</span></span><br><span class="line">        padding: <span class="number">5</span>,                <span class="comment">// 提示内边距，单位px，默认各方向内边距为5，</span></span><br><span class="line">                                   <span class="comment">// 接受数组分别设定上右下左边距，同css</span></span><br><span class="line">        axisPointer : &#123;            <span class="comment">// 坐标轴指示器，坐标轴触发有效</span></span><br><span class="line">            type : <span class="string">'line'</span>,         <span class="comment">// 默认为直线，可选为：'line' | 'shadow'</span></span><br><span class="line">            lineStyle : &#123;          <span class="comment">// 直线指示器样式设置</span></span><br><span class="line">                color: <span class="string">'#48b'</span>,</span><br><span class="line">                width: <span class="number">2</span>,</span><br><span class="line">                type: <span class="string">'solid'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            shadowStyle : &#123;                       <span class="comment">// 阴影指示器样式设置</span></span><br><span class="line">                width: <span class="string">'auto'</span>,                   <span class="comment">// 阴影大小</span></span><br><span class="line">                color: <span class="string">'rgba(150,150,150,0.3)'</span>  <span class="comment">// 阴影颜色</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        textStyle: &#123;</span><br><span class="line">            color: <span class="string">'#fff'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 区域缩放控制器</span></span><br><span class="line">    dataZoom: &#123;</span><br><span class="line">        orient: <span class="string">'horizontal'</span>,      <span class="comment">// 布局方式，默认为水平布局，可选为：</span></span><br><span class="line">                                   <span class="comment">// 'horizontal' ¦ 'vertical'</span></span><br><span class="line">        <span class="comment">// x: &#123;number&#125;,            // 水平安放位置，默认为根据grid参数适配，可选为：</span></span><br><span class="line">                                   <span class="comment">// &#123;number&#125;（x坐标，单位px）</span></span><br><span class="line">        <span class="comment">// y: &#123;number&#125;,            // 垂直安放位置，默认为根据grid参数适配，可选为：</span></span><br><span class="line">                                   <span class="comment">// &#123;number&#125;（y坐标，单位px）</span></span><br><span class="line">        <span class="comment">// width: &#123;number&#125;,        // 指定宽度，横向布局时默认为根据grid参数适配</span></span><br><span class="line">        <span class="comment">// height: &#123;number&#125;,       // 指定高度，纵向布局时默认为根据grid参数适配</span></span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0)'</span>,       <span class="comment">// 背景颜色</span></span><br><span class="line">        dataBackgroundColor: <span class="string">'#eee'</span>,            <span class="comment">// 数据背景颜色</span></span><br><span class="line">        fillerColor: <span class="string">'rgba(144,197,237,0.2)'</span>,   <span class="comment">// 填充颜色</span></span><br><span class="line">        handleColor: <span class="string">'rgba(70,130,180,0.8)'</span>     <span class="comment">// 手柄颜色</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 网格</span></span><br><span class="line">    grid: &#123;</span><br><span class="line">        x: <span class="number">80</span>,</span><br><span class="line">        y: <span class="number">60</span>,</span><br><span class="line">        x2: <span class="number">80</span>,</span><br><span class="line">        y2: <span class="number">60</span>,</span><br><span class="line">        <span class="comment">// width: &#123;totalWidth&#125; - x - x2,</span></span><br><span class="line">        <span class="comment">// height: &#123;totalHeight&#125; - y - y2,</span></span><br><span class="line">        backgroundColor: <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">        borderWidth: <span class="number">1</span>,</span><br><span class="line">        borderColor: <span class="string">'#ccc'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类目轴</span></span><br><span class="line">    categoryAxis: &#123;</span><br><span class="line">        position: <span class="string">'bottom'</span>,    <span class="comment">// 位置</span></span><br><span class="line">        nameLocation: <span class="string">'end'</span>,   <span class="comment">// 坐标轴名字位置，支持'start' | 'end'</span></span><br><span class="line">        boundaryGap: <span class="keyword">true</span>,     <span class="comment">// 类目起始和结束两端空白策略</span></span><br><span class="line">        axisLine: &#123;            <span class="comment">// 坐标轴线</span></span><br><span class="line">            show: <span class="keyword">true</span>,        <span class="comment">// 默认显示，属性show控制显示与否</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle控制线条样式</span></span><br><span class="line">                color: <span class="string">'#48b'</span>,</span><br><span class="line">                width: <span class="number">2</span>,</span><br><span class="line">                type: <span class="string">'solid'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        axisTick: &#123;            <span class="comment">// 坐标轴小标记</span></span><br><span class="line">            show: <span class="keyword">true</span>,       <span class="comment">// 属性show控制显示与否，默认不显示</span></span><br><span class="line">            interval: <span class="string">'auto'</span>,</span><br><span class="line">            <span class="comment">// onGap: null,</span></span><br><span class="line">            inside : <span class="keyword">false</span>,    <span class="comment">// 控制小标记是否在grid里 </span></span><br><span class="line">            length :<span class="number">5</span>,         <span class="comment">// 属性length控制线长</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle控制线条样式</span></span><br><span class="line">                color: <span class="string">'#333'</span>,</span><br><span class="line">                width: <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        axisLabel: &#123;           <span class="comment">// 坐标轴文本标签，详见axis.axisLabel</span></span><br><span class="line">            show: <span class="keyword">true</span>,</span><br><span class="line">            interval: <span class="string">'auto'</span>,</span><br><span class="line">            rotate: <span class="number">0</span>,</span><br><span class="line">            margin: <span class="number">8</span>,</span><br><span class="line">            <span class="comment">// formatter: null,</span></span><br><span class="line">            textStyle: &#123;       <span class="comment">// 其余属性默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                color: <span class="string">'#333'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        splitLine: &#123;           <span class="comment">// 分隔线</span></span><br><span class="line">            show: <span class="keyword">true</span>,        <span class="comment">// 默认显示，属性show控制显示与否</span></span><br><span class="line">            <span class="comment">// onGap: null,</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle（详见lineStyle）控制线条样式</span></span><br><span class="line">                color: [<span class="string">'#ccc'</span>],</span><br><span class="line">                width: <span class="number">1</span>,</span><br><span class="line">                type: <span class="string">'solid'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        splitArea: &#123;           <span class="comment">// 分隔区域</span></span><br><span class="line">            show: <span class="keyword">false</span>,       <span class="comment">// 默认不显示，属性show控制显示与否</span></span><br><span class="line">            <span class="comment">// onGap: null,</span></span><br><span class="line">            areaStyle: &#123;       <span class="comment">// 属性areaStyle（详见areaStyle）控制区域样式</span></span><br><span class="line">                color: [<span class="string">'rgba(250,250,250,0.3)'</span>,<span class="string">'rgba(200,200,200,0.3)'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数值型坐标轴默认参数</span></span><br><span class="line">    valueAxis: &#123;</span><br><span class="line">        position: <span class="string">'left'</span>,      <span class="comment">// 位置</span></span><br><span class="line">        nameLocation: <span class="string">'end'</span>,   <span class="comment">// 坐标轴名字位置，支持'start' | 'end'</span></span><br><span class="line">        nameTextStyle: &#123;&#125;,     <span class="comment">// 坐标轴文字样式，默认取全局样式</span></span><br><span class="line">        boundaryGap: [<span class="number">0</span>, <span class="number">0</span>],   <span class="comment">// 数值起始和结束两端空白策略</span></span><br><span class="line">        splitNumber: <span class="number">5</span>,        <span class="comment">// 分割段数，默认为5</span></span><br><span class="line">        axisLine: &#123;            <span class="comment">// 坐标轴线</span></span><br><span class="line">            show: <span class="keyword">true</span>,        <span class="comment">// 默认显示，属性show控制显示与否</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle控制线条样式</span></span><br><span class="line">                color: <span class="string">'#48b'</span>,</span><br><span class="line">                width: <span class="number">2</span>,</span><br><span class="line">                type: <span class="string">'solid'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        axisTick: &#123;            <span class="comment">// 坐标轴小标记</span></span><br><span class="line">            show: <span class="keyword">false</span>,       <span class="comment">// 属性show控制显示与否，默认不显示</span></span><br><span class="line">            inside : <span class="keyword">false</span>,    <span class="comment">// 控制小标记是否在grid里 </span></span><br><span class="line">            length :<span class="number">5</span>,         <span class="comment">// 属性length控制线长</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle控制线条样式</span></span><br><span class="line">                color: <span class="string">'#333'</span>,</span><br><span class="line">                width: <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        axisLabel: &#123;           <span class="comment">// 坐标轴文本标签，详见axis.axisLabel</span></span><br><span class="line">            show: <span class="keyword">true</span>,</span><br><span class="line">            rotate: <span class="number">0</span>,</span><br><span class="line">            margin: <span class="number">8</span>,</span><br><span class="line">            <span class="comment">// formatter: null,</span></span><br><span class="line">            textStyle: &#123;       <span class="comment">// 其余属性默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                color: <span class="string">'#333'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        splitLine: &#123;           <span class="comment">// 分隔线</span></span><br><span class="line">            show: <span class="keyword">true</span>,        <span class="comment">// 默认显示，属性show控制显示与否</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle（详见lineStyle）控制线条样式</span></span><br><span class="line">                color: [<span class="string">'#ccc'</span>],</span><br><span class="line">                width: <span class="number">1</span>,</span><br><span class="line">                type: <span class="string">'solid'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        splitArea: &#123;           <span class="comment">// 分隔区域</span></span><br><span class="line">            show: <span class="keyword">false</span>,       <span class="comment">// 默认不显示，属性show控制显示与否</span></span><br><span class="line">            areaStyle: &#123;       <span class="comment">// 属性areaStyle（详见areaStyle）控制区域样式</span></span><br><span class="line">                color: [<span class="string">'rgba(250,250,250,0.3)'</span>,<span class="string">'rgba(200,200,200,0.3)'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    polar : &#123;</span><br><span class="line">        center : [<span class="string">'50%'</span>, <span class="string">'50%'</span>],    <span class="comment">// 默认全局居中</span></span><br><span class="line">        radius : <span class="string">'75%'</span>,</span><br><span class="line">        startAngle : <span class="number">90</span>,</span><br><span class="line">        splitNumber : <span class="number">5</span>,</span><br><span class="line">        name : &#123;</span><br><span class="line">            show: <span class="keyword">true</span>,</span><br><span class="line">            textStyle: &#123;       <span class="comment">// 其余属性默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                color: <span class="string">'#333'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        axisLine: &#123;            <span class="comment">// 坐标轴线</span></span><br><span class="line">            show: <span class="keyword">true</span>,        <span class="comment">// 默认显示，属性show控制显示与否</span></span><br><span class="line">            lineStyle: &#123;       <span class="comment">// 属性lineStyle控制线条样式</span></span><br><span class="line">                color: <span class="string">'#ccc'</span>,</span><br><span class="line">                width: <span class="number">1</span>,</span><br><span class="line">                type: <span class="string">'solid'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        axisLabel: &#123;           <span class="comment">// 坐标轴文本标签，详见axis.axisLabel</span></span><br><span class="line">            show: <span class="keyword">false</span>,</span><br><span class="line">            textStyle: &#123;       <span class="comment">// 其余属性默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                color: <span class="string">'#333'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        splitArea : &#123;</span><br><span class="line">            show : <span class="keyword">true</span>,</span><br><span class="line">            areaStyle : &#123;</span><br><span class="line">                color: [<span class="string">'rgba(250,250,250,0.3)'</span>,<span class="string">'rgba(200,200,200,0.3)'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        splitLine : &#123;</span><br><span class="line">            show : <span class="keyword">true</span>,</span><br><span class="line">            lineStyle : &#123;</span><br><span class="line">                width : <span class="number">1</span>,</span><br><span class="line">                color : <span class="string">'#ccc'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 柱形图默认参数</span></span><br><span class="line">    bar: &#123;</span><br><span class="line">        barMinHeight: <span class="number">0</span>,          <span class="comment">// 最小高度改为0</span></span><br><span class="line">        <span class="comment">// barWidth: null,        // 默认自适应</span></span><br><span class="line">        barGap: <span class="string">'30%'</span>,            <span class="comment">// 柱间距离，默认为柱形宽度的30%，可设固定值</span></span><br><span class="line">        barCategoryGap : <span class="string">'20%'</span>,   <span class="comment">// 类目间柱形距离，默认为类目间距的20%，可设固定值</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: '各异',</span></span><br><span class="line">                barBorderColor: <span class="string">'#fff'</span>,       <span class="comment">// 柱条边线</span></span><br><span class="line">                barBorderRadius: <span class="number">0</span>,           <span class="comment">// 柱条边线圆角，单位px，默认为0</span></span><br><span class="line">                barBorderWidth: <span class="number">1</span>,            <span class="comment">// 柱条边线线宽，单位px，默认为1</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 默认自适应，水平布局为'top'，垂直布局为'right'，可选为</span></span><br><span class="line">                    <span class="comment">//           'inside'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: '各异',</span></span><br><span class="line">                barBorderColor: <span class="string">'rgba(0,0,0,0)'</span>,   <span class="comment">// 柱条边线</span></span><br><span class="line">                barBorderRadius: <span class="number">0</span>,                <span class="comment">// 柱条边线圆角，单位px，默认为0</span></span><br><span class="line">                barBorderWidth: <span class="number">1</span>,                 <span class="comment">// 柱条边线线宽，单位px，默认为1</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 默认自适应，水平布局为'top'，垂直布局为'right'，可选为</span></span><br><span class="line">                    <span class="comment">//           'inside'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 折线图默认参数</span></span><br><span class="line">    line: &#123;</span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 默认自适应，水平布局为'top'，垂直布局为'right'，可选为</span></span><br><span class="line">                    <span class="comment">//           'inside'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                lineStyle: &#123;</span><br><span class="line">                    width: <span class="number">2</span>,</span><br><span class="line">                    type: <span class="string">'solid'</span>,</span><br><span class="line">                    shadowColor : <span class="string">'rgba(0,0,0,0)'</span>, <span class="comment">//默认透明</span></span><br><span class="line">                    shadowBlur: <span class="number">5</span>,</span><br><span class="line">                    shadowOffsetX: <span class="number">3</span>,</span><br><span class="line">                    shadowOffsetY: <span class="number">3</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 默认自适应，水平布局为'top'，垂直布局为'right'，可选为</span></span><br><span class="line">                    <span class="comment">//           'inside'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//smooth : false,</span></span><br><span class="line">        <span class="comment">//symbol: null,         // 拐点图形类型</span></span><br><span class="line">        symbolSize: <span class="number">2</span>,          <span class="comment">// 拐点图形大小</span></span><br><span class="line">        <span class="comment">//symbolRotate : null,  // 拐点图形旋转控制</span></span><br><span class="line">        showAllSymbol: <span class="keyword">false</span>    <span class="comment">// 标志图形默认只有主轴显示（随主轴标签间隔隐藏策略）</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// K线图默认参数</span></span><br><span class="line">    k: &#123;</span><br><span class="line">        <span class="comment">// barWidth : null          // 默认自适应</span></span><br><span class="line">        <span class="comment">// barMaxWidth : null       // 默认自适应 </span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                color: <span class="string">'#fff'</span>,          <span class="comment">// 阳线填充颜色</span></span><br><span class="line">                color0: <span class="string">'#00aa11'</span>,      <span class="comment">// 阴线填充颜色</span></span><br><span class="line">                lineStyle: &#123;</span><br><span class="line">                    width: <span class="number">1</span>,</span><br><span class="line">                    color: <span class="string">'#ff3200'</span>,   <span class="comment">// 阳线边框颜色</span></span><br><span class="line">                    color0: <span class="string">'#00aa11'</span>   <span class="comment">// 阴线边框颜色</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                <span class="comment">// color0: 各异</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 散点图默认参数</span></span><br><span class="line">    scatter: &#123;</span><br><span class="line">        <span class="comment">//symbol: null,      // 图形类型</span></span><br><span class="line">        symbolSize: <span class="number">4</span>,       <span class="comment">// 图形大小，半宽（半径）参数，当图形为方向或菱形则总宽度为symbolSize * 2</span></span><br><span class="line">        <span class="comment">//symbolRotate : null,  // 图形旋转控制</span></span><br><span class="line">        large: <span class="keyword">false</span>,        <span class="comment">// 大规模散点图</span></span><br><span class="line">        largeThreshold: <span class="number">2000</span>,<span class="comment">// 大规模阀值，large为true且数据量&gt;largeThreshold才启用大规模模式</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 默认自适应，水平布局为'top'，垂直布局为'right'，可选为</span></span><br><span class="line">                    <span class="comment">//           'inside'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: '各异'</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 默认自适应，水平布局为'top'，垂直布局为'right'，可选为</span></span><br><span class="line">                    <span class="comment">//           'inside'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 雷达图默认参数</span></span><br><span class="line">    radar : &#123;</span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                &#125;,</span><br><span class="line">                lineStyle: &#123;</span><br><span class="line">                    width: <span class="number">2</span>,</span><br><span class="line">                    type: <span class="string">'solid'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//symbol: null,         // 拐点图形类型</span></span><br><span class="line">        symbolSize: <span class="number">2</span>           <span class="comment">// 可计算特性参数，空数据拖拽提示图形大小</span></span><br><span class="line">        <span class="comment">//symbolRotate : null,  // 图形旋转控制</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 饼图默认参数</span></span><br><span class="line">    pie: &#123;</span><br><span class="line">        center : [<span class="string">'50%'</span>, <span class="string">'50%'</span>],    <span class="comment">// 默认全局居中</span></span><br><span class="line">        radius : [<span class="number">0</span>, <span class="string">'75%'</span>],</span><br><span class="line">        clockWise : <span class="keyword">false</span>,          <span class="comment">// 默认逆时针</span></span><br><span class="line">        startAngle: <span class="number">90</span>,</span><br><span class="line">        minAngle: <span class="number">0</span>,                <span class="comment">// 最小角度改为0</span></span><br><span class="line">        selectedOffset: <span class="number">10</span>,         <span class="comment">// 选中是扇区偏移量</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                borderColor: <span class="string">'#fff'</span>,</span><br><span class="line">                borderWidth: <span class="number">1</span>,</span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">true</span>,</span><br><span class="line">                    position: <span class="string">'outer'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                labelLine: &#123;</span><br><span class="line">                    show: <span class="keyword">true</span>,</span><br><span class="line">                    length: <span class="number">20</span>,</span><br><span class="line">                    lineStyle: &#123;</span><br><span class="line">                        <span class="comment">// color: 各异,</span></span><br><span class="line">                        width: <span class="number">1</span>,</span><br><span class="line">                        type: <span class="string">'solid'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                borderColor: <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">                borderWidth: <span class="number">1</span>,</span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 'outer'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                labelLine: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span>,</span><br><span class="line">                    length: <span class="number">20</span>,</span><br><span class="line">                    lineStyle: &#123;</span><br><span class="line">                        <span class="comment">// color: 各异,</span></span><br><span class="line">                        width: <span class="number">1</span>,</span><br><span class="line">                        type: <span class="string">'solid'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    map: &#123;</span><br><span class="line">        mapType: <span class="string">'china'</span>,   <span class="comment">// 各省的mapType暂时都用中文</span></span><br><span class="line">        mapLocation: &#123;</span><br><span class="line">            x : <span class="string">'center'</span>,</span><br><span class="line">            y : <span class="string">'center'</span></span><br><span class="line">            <span class="comment">// width    // 自适应</span></span><br><span class="line">            <span class="comment">// height   // 自适应</span></span><br><span class="line">        &#125;,</span><br><span class="line">        showLegendSymbol : <span class="keyword">true</span>,       <span class="comment">// 显示图例颜色标识（系列标识的小圆点），存在legend时生效</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                borderColor: <span class="string">'#fff'</span>,</span><br><span class="line">                borderWidth: <span class="number">1</span>,</span><br><span class="line">                areaStyle: &#123;</span><br><span class="line">                    color: <span class="string">'#ccc'</span><span class="comment">//rgba(135,206,250,0.8)</span></span><br><span class="line">                &#125;,</span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span>,</span><br><span class="line">                    textStyle: &#123;</span><br><span class="line">                        color: <span class="string">'rgba(139,69,19,1)'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;                 <span class="comment">// 也是选中样式</span></span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                borderColor: <span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">                borderWidth: <span class="number">1</span>,</span><br><span class="line">                areaStyle: &#123;</span><br><span class="line">                    color: <span class="string">'rgba(255,215,0,0.8)'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span>,</span><br><span class="line">                    textStyle: &#123;</span><br><span class="line">                        color: <span class="string">'rgba(139,69,19,1)'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    force : &#123;</span><br><span class="line">        <span class="comment">// 数据map到圆的半径的最小值和最大值</span></span><br><span class="line">        minRadius : <span class="number">10</span>,</span><br><span class="line">        maxRadius : <span class="number">20</span>,</span><br><span class="line">        density : <span class="number">1.0</span>,</span><br><span class="line">        attractiveness : <span class="number">1.0</span>,</span><br><span class="line">        <span class="comment">// 初始化的随机大小位置</span></span><br><span class="line">        initSize : <span class="number">300</span>,</span><br><span class="line">        <span class="comment">// 向心力因子，越大向心力越大</span></span><br><span class="line">        centripetal : <span class="number">1</span>,</span><br><span class="line">        <span class="comment">// 冷却因子</span></span><br><span class="line">        coolDown : <span class="number">0.99</span>,</span><br><span class="line">        <span class="comment">// 分类里如果有样式会覆盖节点默认样式</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                nodeStyle : &#123;</span><br><span class="line">                    brushType : <span class="string">'both'</span>,</span><br><span class="line">                    color : <span class="string">'#f08c2e'</span>,</span><br><span class="line">                    strokeColor : <span class="string">'#5182ab'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                linkStyle : &#123;</span><br><span class="line">                    strokeColor : <span class="string">'#5182ab'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                nodeStyle : &#123;&#125;,</span><br><span class="line">                linkStyle : &#123;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    chord : &#123;</span><br><span class="line">        radius : [<span class="string">'65%'</span>, <span class="string">'75%'</span>],</span><br><span class="line">        center : [<span class="string">'50%'</span>, <span class="string">'50%'</span>],</span><br><span class="line">        padding : <span class="number">2</span>,</span><br><span class="line">        sort : <span class="string">'none'</span>, <span class="comment">// can be 'none', 'ascending', 'descending'</span></span><br><span class="line">        sortSub : <span class="string">'none'</span>, <span class="comment">// can be 'none', 'ascending', 'descending'</span></span><br><span class="line">        startAngle : <span class="number">90</span>,</span><br><span class="line">        clockWise : <span class="keyword">false</span>,</span><br><span class="line">        showScale : <span class="keyword">false</span>,</span><br><span class="line">        showScaleText : <span class="keyword">false</span>,</span><br><span class="line">        itemStyle : &#123;</span><br><span class="line">            normal : &#123;</span><br><span class="line">                label : &#123;</span><br><span class="line">                    show : <span class="keyword">true</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                lineStyle : &#123;</span><br><span class="line">                    width : <span class="number">0</span>,</span><br><span class="line">                    color : <span class="string">'#000'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                chordStyle : &#123;</span><br><span class="line">                    lineStyle : &#123;</span><br><span class="line">                        width : <span class="number">1</span>,</span><br><span class="line">                        color : <span class="string">'#666'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis : &#123;</span><br><span class="line">                lineStyle : &#123;</span><br><span class="line">                    width : <span class="number">0</span>,</span><br><span class="line">                    color : <span class="string">'#000'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                chordStyle : &#123;</span><br><span class="line">                    lineStyle : &#123;</span><br><span class="line">                        width : <span class="number">2</span>,</span><br><span class="line">                        color : <span class="string">'#333'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    island: &#123;</span><br><span class="line">        r: <span class="number">15</span>,</span><br><span class="line">        calculateStep: <span class="number">0.1</span>  <span class="comment">// 滚轮可计算步长 0.1 = 10%</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    markPoint : &#123;</span><br><span class="line">        symbol: <span class="string">'pin'</span>,         <span class="comment">// 标注类型</span></span><br><span class="line">        symbolSize: <span class="number">10</span>,        <span class="comment">// 标注大小，半宽（半径）参数，当图形为方向或菱形则总宽度为symbolSize * 2</span></span><br><span class="line">        <span class="comment">//symbolRotate : null, // 标注旋转控制</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异，</span></span><br><span class="line">                <span class="comment">// borderColor: 各异,     // 标注边线颜色，优先于color </span></span><br><span class="line">                borderWidth: <span class="number">2</span>,            <span class="comment">// 标注边线线宽，单位px，默认为1</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">true</span>,</span><br><span class="line">                    position: <span class="string">'inside'</span> <span class="comment">// 可选为'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">true</span></span><br><span class="line">                    <span class="comment">// position: 'inside'  // 'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null     // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    markLine : &#123;</span><br><span class="line">        <span class="comment">// 标线起始和结束的symbol介绍类型，如果都一样，可以直接传string</span></span><br><span class="line">        symbol: [<span class="string">'circle'</span>, <span class="string">'arrow'</span>],  </span><br><span class="line">        <span class="comment">// 标线起始和结束的symbol大小，半宽（半径）参数，当图形为方向或菱形则总宽度为symbolSize * 2</span></span><br><span class="line">        symbolSize: [<span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">        <span class="comment">// 标线起始和结束的symbol旋转控制</span></span><br><span class="line">        <span class="comment">//symbolRotate : null,</span></span><br><span class="line">        itemStyle: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                <span class="comment">// color: 各异,           // 标线主色，线色，symbol主色</span></span><br><span class="line">                <span class="comment">// borderColor: 随color,     // 标线symbol边框颜色，优先于color </span></span><br><span class="line">                borderWidth: <span class="number">2</span>,          <span class="comment">// 标线symbol边框线宽，单位px，默认为2</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span>,</span><br><span class="line">                    <span class="comment">// 可选为 'start'|'end'|'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    position: <span class="string">'inside'</span>,  </span><br><span class="line">                    textStyle: &#123;         <span class="comment">// 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                        color: <span class="string">'#333'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                lineStyle: &#123;</span><br><span class="line">                    <span class="comment">// color: 随borderColor, // 主色，线色，优先级高于borderColor和color</span></span><br><span class="line">                    <span class="comment">// width: 随borderWidth, // 优先于borderWidth</span></span><br><span class="line">                    type: <span class="string">'solid'</span>,</span><br><span class="line">                    shadowColor : <span class="string">'rgba(0,0,0,0)'</span>, <span class="comment">//默认透明</span></span><br><span class="line">                    shadowBlur: <span class="number">5</span>,</span><br><span class="line">                    shadowOffsetX: <span class="number">3</span>,</span><br><span class="line">                    shadowOffsetY: <span class="number">3</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;</span><br><span class="line">                <span class="comment">// color: 各异</span></span><br><span class="line">                label: &#123;</span><br><span class="line">                    show: <span class="keyword">false</span></span><br><span class="line">                    <span class="comment">// position: 'inside' // 'left'|'right'|'top'|'bottom'</span></span><br><span class="line">                    <span class="comment">// textStyle: null    // 默认使用全局文本样式，详见TEXTSTYLE</span></span><br><span class="line">                &#125;,</span><br><span class="line">                lineStyle : &#123;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    textStyle: &#123;</span><br><span class="line">        decoration: <span class="string">'none'</span>,</span><br><span class="line">        fontFamily: <span class="string">'Arial, Verdana, sans-serif'</span>,</span><br><span class="line">        fontFamily2: <span class="string">'微软雅黑'</span>,    <span class="comment">// IE8- 字体模糊并且不支持不同字体混排，额外指定一份</span></span><br><span class="line">        fontSize: <span class="number">12</span>,</span><br><span class="line">        fontStyle: <span class="string">'normal'</span>,</span><br><span class="line">        fontWeight: <span class="string">'normal'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 默认标志图形类型列表</span></span><br><span class="line">    symbolList : [</span><br><span class="line">      <span class="string">'circle'</span>, <span class="string">'rectangle'</span>, <span class="string">'triangle'</span>, <span class="string">'diamond'</span>,</span><br><span class="line">      <span class="string">'emptyCircle'</span>, <span class="string">'emptyRectangle'</span>, <span class="string">'emptyTriangle'</span>, <span class="string">'emptyDiamond'</span></span><br><span class="line">    ],</span><br><span class="line">    loadingText : <span class="string">'Loading...'</span>,</span><br><span class="line">    <span class="comment">// 可计算特性配置，孤岛，提示颜色</span></span><br><span class="line">    calculable: <span class="keyword">false</span>,              <span class="comment">// 默认关闭可计算特性</span></span><br><span class="line">    calculableColor: <span class="string">'rgba(255,165,0,0.6)'</span>,       <span class="comment">// 拖拽提示边框颜色</span></span><br><span class="line">    calculableHolderColor: <span class="string">'#ccc'</span>, <span class="comment">// 可计算占位提示颜色</span></span><br><span class="line">    nameConnector: <span class="string">' &amp; '</span>,</span><br><span class="line">    valueConnector: <span class="string">' : '</span>,</span><br><span class="line">    animation: <span class="keyword">true</span>,</span><br><span class="line">    animationThreshold: <span class="number">2500</span>,       <span class="comment">// 动画元素阀值，产生的图形原素超过2500不出动画</span></span><br><span class="line">    addDataAnimation: <span class="keyword">true</span>,         <span class="comment">// 动态数据接口是否开启动画效果</span></span><br><span class="line">    animationDuration: <span class="number">2000</span>,</span><br><span class="line">    animationEasing: <span class="string">'ExponentialOut'</span>    <span class="comment">//BounceOut</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </the>
+      </div>
+      
+        <br>
+        <center>这是文章页脚，可以设置打赏图片：<br><fancybox><img src="https://img.vim-cn.com/4a/5f8244a7c6e1e069a781b84ed11008e7955e16.png" alt></fancybox></center>
+      
+      
+        <br>
+        
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-10-07T17:15:20+08:00">
+  <a class="notlink">
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Oct 7, 2019</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Echarts/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Echarts</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://caicaing.github.io/2019/04/13/Echarts/&title=Echarts | 菜菜的blog&summary=ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://caicaing.github.io/2019/04/13/Echarts/&title=Echarts | 菜菜的blog&summary=ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://caicaing.github.io/2019/04/13/Echarts/&title=Echarts | 菜菜的blog&summary=ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
       
     </div>
-    
-  </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                          <h4>
+                              <a href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/" rel="prev" title="JPA Space is not allowed after parameter prefix &#39;:&#39;">
+                                
+                                    JPA Space is not allowed after parameter prefix &#39;:&#39;
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Spring-Boot/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Spring Boot</a> <a class="tag" href="/tags/JPA/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> JPA</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2019/04/12/Spring-Boot-登录拦截器验证/" rel="prev" title="Spring Boot 拦截器">
+                                  
+                                      Spring Boot 拦截器
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Spring-Boot/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Spring Boot</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Echarts',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class="l_side">
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/04/13/Echarts/">Echarts</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 菜菜 的个人博客">菜菜</a></p>
-        <p><span>发布时间:</span>2019年04月13日 - 15时31分</p>
-        <p><span>最后更新:</span>2019年10月07日 - 17时15分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/04/13/Echarts/" title="Echarts">https://caicaing.github.io/2019/04/13/Echarts/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://caicaing.github.io/2019/04/13/Echarts/　　作者: 菜菜" title></span>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
+    
+      
+      
         
-          JPA Space is not allowed after parameter prefix &#39;:&#39;
+          
+          
+            
+              <section class="widget author">
+  <div class="content pure">
+    
+      <div class="avatar">
+        <img class="avatar" src="/avatar.jpg">
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/xaoxuu" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+            </a>
+          
         
       </div>
-    </a>
-  
-  
-    <a href="/2019/04/12/Spring-Boot-登录拦截器验证/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring Boot 拦截器</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入Echarts-js文件"><span class="toc-number">1.</span> <span class="toc-text">引入Echarts.js文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备一个存放图表的容器"><span class="toc-number">2.</span> <span class="toc-text">准备一个存放图表的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置参数-初始化图表"><span class="toc-number">3.</span> <span class="toc-text">设置参数 初始化图表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果图"><span class="toc-number">4.</span> <span class="toc-text">效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各个配置参数的说明"><span class="toc-number">5.</span> <span class="toc-text">各个配置参数的说明</span></a></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-
-
     
-        <section class="changyan" id="comments">
-  <!--<div id="uyan_frame"></div>-->
-  <div id="SOHUCS"></div>
-  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
-  <script type="text/javascript">
-    window.changyan.api.config({
-      appid: 'xxxx',
-      conf: 'xxxxxxxxx'
-    });
-  </script>
+  </div>
 </section>
-    
 
-
-
-    <div class="scroll" id="post-nav-button">
+            
+          
         
-            <a href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/" title="上一篇: JPA Space is not allowed after parameter prefix &#39;:&#39;">
-                <i class="fa fa-angle-left"></i>
-            </a>
+          
+          
         
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+          
+          
         
-            <a href="/2019/04/12/Spring-Boot-登录拦截器验证/" title="下一篇: Spring Boot 拦截器">
-                <i class="fa fa-angle-right"></i>
-            </a>
+          
+          
         
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/01/JSR-303校验API/">JSR-303校验API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/27/Spring-Web/">Spring Web</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/Spring面向切面编程/">Spring面向切面编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/Spring-运行时注入/">Spring 运行时注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/19/Spring-bean的作用域/">Spring bean的作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/07/设计模式-命令模式/">设计模式-命令模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/设计模式-单例模式/">设计模式--单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/12/设计模式-装饰者模式/">设计模式--装饰者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/设计模式-工厂模式/">设计模式--工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/08/设计模式-观察者模式/">设计模式--观察者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/07/设计模式-策略模式/">设计模式--策略模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/08/网络科学导论/">网络科学导论简记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/03/spring-boot邮件发送/">spring boot邮件发送和定时任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/01/python-list-append方法数据覆盖/">python list.append方法数据覆盖</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/15/docker安装mysql/">docker安装mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/11/SpringBoot-ajax跨域请求/">SpringBoot+ajax跨域请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/10/SpringBoot整合Activiti7使用/">SpringBoot整合Activiti7使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/Thumbnailator图片处理/">Thumbnailator图片处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/03/lucene操作实例/">lucene全文检索操作实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/centos7-3搭建gogs/">centos7.3搭建gogs</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/git常用命令/">git常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/Java-Builder-Pattern/">Java Builder Pattern</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/java异常、线程/">java异常、线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/11/java集合工具对自定义类进行排序/">java集合工具对自定义类进行排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/10/java常用类api/">java常用类api</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/Spring-Boot单文件上传/">Spring Boot单/多文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/form表单文件上传/">JAVAWEB文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/vue学习笔记-二/">vue学习笔记(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/vue学习笔记-一/">vue学习笔记(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/15/org-springframework-expression-spel-SpelEvaluationException-EL1008E/">org.springframework.expression.spel.SpelEvaluationException: EL1008E:</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/14/JPA-Space-is-not-allowed-after-parameter-prefix/">JPA Space is not allowed after parameter prefix ':'</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/13/Echarts/">Echarts</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/Spring-Boot-登录拦截器验证/">Spring Boot 拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/MYSQL随机选择数据/">MYSQL随机选择数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/10/jpa-自定义查询语句/">Jpa 自定义查询语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-Jpa/">Spring Boot Jpa</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/Spring-Boot-整合Mybatis-基于注解/">Spring Boot 整合Mybatis(基于注解)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-异常处理/">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/JDBC连接Mysql8-0-11版本出现问题/">JDBC连接Mysql8.0驱动版本过低报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/Spring-Boot-整合mybatis/">Spring Boot 整合mybatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/thymeleaf基本语法/">thymeleaf的整合和使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合Freemarker/">Spring Boot 整合Freemarker</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/Spring-Boot-整合jsp/">Spring Boot 整合jsp</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-文件上传/">Spring-Boot-文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/Spring-Boot-整合Servlet/">Spring-Boot 整合Servlet和Filter</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/26/string相关/">String，StringBuilder，StringBuffer三者的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/swagger2/">swagger2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/mysql的时区错误问题：-The-server-time-zone-value-OÐ¹u±e×¼E±¼a-is-unrecognized-or-represents-more-than-one/">mysql的时区错误问题： The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/navicat-连接-mysql-Client-does-not-support-authentication-protocol-requested-by-server/">navicat 连接 mysql   Client does not support authentication protocol requested by server</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/hexo-常用命令/">hexo 常用命令</a></li></ul>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(".post-list").addClass("toc-article");
-        // $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
-
-
-
-
-    <script>
+          
+          
         
-    </script>
-
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2019 菜菜
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
-            </div>
-        </div>
+          
+          
         
-    </div>
-</footer>
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class="widget plain">
+  
+<header class="pure">
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;一言（ヒトコト）</div>
+  
+</header>
 
-    </div>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-<script src="/js/main.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 1;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'xxxxx', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-
-	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
-
+  <div class="content pure">
+    <p>行きましょうピカチュウ！</p>
 
   </div>
-</body>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class="widget toc-wrapper">
+    
+<header class="pure">
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class="content pure">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入Echarts-js文件"><span class="toc-text">引入Echarts.js文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备一个存放图表的容器"><span class="toc-text">准备一个存放图表的容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置参数-初始化图表"><span class="toc-text">设置参数 初始化图表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果图"><span class="toc-text">效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各个配置参数的说明"><span class="toc-text">各个配置参数的说明</span></a></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class="widget grid">
+  
+<header class="pure">
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class="content pure">
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/" id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/" rel="nofollow" id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/" id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/" rel="nofollow" id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/" rel="nofollow" id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/" rel="nofollow" id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class="widget tagcloud">
+    
+<header class="pure">
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn" rel="nofollow" href="/blog/tags/" title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class="content pure">
+      <a href="/tags/Activiti7/" style="font-size: 14px; color: #999">Activiti7</a> <a href="/tags/Echarts/" style="font-size: 14px; color: #999">Echarts</a> <a href="/tags/JAVA/" style="font-size: 17.33px; color: #828282">JAVA</a> <a href="/tags/JPA/" style="font-size: 14px; color: #999">JPA</a> <a href="/tags/JSR-303/" style="font-size: 14px; color: #999">JSR-303</a> <a href="/tags/LeetCode/" style="font-size: 14px; color: #999">LeetCode</a> <a href="/tags/MYSQL/" style="font-size: 19px; color: #777">MYSQL</a> <a href="/tags/Mybatis/" style="font-size: 17.33px; color: #828282">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 14px; color: #999">Servlet</a> <a href="/tags/Spring/" style="font-size: 20.67px; color: #6c6c6c">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 24px; color: #555">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 15.67px; color: #8e8e8e">SpringBoot</a> <a href="/tags/String/" style="font-size: 14px; color: #999">String</a> <a href="/tags/Thumbnailator/" style="font-size: 14px; color: #999">Thumbnailator</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/gogs/" style="font-size: 14px; color: #999">gogs</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/java/" style="font-size: 17.33px; color: #828282">java</a> <a href="/tags/lucene/" style="font-size: 14px; color: #999">lucene</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/swagger/" style="font-size: 14px; color: #999">swagger</a> <a href="/tags/thymeleaf/" style="font-size: 14px; color: #999">thymeleaf</a> <a href="/tags/vue-js/" style="font-size: 15.67px; color: #8e8e8e">vue.js</a> <a href="/tags/网络科学导论/" style="font-size: 14px; color: #999">网络科学导论</a> <a href="/tags/设计模式/" style="font-size: 22.33px; color: #606060">设计模式</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class="widget list">
+  
+<header class="pure">
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class="content pure">
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/">
+          <div class="name">
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/">
+          <div class="name">
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://yasuotu.com" href="https://yasuotu.com">
+          <div class="name">
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图片在线压缩
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net">
+          <div class="name">
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/resume/" href="https://mxclub.github.io/resume/">
+          <div class="name">
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;简历主题
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+
+<footer id="footer" class="clearfix">
+
+  
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/xaoxuu" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("08/10/2018 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+	
+  </div>
+</footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/app.js"></script>
+
+
+  <script src="/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+<!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+<!--动态线条背景
+<script type="text/javascript"
+color="220,220,220" opacity='0.8' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+-->
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="900" ></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
