@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://caicaing.github.io/about/index.html</loc>
+    
+    <lastmod>2019-12-03T03:03:46.646Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://caicaing.github.io/tags/index.html</loc>
     
     <lastmod>2019-12-03T01:38:53.726Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://caicaing.github.io/categories/index.html</loc>
     
     <lastmod>2019-12-02T14:42:56.794Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://caicaing.github.io/about/index.html</loc>
-    
-    <lastmod>2019-12-02T14:41:54.670Z</lastmod>
     
   </url>
   
