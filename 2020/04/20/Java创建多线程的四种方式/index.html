@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>lucene全文检索操作实例 | 菜菜的blog</title>
+  <title>Java创建多线程的四种方式 | 菜菜的blog</title>
   
   
   <meta name="description" content="给自己平时用到的东西做笔记,顺便满足一下写东西的需求">
@@ -223,8 +223,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/06/03/lucene操作实例/">
-        lucene全文检索操作实例
+      <a href="/2020/04/20/Java创建多线程的四种方式/">
+        Java创建多线程的四种方式
       </a>
     </h1>
   
@@ -255,7 +255,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-06-03</p>
+    <p>2020-04-20</p>
   </a>
 </div>
 
@@ -299,44 +299,90 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p>Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。</p>
+        <p>介绍Java创建多线程的四种方式。</p>
 <a id="more"></a>
 <the rest of contents | 余下全文>
 
-<h2 id="全文检索"><a href="#全文检索" class="headerlink" title="全文检索"></a>全文检索</h2><p>将非结构化数据中的一部分信息提取出来，重新组织，使其变得有一定结构，然后对此有一定结构的数据进行搜索，从而达到搜索相对较快的目的。这部分从非结构化数据中提取出的然后重新组织的信息，我们称之<strong>索引</strong>。</p>
-<p>例如：字典。字典的拼音表和部首检字表就相当于字典的索引，对每一个字的解释是非结构化的，如果字典没有音节表和部首检字表，在茫茫辞海中找一个字只能顺序扫描。然而字的某些信息可以提取出来进行结构化处理，比如读音，就比较结构化，分声母和韵母，分别只有几种可以一一列举，于是将读音拿出来按一定的顺序排列，每一项读音都指向此字的详细解释的页数。我们搜索时按结构化的拼音搜到读音，然后按其指向的页数，便可找到我们的非结构化数据——也即对字的解释。</p>
-<p><strong>这种先建立索引，再对索引进行搜索的过程就叫全文检索**</strong>(Full-text Search)<strong>**。</strong></p>
-<p>虽然创建索引的过程也是非常耗时的，但是索引一旦创建就可以多次使用，全文检索主要处理的是查询，所以耗时间创建索引是值得的。对于数据量大、数据结构不固定的数据可采用全文检索方式搜索，比如百度、Google等搜索引擎、论坛站内搜索、电商网站站内搜索等。</p>
-<p>Tip:lucene对java环境的最低要求为JAVA1.8</p>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p>第一步：创建一个java工程，并导入jar包。</p>
-<p>工程所需jar包:</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_232645.jpg" alt></p>
-<p>第二步：创建一个indexwriter对象。</p>
-<p>1）指定索引库的存放位置Directory对象</p>
-<p>2）指定一个IndexWriterConfig对象。</p>
-<p>第二步：创建document对象。</p>
-<p>第三步：创建field对象，将field添加到document对象中。</p>
-<p>第四步：使用indexwriter对象将document对象写入索引库，此过程进行索引创建。并将索引和document对象写入索引库。</p>
-<p>第五步：关闭IndexWriter对象。</p>
-<p>代码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       <span class="comment">//创建一个Director对象,指定索引库保存的位置</span></span><br><span class="line">       Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"c:\\temp\\index"</span>).toPath());</span><br><span class="line">       <span class="comment">//基于directory对象创建一个IndexWriter对象</span></span><br><span class="line">       IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(directory, <span class="keyword">new</span> IndexWriterConfig());</span><br><span class="line">       <span class="comment">//读取磁盘上的文件</span></span><br><span class="line">       File dir = <span class="keyword">new</span> File(<span class="string">"C:\\Users\\liu\\Desktop\\searchsource"</span>);</span><br><span class="line">       <span class="comment">//原始文档的路径</span></span><br><span class="line">       File[] files = dir.listFiles();</span><br><span class="line">       <span class="keyword">for</span> (File f : files) &#123;</span><br><span class="line">           String name = f.getName();</span><br><span class="line">           String filePath = f.getPath();</span><br><span class="line">           String fileContent = FileUtils.readFileToString(f, <span class="string">"utf-8"</span>);</span><br><span class="line">           <span class="keyword">long</span> fileSize = FileUtils.sizeOf(f);</span><br><span class="line">           <span class="comment">//创建Field</span></span><br><span class="line">           <span class="comment">//第一个参数：域的名称</span></span><br><span class="line">           <span class="comment">//第二个参数：域的内容</span></span><br><span class="line">           <span class="comment">//第三个参数：是否存储</span></span><br><span class="line">           Field fieldName = <span class="keyword">new</span> TextField(<span class="string">"name"</span>, name, Field.Store.YES);</span><br><span class="line">           <span class="comment">//文件路径域（不分析、不索引、只存储）</span></span><br><span class="line">           Field fieldPath = <span class="keyword">new</span> TextField(<span class="string">"path"</span>, filePath, Field.Store.YES);</span><br><span class="line">           <span class="comment">//文件内容域</span></span><br><span class="line">           Field fieldContent = <span class="keyword">new</span> TextField(<span class="string">"content"</span>, fileContent, Field.Store.YES);</span><br><span class="line">           <span class="comment">//文件大小域</span></span><br><span class="line">           Field fieldSize = <span class="keyword">new</span> TextField(<span class="string">"size"</span>, fileSize + <span class="string">""</span>, Field.Store.YES);</span><br><span class="line">           <span class="comment">//创建文档对象</span></span><br><span class="line">           Document document = <span class="keyword">new</span> Document();</span><br><span class="line">           document.add(fieldName);</span><br><span class="line">           document.add(fieldPath);</span><br><span class="line">           document.add(fieldContent);</span><br><span class="line">           document.add(fieldSize);</span><br><span class="line">           <span class="comment">//把文档对象写入索引库</span></span><br><span class="line">           indexWriter.addDocument(document);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//关闭indexwriter</span></span><br><span class="line">       indexWriter.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>createIndex方法运行后会在c:\\temp\\index文件夹下生成索引文件,如下图:</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_231250.jpg" alt></p>
-<p>生成的索引文件为二进制文件,可以使用luke打开索引</p>
-<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><p>luck开始界面如下,在indexPath中选择索引存储位置文件夹即可</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_231604.jpg" alt></p>
-<p><img src="/2019/06/03/lucene操作实例/D:/OneDrive - business\myblog\source\_posts\lucene操作实例\2019-06-03_232113.jpg" alt></p>
-<h2 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h2><p>第一步：创建一个Directory对象，也就是索引库存放的位置。</p>
-<p>第二步：创建一个indexReader对象，需要指定Directory对象。</p>
-<p>第三步：创建一个indexsearcher对象，需要指定IndexReader对象</p>
-<p>第四步：创建一个TermQuery对象，指定查询的域和查询的关键词。</p>
-<p>第五步：执行查询。</p>
-<p>第六步：返回查询结果。遍历查询结果并输出。</p>
-<p>第七步：关闭IndexReader对象</p>
-<p>代码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//指定索引库存放的路径</span></span><br><span class="line">    Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"c:\\temp\\index"</span>).toPath());</span><br><span class="line">    <span class="comment">//创建indexReader对象</span></span><br><span class="line">    IndexReader indexReader = DirectoryReader.open(directory);</span><br><span class="line">    <span class="comment">//创建indexsearcher对象</span></span><br><span class="line">    IndexSearcher indexSearcher = <span class="keyword">new</span> IndexSearcher(indexReader);</span><br><span class="line">    <span class="comment">//创建查询</span></span><br><span class="line">    Query query = <span class="keyword">new</span> TermQuery(<span class="keyword">new</span> Term(<span class="string">"content"</span>, <span class="string">"spring"</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//执行查询</span></span><br><span class="line">    <span class="comment">//第一个参数是查询对象，第二个参数是查询结果返回的最大值</span></span><br><span class="line">    TopDocs topDocs = indexSearcher.search(query, <span class="number">10</span>);</span><br><span class="line">    <span class="comment">//查询结果的总条数</span></span><br><span class="line">    System.out.println(<span class="string">"查询总记录数:"</span> + topDocs.totalHits);</span><br><span class="line">    <span class="comment">//遍历查询结果</span></span><br><span class="line">    <span class="comment">//topDocs.scoreDocs存储了document对象的id</span></span><br><span class="line"></span><br><span class="line">    ScoreDoc[] scoreDocs = topDocs.scoreDocs;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (ScoreDoc doc : scoreDocs) &#123;</span><br><span class="line">        <span class="comment">//scoreDoc.doc属性就是document对象的id</span></span><br><span class="line">        <span class="comment">//根据document的id找到document对象</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> docId = doc.doc;</span><br><span class="line">        Document document = indexSearcher.doc(docId);</span><br><span class="line">        System.out.println(document.get(<span class="string">"name"</span>));</span><br><span class="line">        System.out.println(document.get(<span class="string">"path"</span>));</span><br><span class="line">        System.out.println(document.get(<span class="string">"size"</span>));</span><br><span class="line">        System.out.println(document.get(<span class="string">"content"</span>));</span><br><span class="line">        System.out.println(<span class="string">"--------------------------"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//关闭indexreader对象</span></span><br><span class="line">    indexReader.close();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>部分查询结果如下图:</p>
-<p><img src="/2019/06/03/lucene操作实例/2019-06-03_232508.jpg" alt></p>
+<h1 id="Java创建多线程的四种方式"><a href="#Java创建多线程的四种方式" class="headerlink" title="Java创建多线程的四种方式"></a>Java创建多线程的四种方式</h1><h2 id="继承Thread"><a href="#继承Thread" class="headerlink" title="继承Thread"></a>继承Thread</h2><p>Thread类本质上是实现了Runnable接口的一个实例。我们通过继承Thread类的方式，并重写run方法，可以创建自己的线程。调用start()方法可以启动线程。并不推荐使用继承Thread类的方式来创建线程对象：</p>
+<p>1、Java是单继承，继承了Thread类后不能再继承其他的类。</p>
+<p>2、通过继承的方式数据是线程独享的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.threaddemo;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: caicai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThreadTest1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Mythread1();</span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mythread1</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"继承Thread创建多线程"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h2><p>相比于继承Thread类，使用Runnable更加灵活，即使是类已经继承了其他的父类，仍然可以通过实现Runnable来支持多线程。只需实现Runnable接口即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.threaddemo;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: caicai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThreadTest2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Mythread2());</span><br><span class="line">        t2.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mythread2</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"实现Runnable创建线程"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过构造方法，将Thread类中的target对象赋值，并且在执行的时候调用target的run方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="keyword">null</span>, target, <span class="string">"Thread-"</span> + nextThreadNum(), <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (target != <span class="keyword">null</span>) &#123;</span><br><span class="line">        target.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现Callable接口"><a href="#实现Callable接口" class="headerlink" title="实现Callable接口"></a>实现Callable接口</h2><p>在jdk1.5之后增加了Callable接口。Callable相对于Runnable有更强大的功能：</p>
+<ul>
+<li>相比run方法，可以有返回值</li>
+<li>方法可以抛出异常</li>
+<li>支持泛型</li>
+</ul>
+<p>实现Callable接口的方式不再像前面两种创建Thread对象调用start方法进行执行，而是需要借助FutureTask的run方法来执行。同时调用FutureTask对象的get方法可以获取到线程执行时候的返回值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.threaddemo;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: caicai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThreadTest3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FutureTask&lt;String&gt; futureTask = <span class="keyword">new</span> FutureTask(<span class="keyword">new</span> Mythread3());</span><br><span class="line">        futureTask.run();</span><br><span class="line">        String s = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            s = futureTask.get();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mythread3</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"实现Callable创建线程并返回一个值"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>## 创建线程池
+</code></pre><p>Executors.newFixedThreadPool方法创建线程池。对于经常创建、销毁、使用量特别大的资源使用线程池可以很大的提升性能。线程池的基本思路为提前创建好多个线程，放入线程池中，使用的时候直接从线程池里获取，使用完再放回线程池中。使用的优势在于：</p>
+<ul>
+<li>可以避免频繁的创建、销毁线程时对资源的浪费，提升响应速度，降低资源的消耗</li>
+<li>便于线程的管理，可以通过设置参数来管理线程池中的线程</li>
+</ul>
+<p>《阿里巴巴java开发手册》中提到线程池不使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样 的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<p>Executors 返回的线程池对象的弊端如下：</p>
+<ul>
+<li><p>FixedThreadPool 和 SingleThreadPool : 允许的请求队列长度为 Integer.MAX_VALUE ，可能会堆积大量的请求，从而导致 OOM 。</p>
+</li>
+<li><p>CachedThreadPool 和 ScheduledThreadPool : 允许的创建线程数量为 Integer.MAX_VALUE ，可能会创建大量的线程，从而导致 OOM 。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.caicai.threaddemo;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: caicai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2020/4/20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThreadTest4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadPoolExecutor threadPoolExecutor = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">3</span>, <span class="number">7</span>, <span class="number">10</span>, TimeUnit.SECONDS, <span class="keyword">new</span> LinkedBlockingDeque&lt;&gt;(<span class="number">10</span>));</span><br><span class="line">        threadPoolExecutor.execute(<span class="keyword">new</span> Mythread4());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mythread4</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"使用线程池创建线程"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ThreadPoolExecutor的构造方法如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="function"><span class="params">                          TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">                          BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="function"><span class="params">                          RejectedExecutionHandler handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</span><br><span class="line">        maximumPoolSize &lt;= <span class="number">0</span> ||</span><br><span class="line">        maximumPoolSize &lt; corePoolSize ||</span><br><span class="line">        keepAliveTime &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    <span class="keyword">this</span>.corePoolSize = corePoolSize;</span><br><span class="line">    <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</span><br><span class="line">    <span class="keyword">this</span>.workQueue = workQueue;</span><br><span class="line">    <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</span><br><span class="line">    <span class="keyword">this</span>.threadFactory = threadFactory;</span><br><span class="line">    <span class="keyword">this</span>.handler = handler;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>corePoolSize</td>
+<td>int</td>
+<td>核心线程池大小</td>
+</tr>
+<tr>
+<td>maximumPoolSize</td>
+<td>int</td>
+<td>最大线程数</td>
+</tr>
+<tr>
+<td>keepAliveTime</td>
+<td>long</td>
+<td>线程最大空闲时间</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>TImeUnit</td>
+<td>时间单位</td>
+</tr>
+<tr>
+<td>workQueue</td>
+<td>BlockingQueue<runnable></runnable></td>
+<td>线程等待队列</td>
+</tr>
+<tr>
+<td>threadFactory</td>
+<td>ThreadFactory</td>
+<td>线程创建工厂</td>
+</tr>
+<tr>
+<td>handler</td>
+<td>RejectedExecutionHandler</td>
+<td>拒绝策略</td>
+</tr>
+</tbody>
+</table>
 </the>
       </div>
       
@@ -352,10 +398,10 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-06-03T23:44:24+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-20T11:13:02+08:00">
   <a class="notlink">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2019年6月3日</p>
+    <p>更新于 2020年4月20日</p>
   </a>
 </div>
 
@@ -364,7 +410,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/lucene/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>lucene</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/多线程/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>多线程</p></a></div>
 
 
         
@@ -375,7 +421,7 @@
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://caicaing.github.io/2019/06/03/lucene操作实例/&title=lucene全文检索操作实例 | 菜菜的blog&summary=Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://caicaing.github.io/2020/04/20/Java创建多线程的四种方式/&title=Java创建多线程的四种方式 | 菜菜的blog&summary=介绍Java创建多线程的四种方式。">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
           
@@ -383,7 +429,7 @@
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://caicaing.github.io/2019/06/03/lucene操作实例/&title=lucene全文检索操作实例 | 菜菜的blog&summary=Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://caicaing.github.io/2020/04/20/Java创建多线程的四种方式/&title=Java创建多线程的四种方式 | 菜菜的blog&summary=介绍Java创建多线程的四种方式。">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
           
@@ -391,7 +437,7 @@
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://caicaing.github.io/2019/06/03/lucene操作实例/&title=lucene全文检索操作实例 | 菜菜的blog&summary=Lucene是apache下的一个开放源代码的全文检索引擎工具包。提供了完整的查询引擎和索引引擎，部分文本分析引擎。Lucene的目的是为软件开发人员提供一个简单易用的工具包，以方便的在目标系统中实现全文检索的功能。">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://caicaing.github.io/2020/04/20/Java创建多线程的四种方式/&title=Java创建多线程的四种方式 | 菜菜的blog&summary=介绍Java创建多线程的四种方式。">
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
           
@@ -413,40 +459,21 @@
       
           <div class="prev-next">
               
-                  <section class="prev">
-                      <span class="art-item-left">
-                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
-                          <h4>
-                              <a href="/2019/06/18/Thumbnailator图片处理/" rel="prev" title="Thumbnailator图片处理">
-                                
-                                    Thumbnailator图片处理
-                                
-                              </a>
-                          </h4>
-                          
-                              
-                              <h6 class="tags">
-                                  <a class="tag" href="/tags/Thumbnailator/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Thumbnailator</a>
-                              </h6>
-                          
-                      </span>
-                  </section>
-              
               
                   <section class="next">
                       <span class="art-item-right" aria-hidden="true">
                           <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                           <h4>
-                              <a href="/2019/05/31/centos7-3搭建gogs/" rel="prev" title="centos7.3搭建gogs">
+                              <a href="/2020/03/15/Java-ArrayList/" rel="prev" title="Java ArrayList">
                                   
-                                      centos7.3搭建gogs
+                                      Java ArrayList
                                   
                               </a>
                           </h4>
                           
                               
                               <h6 class="tags">
-                                  <a class="tag" href="/tags/gogs/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> gogs</a>
+                                  <a class="tag" href="/tags/Java/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Java</a> <a class="tag" href="/tags/List/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> List</a>
                               </h6>
                           
                       </span>
@@ -476,7 +503,7 @@
 
   <script>
     window.subData = {
-      title: 'lucene全文检索操作实例',
+      title: 'Java创建多线程的四种方式',
       tools: true
     }
   </script>
@@ -617,7 +644,7 @@
 </header>
 
     <div class="content pure">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#全文检索"><span class="toc-text">全文检索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建索引"><span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看索引"><span class="toc-text">查看索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询索引"><span class="toc-text">查询索引</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java创建多线程的四种方式"><span class="toc-text">Java创建多线程的四种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#继承Thread"><span class="toc-text">继承Thread</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现Runnable接口"><span class="toc-text">实现Runnable接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现Callable接口"><span class="toc-text">实现Callable接口</span></a></li></ol></li></ol>
     </div>
   </section>
 
